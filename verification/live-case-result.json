@@ -1,0 +1,106 @@
+{
+  "date": "2026-10-13",
+  "timezone": "Asia/Shanghai",
+  "privacy": {
+    "addresses_replaced": true,
+    "device_names_replaced": true,
+    "public_aliases": {
+      "A": "10.144.144.1",
+      "B": "10.144.144.2"
+    },
+    "omitted": [
+      "network name",
+      "node IDs",
+      "actual virtual IPs",
+      "public tunnel endpoints",
+      "complete configuration",
+      "raw GUI screenshots"
+    ],
+    "note": "Addresses are tutorial replacements. Measurements and observed version/interface values are real."
+  },
+  "environment": {
+    "system": "macOS 27.0.1",
+    "gui_version": "2.6.4",
+    "core_version": "2.6.4-8428a89d",
+    "cli_used": false,
+    "interface": "utun6",
+    "mtu": 1360,
+    "prefix_length": 24
+  },
+  "before": {
+    "target_alias": "B",
+    "target_path": "p2p",
+    "tunnel_protocol": "UDP",
+    "gui_latency_ms": 20,
+    "gui_loss_percent": 4,
+    "local_nat_label": "Port Restricted",
+    "target_nat_label": "Symmetric Easy Inc",
+    "system_route_interface": "utun6",
+    "interface_flags": [
+      "UP",
+      "POINTOPOINT",
+      "RUNNING"
+    ],
+    "network_running": true
+  },
+  "icmp": {
+    "started_at": "2026-10-13T11:43:36+08:00",
+    "command_with_replaced_address": "ping -n -c 4 -W 1000 10.144.144.2",
+    "command_address_replaced": true,
+    "overall_timeout_seconds": 10,
+    "payload_bytes": 56,
+    "sent": 4,
+    "received": 4,
+    "loss_percent": 0.0,
+    "reply_ttl": 64,
+    "reply_rtt_ms": [
+      118.798,
+      17.79,
+      31.675,
+      25.961
+    ],
+    "rtt_ms": {
+      "min": 17.79,
+      "avg": 48.556,
+      "max": 118.798,
+      "stddev": 40.853
+    },
+    "exit_code": 0,
+    "timed_out": false
+  },
+  "after": {
+    "target_alias": "B",
+    "target_path": "p2p",
+    "tunnel_protocol": "UDP",
+    "gui_latency_ms": 36,
+    "gui_loss_percent": 4,
+    "system_route_interface": "utun6",
+    "mtu": 1360,
+    "interface_flags": [
+      "UP",
+      "POINTOPOINT",
+      "RUNNING"
+    ],
+    "network_running": true
+  },
+  "validated": [
+    "System route selected the observed TUN interface for B.",
+    "GUI snapshots for B displayed p2p over UDP.",
+    "This bounded ICMP test received all four replies."
+  ],
+  "not_validated": [
+    "HTTP or TCP service availability",
+    "specific hole-punching procedure",
+    "independent home networks or device physical locations",
+    "relay failover",
+    "throughput or long-term packet loss"
+  ],
+  "limitations": [
+    "GUI latency/loss and four-packet ping statistics use different measurements.",
+    "NAT labels do not guarantee future connectivity.",
+    "No packet capture established an individual packet path."
+  ],
+  "existing_network_changed": false,
+  "target_scanned": false,
+  "bandwidth_test_run": false
+}

@@ -1,0 +1,30 @@
+{
+  "name": "@easytier-lab/docs",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "description": "从零理解 EasyTier：网络原理、图解与浏览器实验",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "dev": "vitepress dev --host 127.0.0.1 --port 4173",
+    "check:docs": "node --experimental-strip-types scripts/check-docs.ts",
+    "build": "pnpm run check:docs && vitepress build",
+    "preview": "node --experimental-strip-types scripts/preview.ts",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "vue-tsc -p tsconfig.json --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "vue": "^3.5.43"
+  },
+  "devDependencies": {
+    "mermaid": "^12.1.0",
+    "vitepress": "2.0.0-alpha.20",
+    "vitest": "~5.0.3",
+    "vue-tsc": "^3.3.12"
+  }
+}

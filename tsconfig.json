@@ -1,0 +1,9 @@
+{
+  "extends": "repoctl/tsconfig.json",
+  "files": [],
+  "references": [
+    {
+      "path": "./apps/website"
+    }
+  ]
+}

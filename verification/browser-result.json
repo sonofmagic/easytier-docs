@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-13",
+  "environment": "26-page production build served by loopback-only project preview server; remote deployment not yet verified",
+  "headless": true,
+  "pages": 26,
+  "diagrams": 22,
+  "search": [
+    "路由",
+    "打洞",
+    "网卡",
+    "NAT",
+    "TUN"
+  ],
+  "interactions": [
+    "Packet: reply addresses, relay, completion, mode change and reset",
+    "NAT: all three presets, result and reset",
+    "Topology: metrics, fallback, partition and reset"
+  ],
+  "mobile": [
+    "/",
+    "/chapters/15-journey",
+    "/labs",
+    "/cases/local-gui"
+  ],
+  "errors": [],
+  "failures": [],
+  "mobile_navigation": {
+    "mobileMenu": true,
+    "quizExpansion": true,
+    "nextChapter": true
+  },
+  "test_browser_closed": false,
+  "internal_links": {
+    "pages": 26,
+    "links": 1410,
+    "anchors": 389,
+    "broken": 0
+  },
+  "preview_binding": "127.0.0.1:4173",
+  "preview_http": {
+    "homepageWithinRoot": true,
+    "cleanUrl": true,
+    "head": true,
+    "missing404": true,
+    "traversal403": true,
+    "method405": true
+  },
+  "browser_resource_status": "Task-owned headless browser remains open for subsequent deployment verification.",
+  "build_hash": "d249de5a6083a50e",
+  "publication_status": "not_yet_verified"
+}

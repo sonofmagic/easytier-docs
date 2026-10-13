@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "instances": [
+    {
+      "id": "283f423f07e03629f736432c",
+      "target": "apps/website",
+      "template": "vitepress",
+      "provenance": "created",
+      "source": {
+        "kind": "package",
+        "packageName": "@icebreakers/monorepo-templates",
+        "version": "2.3.3",
+        "templatePath": "templates/vitepress",
+        "digest": "bad9c1d7d9ecc5ae558e4a76dc02b6fecfef7dfc737fb7ffd78807d8e2a4ac5f"
+      },
+      "generator": {
+        "profile": "workspace-copy-v1",
+        "version": "2.3.3"
+      },
+      "parameters": {},
+      "baseline": {
+        "status": "available",
+        "original": "bad9c1d7d9ecc5ae558e4a76dc02b6fecfef7dfc737fb7ffd78807d8e2a4ac5f",
+        "rendered": "4d80756e44a7785b5496f7f061c348c6dbfa753ec31bda549ddcc3a4634ea767"
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "easytier-docs",
+  "account_id": "2db8e8dc78d5ffdd9fe579a7188b7826",
+  "compatibility_date": "2026-10-13",
+  "workers_dev": false,
+  "assets": {
+    "directory": "./apps/website/.vitepress/dist",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "routes": [
+    {
+      "pattern": "easytier.icebreaker.top",
+      "custom_domain": true
+    }
+  ]
+}
