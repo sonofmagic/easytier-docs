@@ -1,0 +1,105 @@
+{
+  "pages": 6,
+  "images": 12,
+  "errors": [],
+  "mobile": [
+    {
+      "route": "/internals/protocol-map",
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "/internals/packet-pipeline",
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "/internals/connectivity",
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "/internals/security",
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "/internals/transports",
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "/internals/observability",
+      "theme": "light",
+      "overflow": false
+    },
+    {
+      "route": "/internals/protocol-map",
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "/internals/packet-pipeline",
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "/internals/connectivity",
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "/internals/security",
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "/internals/transports",
+      "theme": "dark",
+      "overflow": false
+    },
+    {
+      "route": "/internals/observability",
+      "theme": "dark",
+      "overflow": false
+    }
+  ],
+  "interactions": [
+    {
+      "width": 1440,
+      "theme": "light",
+      "steps": 9,
+      "outerSwitch": true,
+      "masked": true,
+      "restore": true,
+      "keyboardReset": true
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "steps": 9,
+      "outerSwitch": true,
+      "masked": true,
+      "restore": true,
+      "keyboardReset": true
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "steps": 9,
+      "outerSwitch": true,
+      "masked": true,
+      "restore": true,
+      "keyboardReset": true
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "steps": 9,
+      "outerSwitch": true,
+      "masked": true,
+      "restore": true,
+      "keyboardReset": true
+    }
+  ]
+}

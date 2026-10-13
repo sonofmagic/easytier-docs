@@ -1,0 +1,752 @@
+{
+  "checked_at": "2026-10-13T16:32:20.550531+00:00",
+  "origin": "https://easytier.icebreaker.top",
+  "repo": ".",
+  "tls_verification": true,
+  "ca_file": "/etc/ssl/cert.pem",
+  "dns_override": false,
+  "redirects_followed": false,
+  "maximum_concurrency": 4,
+  "request_count": 69,
+  "historical_anchors_checked": 371,
+  "mermaid_source_figures": 46,
+  "manifest": {
+    "pages": 38,
+    "unique_pages": 38,
+    "lessons": 31,
+    "internals": [
+      "/internals/protocol-map",
+      "/internals/packet-pipeline",
+      "/internals/connectivity",
+      "/internals/security",
+      "/internals/transports",
+      "/internals/observability"
+    ],
+    "matches_local": true
+  },
+  "new_version_evidence": {
+    "advanced_lessons": 6,
+    "svg_exact_matches": 12,
+    "source_export_exact_matches": 12,
+    "llms_full_exact_match": true
+  },
+  "requests": [
+    {
+      "path": "/",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "41d4046e49050b0f273459212f43a486f2dcec7665a1ebfab5da3506fdf05c54",
+      "h1": "从零理解 EasyTier",
+      "expected_h1": "从零理解 EasyTier",
+      "mermaid_diagrams": 0,
+      "old_anchors_checked": 0
+    },
+    {
+      "path": "/course",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "f9c4f3cb76c0849e606dec1fedaa92435cca14136d6540a7a72e0341b954a98f",
+      "h1": "学习路线：从本机网页到异地组网",
+      "expected_h1": "学习路线：从本机网页到异地组网",
+      "mermaid_diagrams": 1,
+      "old_anchors_checked": 6
+    },
+    {
+      "path": "/labs",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "805e77450fb455b2ec0e547e367b918cce8b948941049defc9aebcdf648b2bc8",
+      "h1": "浏览器交互实验",
+      "expected_h1": "浏览器交互实验",
+      "mermaid_diagrams": 0,
+      "old_anchors_checked": 5
+    },
+    {
+      "path": "/glossary",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "e93025f3a3c20e1b5e47cdcc3f9d635f266282ae55d63d92f272a1cd3da63818",
+      "h1": "术语表 · 从看见的现象找到名字",
+      "expected_h1": "术语表 · 从看见的现象找到名字",
+      "mermaid_diagrams": 0,
+      "old_anchors_checked": 6
+    },
+    {
+      "path": "/sources",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "4e18edf39f4ddccf3302241532af1558ebeb84ee5e616dbfd8e6ed1b9f02390a",
+      "h1": "来源与版本说明",
+      "expected_h1": "来源与版本说明",
+      "mermaid_diagrams": 0,
+      "old_anchors_checked": 5
+    },
+    {
+      "path": "/cases/local-gui",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "c5555637ed84a0205b2fd20922e25aab2683358713a52b1781d7b552feaa3483",
+      "h1": "实机案例 · 读懂已有 GUI 组网",
+      "expected_h1": "实机案例 · 读懂已有 GUI 组网",
+      "mermaid_diagrams": 1,
+      "old_anchors_checked": 10
+    },
+    {
+      "path": "/basics",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "d5cb5a1eb30dbc93ba4e80efdc064b3fd7d55d35658774ba624b10052d1b14fe",
+      "h1": "零基础起步：先在自己的电脑上看见网络",
+      "expected_h1": "零基础起步：先在自己的电脑上看见网络",
+      "mermaid_diagrams": 0,
+      "old_anchors_checked": 5
+    },
+    {
+      "path": "/basics/browser-and-programs",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "3bd5d9e4305dd83d8dc43faf2069c64e8f38d4800b55d25340e7235a94cdcd17",
+      "h1": "预备 1：浏览器、文件和运行中的程序",
+      "expected_h1": "预备 1：浏览器、文件和运行中的程序",
+      "mermaid_diagrams": 1,
+      "old_anchors_checked": 12
+    },
+    {
+      "path": "/basics/local-webpage",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "bd7a6dcd3a690930fd5714d86bb7ad82bb9455d5615da883ce1966ad752b81a0",
+      "h1": "预备 2：在自己电脑上打开一个网页",
+      "expected_h1": "预备 2：在自己电脑上打开一个网页",
+      "mermaid_diagrams": 1,
+      "old_anchors_checked": 12
+    },
+    {
+      "path": "/basics/read-a-url",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "aab64ae9801ea8b7ae9dbf35ef84a185cbb0e4897a5c1848af03c7f8dd73df5c",
+      "h1": "预备 3：拆开一行网址",
+      "expected_h1": "预备 3：拆开一行网址",
+      "mermaid_diagrams": 1,
+      "old_anchors_checked": 11
+    },
+    {
+      "path": "/basics/my-network",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "f8c4ab5d074d50165370f70cc3ed17cc33ce91299d6e0c5de5f29ddf9cc8b477",
+      "h1": "预备 4：找到自己电脑的网络地址",
+      "expected_h1": "预备 4：找到自己电脑的网络地址",
+      "mermaid_diagrams": 1,
+      "old_anchors_checked": 11
+    },
+    {
+      "path": "/basics/observe-a-request",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "88a5b81e686acfc0b2fcf160ad184723a58302535672c59e4cfd482264e20a3f",
+      "h1": "预备 5：亲眼看请求和回应",
+      "expected_h1": "预备 5：亲眼看请求和回应",
+      "mermaid_diagrams": 1,
+      "old_anchors_checked": 13
+    },
+    {
+      "path": "/chapters/01-why",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "d6adbfebb5499dfdf3a7f1bc9cd91b3efd2e2e1b4dad8ab9c7a2d5e4db5a1d1a",
+      "h1": "01 · B 能打开自己的网页，为什么 A 不一定能",
+      "expected_h1": "01 · B 能打开自己的网页，为什么 A 不一定能",
+      "mermaid_diagrams": 1,
+      "old_anchors_checked": 13
+    },
+    {
+      "path": "/chapters/02-packets",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "46e9b62c012a2ccf93d3dee2aff7b71a6f39f3c9872aa2c835dc3d4d6f23658e",
+      "h1": "02 · 一次请求怎样交到另一个程序",
+      "expected_h1": "02 · 一次请求怎样交到另一个程序",
+      "mermaid_diagrams": 2,
+      "old_anchors_checked": 14
+    },
+    {
+      "path": "/chapters/03-addresses",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "289791411baa967b3218f0b69d58c16b935aa672ae93a4c7d31022756706dbc4",
+      "h1": "03 · 电脑上的地址和地址范围",
+      "expected_h1": "03 · 电脑上的地址和地址范围",
+      "mermaid_diagrams": 2,
+      "old_anchors_checked": 13
+    },
+    {
+      "path": "/chapters/04-protocols",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "db07a92d974ca1e97ca38c451f33d90738dd96808198f61fd02af620b84affa5",
+      "h1": "04 · 到了这台电脑，怎样找到正确程序",
+      "expected_h1": "04 · 到了这台电脑，怎样找到正确程序",
+      "mermaid_diagrams": 2,
+      "old_anchors_checked": 14
+    },
+    {
+      "path": "/chapters/05-routing",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "ae14c1bc3d56fa2110922600f6b6f23e397c062032d3d9662bd600d1e8c92634",
+      "h1": "05 · 系统怎样选择下一步，回应怎样回来",
+      "expected_h1": "05 · 系统怎样选择下一步，回应怎样回来",
+      "mermaid_diagrams": 2,
+      "old_anchors_checked": 14
+    },
+    {
+      "path": "/chapters/06-nat",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "4d9482a876cacb4e2be7df172bb5ffa115a0231115e93830e2a7be19a7e1d0f1",
+      "h1": "06 · 为什么出去容易，别人找进来却可能失败",
+      "expected_h1": "06 · 为什么出去容易，别人找进来却可能失败",
+      "mermaid_diagrams": 2,
+      "old_anchors_checked": 14
+    },
+    {
+      "path": "/chapters/07-tun",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "222cf90b012ef4f1f4172cac67738473bf6cb144097e084c1eb1d3b83631bbc5",
+      "h1": "07 · 系统怎样把 IP 包交给 EasyTier",
+      "expected_h1": "07 · 系统怎样把 IP 包交给 EasyTier",
+      "mermaid_diagrams": 2,
+      "old_anchors_checked": 13
+    },
+    {
+      "path": "/chapters/08-startup",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "ffd515d5d882428f0cb2f7908dbb365d096d35bccff573496af9c0f34c66ccb0",
+      "h1": "08 · 启动成功，还需要哪些条件",
+      "expected_h1": "08 · 启动成功，还需要哪些条件",
+      "mermaid_diagrams": 2,
+      "old_anchors_checked": 14
+    },
+    {
+      "path": "/chapters/09-membership",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "5bf87903ab5f5cbc0a3ae6c99e23620b96e5c6dbd518d249321f876d315a7f0c",
+      "h1": "09 · 先认识入口，再认识彼此",
+      "expected_h1": "09 · 先认识入口，再认识彼此",
+      "mermaid_diagrams": 2,
+      "old_anchors_checked": 14
+    },
+    {
+      "path": "/chapters/10-stun",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "3a6d48a9cba4df440d33f2c7760a3f53aca7f0d17a48cd5fa454bbdb812ee4af",
+      "h1": "10 · 请外部观察者告诉我地址",
+      "expected_h1": "10 · 请外部观察者告诉我地址",
+      "mermaid_diagrams": 2,
+      "old_anchors_checked": 14
+    },
+    {
+      "path": "/chapters/11-hole-punch",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "4dc1a3738ee5eeb2480f36114de8b515b5921c475eed691a4ead76a8ef9ffd89",
+      "h1": "11 · 双方发包，为什么可能连起来",
+      "expected_h1": "11 · 双方发包，为什么可能连起来",
+      "mermaid_diagrams": 2,
+      "old_anchors_checked": 14
+    },
+    {
+      "path": "/chapters/12-security",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "0fbb8401e2ca172f27d16c2a503fd3d8f37f6dacbe0a9e58d62a6b30ef8046de",
+      "h1": "12 · 内容、身份与权限是三件事",
+      "expected_h1": "12 · 内容、身份与权限是三件事",
+      "mermaid_diagrams": 2,
+      "old_anchors_checked": 14
+    },
+    {
+      "path": "/chapters/13-relay",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "3884e031234329f03c2872de840ca47df09f11d46d55aaec17bad28aac87bec1",
+      "h1": "13 · 中继帮忙搬包，目标仍然是 B",
+      "expected_h1": "13 · 中继帮忙搬包，目标仍然是 B",
+      "mermaid_diagrams": 2,
+      "old_anchors_checked": 14
+    },
+    {
+      "path": "/chapters/14-topology",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "96b6bc091a67a362ac4bfa247de9404d103b892d2c3588fe6f5bae8ed71124b4",
+      "h1": "14 · 有几条路，应该选哪一条",
+      "expected_h1": "14 · 有几条路，应该选哪一条",
+      "mermaid_diagrams": 2,
+      "old_anchors_checked": 14
+    },
+    {
+      "path": "/chapters/15-journey",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "ea9be186d8c4a07e9c57a4aba96f4b4352b363eda8ce6456db771ff2acd54670",
+      "h1": "15 · 追踪一次完整请求",
+      "expected_h1": "15 · 追踪一次完整请求",
+      "mermaid_diagrams": 2,
+      "old_anchors_checked": 13
+    },
+    {
+      "path": "/chapters/16-subnet-proxy",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "28268ad916f23ac3f1809b9084770bb2db6da60feee13986d28ed837d149f5cf",
+      "h1": "16 · 访问远端整个局域网",
+      "expected_h1": "16 · 访问远端整个局域网",
+      "mermaid_diagrams": 2,
+      "old_anchors_checked": 13
+    },
+    {
+      "path": "/chapters/17-apps-dns",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "5f5d52cff65411003ef8839a42e880f8675d3e9dc33a47f8180f5eb7d7306f06",
+      "h1": "17 · 网络通了，应用为什么还不通",
+      "expected_h1": "17 · 网络通了，应用为什么还不通",
+      "mermaid_diagrams": 2,
+      "old_anchors_checked": 13
+    },
+    {
+      "path": "/chapters/18-performance",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "f24b6756f9ac81254806c9830a0b7033b1c2e6966e19832bec14d03bb9b8cc24",
+      "h1": "18 · 延迟、丢包与 MTU",
+      "expected_h1": "18 · 延迟、丢包与 MTU",
+      "mermaid_diagrams": 2,
+      "old_anchors_checked": 13
+    },
+    {
+      "path": "/chapters/19-diagnostics",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "5cd9306e64b554c7d144b5575c60c71fd714c530df876bc015676cef6e40e889",
+      "h1": "19 · 按层排查，而不是反复重装",
+      "expected_h1": "19 · 按层排查，而不是反复重装",
+      "mermaid_diagrams": 2,
+      "old_anchors_checked": 13
+    },
+    {
+      "path": "/chapters/20-practice",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "fb03dae1361ddd26c5ce57041ad82450353763aef0067c96795b3fcab9e109a8",
+      "h1": "20 · 模拟复习与可选两机实践",
+      "expected_h1": "20 · 模拟复习与可选两机实践",
+      "mermaid_diagrams": 2,
+      "old_anchors_checked": 17
+    },
+    {
+      "path": "/internals/protocol-map",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "093cc99921aeb71cbbb9d9b37bbcbcfeefc333f6672a93dd0fd29f75aba570fb",
+      "h1": "进阶 1 · 给协议画一张地图",
+      "expected_h1": "进阶 1 · 给协议画一张地图",
+      "mermaid_diagrams": 0,
+      "old_anchors_checked": 0,
+      "advanced_svg_images": [
+        "/diagrams/protocol-families.svg",
+        "/diagrams/protocol-layers.svg"
+      ]
+    },
+    {
+      "path": "/internals/packet-pipeline",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "5c28d0efae2dd3ed07f72607abdb492b4f427b4be06b59dad23218738fd5d83a",
+      "h1": "进阶 2 · 把一个包逐层拆开",
+      "expected_h1": "进阶 2 · 把一个包逐层拆开",
+      "mermaid_diagrams": 0,
+      "old_anchors_checked": 0,
+      "advanced_svg_images": [
+        "/diagrams/packet-encapsulation.svg",
+        "/diagrams/packet-headers.svg"
+      ]
+    },
+    {
+      "path": "/internals/connectivity",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "c0869ea07c20ebb46256152cf5f45e602eb9d70e99a9b68ce501b9383f6f4631",
+      "h1": "进阶 3 · 节点怎样认识彼此并建立连接",
+      "expected_h1": "进阶 3 · 节点怎样认识彼此并建立连接",
+      "mermaid_diagrams": 0,
+      "old_anchors_checked": 0,
+      "advanced_svg_images": [
+        "/diagrams/connection-lifecycle.svg",
+        "/diagrams/nat-candidates.svg"
+      ]
+    },
+    {
+      "path": "/internals/security",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "dbec816f683cc2cd64a108f6e7b4cd00d60f2225862e86e998759e682e88e0fb",
+      "h1": "进阶 4 · 安全、身份与信任边界",
+      "expected_h1": "进阶 4 · 安全、身份与信任边界",
+      "mermaid_diagrams": 0,
+      "old_anchors_checked": 0,
+      "advanced_svg_images": [
+        "/diagrams/security-trust.svg",
+        "/diagrams/security-visibility.svg"
+      ]
+    },
+    {
+      "path": "/internals/transports",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "216317629c19cf5aa7e469ad78528fc388d4b70e47c18493043302cafd58a191",
+      "h1": "进阶 5 · 怎样比较传输引擎",
+      "expected_h1": "进阶 5 · 怎样比较传输引擎",
+      "mermaid_diagrams": 0,
+      "old_anchors_checked": 0,
+      "advanced_svg_images": [
+        "/diagrams/transport-axes.svg",
+        "/diagrams/transport-recovery.svg"
+      ]
+    },
+    {
+      "path": "/internals/observability",
+      "status": 200,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "32ff65dfd24f22ae0faa229c0e6f5ba99b824f8d004f46a15b2c70dffba57533",
+      "h1": "进阶 6 · 在正确位置抓包与排障",
+      "expected_h1": "进阶 6 · 在正确位置抓包与排障",
+      "mermaid_diagrams": 0,
+      "old_anchors_checked": 0,
+      "advanced_svg_images": [
+        "/diagrams/capture-points.svg",
+        "/diagrams/diagnostic-evidence.svg"
+      ]
+    },
+    {
+      "path": "/internals/protocol-map/index.md",
+      "status": 200,
+      "mime": "text/markdown; charset=utf-8",
+      "nosniff": "nosniff",
+      "sha256": "a0fbbed37bd2ba7a8536d0e4eeda1f93196a9f4aa0ad7b0d152e7e85a0548f0c",
+      "local_sha256": "a0fbbed37bd2ba7a8536d0e4eeda1f93196a9f4aa0ad7b0d152e7e85a0548f0c",
+      "exact_local_match": true
+    },
+    {
+      "path": "/internals/protocol-map/index.mdx",
+      "status": 200,
+      "mime": "text/plain; charset=utf-8",
+      "nosniff": "nosniff",
+      "sha256": "5b226056f0d0cc827ca424b2bed797b846a2d156cc2377b862f1f5e4945b5354",
+      "local_sha256": "5b226056f0d0cc827ca424b2bed797b846a2d156cc2377b862f1f5e4945b5354",
+      "exact_local_match": true
+    },
+    {
+      "path": "/internals/packet-pipeline/index.md",
+      "status": 200,
+      "mime": "text/markdown; charset=utf-8",
+      "nosniff": "nosniff",
+      "sha256": "b8ffe4576249743ea023ce723d24f01843e7a41ce17bb0f356de05881881f2fc",
+      "local_sha256": "b8ffe4576249743ea023ce723d24f01843e7a41ce17bb0f356de05881881f2fc",
+      "exact_local_match": true
+    },
+    {
+      "path": "/internals/packet-pipeline/index.mdx",
+      "status": 200,
+      "mime": "text/plain; charset=utf-8",
+      "nosniff": "nosniff",
+      "sha256": "22a9be3ab3292e909756a79adb83ccb8bec9e97aee067ae02505036f4e494b3b",
+      "local_sha256": "22a9be3ab3292e909756a79adb83ccb8bec9e97aee067ae02505036f4e494b3b",
+      "exact_local_match": true
+    },
+    {
+      "path": "/internals/connectivity/index.md",
+      "status": 200,
+      "mime": "text/markdown; charset=utf-8",
+      "nosniff": "nosniff",
+      "sha256": "2dc6bb2dc96b0b8fa971984b3c3a227ee5a21956935ee36bcf094f1fc1ac161f",
+      "local_sha256": "2dc6bb2dc96b0b8fa971984b3c3a227ee5a21956935ee36bcf094f1fc1ac161f",
+      "exact_local_match": true
+    },
+    {
+      "path": "/internals/connectivity/index.mdx",
+      "status": 200,
+      "mime": "text/plain; charset=utf-8",
+      "nosniff": "nosniff",
+      "sha256": "608f56cdb9ee1883e9c8822c8925d643002d3eddf980b68e9881bea0a29ae6d1",
+      "local_sha256": "608f56cdb9ee1883e9c8822c8925d643002d3eddf980b68e9881bea0a29ae6d1",
+      "exact_local_match": true
+    },
+    {
+      "path": "/internals/security/index.md",
+      "status": 200,
+      "mime": "text/markdown; charset=utf-8",
+      "nosniff": "nosniff",
+      "sha256": "373ee5cda3878e4a4724163db129f6fd9ee67f3f6d20a9d144b61b17b4b589ce",
+      "local_sha256": "373ee5cda3878e4a4724163db129f6fd9ee67f3f6d20a9d144b61b17b4b589ce",
+      "exact_local_match": true
+    },
+    {
+      "path": "/internals/security/index.mdx",
+      "status": 200,
+      "mime": "text/plain; charset=utf-8",
+      "nosniff": "nosniff",
+      "sha256": "2a06d807955c9da734dda6ef298249afdb683b93cf81b4e2e3cace7a4859dceb",
+      "local_sha256": "2a06d807955c9da734dda6ef298249afdb683b93cf81b4e2e3cace7a4859dceb",
+      "exact_local_match": true
+    },
+    {
+      "path": "/internals/transports/index.md",
+      "status": 200,
+      "mime": "text/markdown; charset=utf-8",
+      "nosniff": "nosniff",
+      "sha256": "5980d2970ca80aff3908c01bebab04921d36dab3b147e187580e5aaa67dee160",
+      "local_sha256": "5980d2970ca80aff3908c01bebab04921d36dab3b147e187580e5aaa67dee160",
+      "exact_local_match": true
+    },
+    {
+      "path": "/internals/transports/index.mdx",
+      "status": 200,
+      "mime": "text/plain; charset=utf-8",
+      "nosniff": "nosniff",
+      "sha256": "fc9ea14c1ac476f6e1b5471889f76520ad4910432e8855db5618d1dffb998139",
+      "local_sha256": "fc9ea14c1ac476f6e1b5471889f76520ad4910432e8855db5618d1dffb998139",
+      "exact_local_match": true
+    },
+    {
+      "path": "/internals/observability/index.md",
+      "status": 200,
+      "mime": "text/markdown; charset=utf-8",
+      "nosniff": "nosniff",
+      "sha256": "129535ddfcb4e63c4ae77c443f091d48659545e5e56b99d8b4bd743ae85269f0",
+      "local_sha256": "129535ddfcb4e63c4ae77c443f091d48659545e5e56b99d8b4bd743ae85269f0",
+      "exact_local_match": true
+    },
+    {
+      "path": "/internals/observability/index.mdx",
+      "status": 200,
+      "mime": "text/plain; charset=utf-8",
+      "nosniff": "nosniff",
+      "sha256": "ec51524478f29b6ff56524cc043153d5d8413de5e2ec37b0df5303c6b1ea8977",
+      "local_sha256": "ec51524478f29b6ff56524cc043153d5d8413de5e2ec37b0df5303c6b1ea8977",
+      "exact_local_match": true
+    },
+    {
+      "path": "/diagrams/protocol-layers.svg",
+      "status": 200,
+      "mime": "image/svg+xml",
+      "nosniff": "nosniff",
+      "sha256": "b81072949576cbd96b2889a549a6e918198e1ac518002a79b73a8dd9571eaf08",
+      "local_sha256": "b81072949576cbd96b2889a549a6e918198e1ac518002a79b73a8dd9571eaf08",
+      "exact_local_match": true
+    },
+    {
+      "path": "/diagrams/protocol-families.svg",
+      "status": 200,
+      "mime": "image/svg+xml",
+      "nosniff": "nosniff",
+      "sha256": "7d36f83123bab44e684e6307a05680b9be309a5963bde8aee265752273555ec3",
+      "local_sha256": "7d36f83123bab44e684e6307a05680b9be309a5963bde8aee265752273555ec3",
+      "exact_local_match": true
+    },
+    {
+      "path": "/diagrams/packet-encapsulation.svg",
+      "status": 200,
+      "mime": "image/svg+xml",
+      "nosniff": "nosniff",
+      "sha256": "78419346a93d8777b56a23382e871f9482a6b8a0964c883d0dd27ea16b13b7cc",
+      "local_sha256": "78419346a93d8777b56a23382e871f9482a6b8a0964c883d0dd27ea16b13b7cc",
+      "exact_local_match": true
+    },
+    {
+      "path": "/diagrams/packet-headers.svg",
+      "status": 200,
+      "mime": "image/svg+xml",
+      "nosniff": "nosniff",
+      "sha256": "d31837bf594d467843926af1b092ad7be90d977437e1c242602e20914ccd7e7e",
+      "local_sha256": "d31837bf594d467843926af1b092ad7be90d977437e1c242602e20914ccd7e7e",
+      "exact_local_match": true
+    },
+    {
+      "path": "/diagrams/connection-lifecycle.svg",
+      "status": 200,
+      "mime": "image/svg+xml",
+      "nosniff": "nosniff",
+      "sha256": "7fddf608a3fe2d038dd9b862c6464edfe39378077628bf5b251f5e41070aecf4",
+      "local_sha256": "7fddf608a3fe2d038dd9b862c6464edfe39378077628bf5b251f5e41070aecf4",
+      "exact_local_match": true
+    },
+    {
+      "path": "/diagrams/nat-candidates.svg",
+      "status": 200,
+      "mime": "image/svg+xml",
+      "nosniff": "nosniff",
+      "sha256": "445ad085d580305f7c5fa77419b36f0f05d15433c1c38b18d77ecded352c1527",
+      "local_sha256": "445ad085d580305f7c5fa77419b36f0f05d15433c1c38b18d77ecded352c1527",
+      "exact_local_match": true
+    },
+    {
+      "path": "/diagrams/security-trust.svg",
+      "status": 200,
+      "mime": "image/svg+xml",
+      "nosniff": "nosniff",
+      "sha256": "8d07b6008df6cb6e67a950e4d9036079984738e03c284b6c9c1057fff2ff9e0d",
+      "local_sha256": "8d07b6008df6cb6e67a950e4d9036079984738e03c284b6c9c1057fff2ff9e0d",
+      "exact_local_match": true
+    },
+    {
+      "path": "/diagrams/security-visibility.svg",
+      "status": 200,
+      "mime": "image/svg+xml",
+      "nosniff": "nosniff",
+      "sha256": "47a5eb2c01ade3ebc5f8aec5fa8f790885453b8ec8132e1f5ce8dcff32569148",
+      "local_sha256": "47a5eb2c01ade3ebc5f8aec5fa8f790885453b8ec8132e1f5ce8dcff32569148",
+      "exact_local_match": true
+    },
+    {
+      "path": "/diagrams/transport-axes.svg",
+      "status": 200,
+      "mime": "image/svg+xml",
+      "nosniff": "nosniff",
+      "sha256": "7fdb58282732d7cd367cc29b479ec612535e5a52f9a868ca0f91b0bd03710f5e",
+      "local_sha256": "7fdb58282732d7cd367cc29b479ec612535e5a52f9a868ca0f91b0bd03710f5e",
+      "exact_local_match": true
+    },
+    {
+      "path": "/diagrams/transport-recovery.svg",
+      "status": 200,
+      "mime": "image/svg+xml",
+      "nosniff": "nosniff",
+      "sha256": "82aa89b2182b966ccba52e0758b9a5ac9f5ea8d03f76b2a150e75db328e92813",
+      "local_sha256": "82aa89b2182b966ccba52e0758b9a5ac9f5ea8d03f76b2a150e75db328e92813",
+      "exact_local_match": true
+    },
+    {
+      "path": "/diagrams/capture-points.svg",
+      "status": 200,
+      "mime": "image/svg+xml",
+      "nosniff": "nosniff",
+      "sha256": "cb1003855623742b729596da95e1c0e7c87b88dde4e57f402eacfb1bfd869eda",
+      "local_sha256": "cb1003855623742b729596da95e1c0e7c87b88dde4e57f402eacfb1bfd869eda",
+      "exact_local_match": true
+    },
+    {
+      "path": "/diagrams/diagnostic-evidence.svg",
+      "status": 200,
+      "mime": "image/svg+xml",
+      "nosniff": "nosniff",
+      "sha256": "4f7875a00fd242a61915c5cd48d136d0c8f17164379a813c626ab3c683e5510b",
+      "local_sha256": "4f7875a00fd242a61915c5cd48d136d0c8f17164379a813c626ab3c683e5510b",
+      "exact_local_match": true
+    },
+    {
+      "path": "/course-manifest.json",
+      "status": 200,
+      "mime": "application/json",
+      "nosniff": "nosniff",
+      "sha256": "718d997e651acc8783fc9667e446ea787a367d1116f5c47d38338e91aaea9c4a",
+      "local_sha256": "718d997e651acc8783fc9667e446ea787a367d1116f5c47d38338e91aaea9c4a",
+      "exact_local_match": true
+    },
+    {
+      "path": "/internals/llms.txt",
+      "status": 200,
+      "mime": "text/plain; charset=utf-8",
+      "nosniff": "nosniff",
+      "sha256": "0bb4127a0968b4af08b85edd98f7af0401ab330673bd11f0459f6e4cdba07e9a",
+      "local_sha256": "0bb4127a0968b4af08b85edd98f7af0401ab330673bd11f0459f6e4cdba07e9a",
+      "exact_local_match": true
+    },
+    {
+      "path": "/llms.txt",
+      "status": 200,
+      "mime": "text/plain; charset=utf-8",
+      "nosniff": "nosniff",
+      "sha256": "2a76ec1088cf246b95a9c60b042b0642b7b142dfcffe550a16f7045c7ff2bd55",
+      "local_sha256": "2a76ec1088cf246b95a9c60b042b0642b7b142dfcffe550a16f7045c7ff2bd55",
+      "exact_local_match": true
+    },
+    {
+      "path": "/llms-full.txt",
+      "status": 200,
+      "mime": "text/plain; charset=utf-8",
+      "nosniff": "nosniff",
+      "sha256": "a9eab2bc83bcdad357abea3de536cfe1dfa4f18fb2d212e39f2d6ff0aac52da3",
+      "local_sha256": "a9eab2bc83bcdad357abea3de536cfe1dfa4f18fb2d212e39f2d6ff0aac52da3",
+      "exact_local_match": true
+    },
+    {
+      "path": "/__protocol_qa_missing_8428a89d2dabc94c",
+      "status": 404,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "14be09408164c8566a9208ea81fc1955172f337276d78f6a9f7b79b44710b21f"
+    },
+    {
+      "path": "/internals/__missing_8428a89d2dabc94c",
+      "status": 404,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "14be09408164c8566a9208ea81fc1955172f337276d78f6a9f7b79b44710b21f"
+    },
+    {
+      "path": "/diagrams/__missing_8428a89d2dabc94c.svg",
+      "status": 404,
+      "mime": "text/html",
+      "nosniff": "nosniff",
+      "sha256": "14be09408164c8566a9208ea81fc1955172f337276d78f6a9f7b79b44710b21f"
+    }
+  ],
+  "ok": true,
+  "errors": []
+}

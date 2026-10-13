@@ -1,5 +1,5 @@
 async (page) => {
-  const base = new URL(page.url()).origin;
+  const base = await page.evaluate(() => window.location.origin);
   const manifest=await (await page.request.get(base+'/course-manifest.json')).json();
   const routes=manifest.pages.filter(p=>!p.route.startsWith('/internals/')).map(p=>p.route);
   const errors=[];page.on('pageerror',e=>errors.push(e.message));

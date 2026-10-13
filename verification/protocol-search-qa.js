@@ -1,5 +1,5 @@
 async (page) => {
-  const base = new URL(page.url()).origin;
+  const base = await page.evaluate(() => window.location.origin);
   const queries = ['Noise', 'QUIC', 'KCP', '封装', '控制面', '抓包'];
   const report = { origin: base, search: [], pagefind: {}, exports: [], errors: [] };
   page.on('pageerror', e => report.errors.push(e.message));
@@ -10,7 +10,7 @@ async (page) => {
   for (const query of queries) {
     await page.locator('#docs-search').fill(query);
     await page.locator('[data-search] button[type=submit]').click();
-    await page.waitForFunction(() => document.querySelector('[data-search-results]').getAttribute('aria-busy') === 'false');
+    await page.waitForFunction(() => document.querySelector('[data-search-results]').getAttribute('aria-busy') === 'false', null, { timeout: 30000 });
     const links = await page.locator('.search-result-title').evaluateAll(els => els.map(el => el.getAttribute('href')));
     const status = await page.locator('#search-status').innerText();
     if (!links.length || !links.some(href => href.startsWith('/internals/')) || /失败|不可用/.test(status)) throw new Error('Search failed: ' + query + ' ' + status);

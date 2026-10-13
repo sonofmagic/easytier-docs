@@ -14,6 +14,15 @@
 - 可复用浏览器脚本：[原页面与 Mermaid](verification/protocol-core-qa.js)、[进阶页与封装实验](verification/protocol-advanced-qa.js)、[搜索与导出](verification/protocol-search-qa.js)。先打开本地生产预览，再从仓库根目录用 Playwright CLI 的 `run-code` 执行；脚本从当前页面读取 origin，截图写入 `verification/`。
 - 本轮只交付本地文档改动，没有部署、发布、真实组网探测或性能测量。教学模型不发送网络探测；历史实机附录的证据范围保持原记录。
 
+### 协议图解正式发布
+
+用户随后授权提交、推送并重新部署。内容提交 [`87694de`](https://github.com/sonofmagic/easytier-docs/commit/87694de8ffaa3c63065bb9fd14191b37e8365aa7) 推送至 `main`，触发 Cloudflare Workers Builds；构建 `837b199f-3f03-404d-9bc0-51545a21c4ef` 成功，Worker 版本 `5db8e87c-2487-4539-85f1-f8e751ebfdbe`，完成时间 `2026-10-13T16:29:37Z`。GitHub 检查明确对应该完整提交。
+
+- [正式站 HTTPS 验收](verification/protocol-remote-http.json)：正常 TLS 与系统 DNS，69 次请求；38 页、31 节清单、371 个旧锚点、46 张 Mermaid 源图、12 张 SVG、源码导出、llms、真实 404、MIME 和 nosniff 全部通过。12 张 SVG、12 个 MD/MDX 及 llms 与本地构建逐字节匹配。
+- [正式站浏览器](verification/protocol-remote-browser.json)：六篇进阶在 1440/390 宽度、浅色/暗色下无横向溢出；12 图加载和九步封装实验切换、密文隐藏、解密恢复、键盘重置通过，错误为 0。
+- [正式站搜索与导出](verification/protocol-remote-search.json)：六个新增术语在搜索界面及 Pagefind 原生 API 均有结果，导出响应正常。观察到 Pagefind worker 初始化超时后成功回退主线程；查询结果未受影响。验收脚本改为在浏览器上下文读取 origin，并为首次远程搜索保留 30 秒等待。
+- 发布前再次运行 `pnpm exec repo check --full`，全部通过；[部署摘要](verification/protocol-deployment.json)保存内容提交、构建、Worker 版本与验收证据。验收脚本修复和本记录作为后续提交沿用 `main` 自动部署。
+
 ## Nimbus 迁移验收
 
 - 使用 `repo new docs --template nimbus` 创建 `apps/docs`。固定 Nimbus 0.17.0、Astro 7.3.8、Vue 集成 7.0.3、Pagefind 1.5.2；运行和云端构建使用 Node.js 24、pnpm 12.10.1、Wrangler 4.149.0。
