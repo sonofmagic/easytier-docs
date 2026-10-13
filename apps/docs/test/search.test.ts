@@ -1,8 +1,9 @@
-import { parseHTML } from 'linkedom'
+import { DOMParser, parseHTML } from 'linkedom'
 import { describe, expect, it, vi } from 'vitest'
 import { canonicalSearchUrl, combineSearchResults, createSearchIndex, matchesQuery, normalizeSearchText, searchSupplement, summarize, tokenize } from '../src/lib/search.ts'
 import { renderSearchResults } from '../src/search/client.ts'
 import { extractSearchPage } from '../src/search/extract.ts'
+import { pagefindHit } from '../src/search/pagefind.ts'
 
 const index = createSearchIndex([
   { url: '/routing', title: '路由', blocks: [{ heading: '系统如何选择', anchor: '系统如何选择', text: '操作系统先查路由表，再选择数据包的下一跳。' }] },
@@ -76,6 +77,34 @@ describe('正文中文与英文搜索', () => {
     expect(canonicalSearchUrl('/routing/index.html#step')).toBe('/routing#step')
     expect(canonicalSearchUrl('javascript:alert(1)')).toBeNull()
     expect(canonicalSearchUrl('//evil.invalid/')).toBeNull()
+  })
+
+  it('Pagefind 候选必须在完整正文中满足连续中文及每个英文词，不能接受模糊命中', () => {
+    const candidate = { url: '/nat.html', meta: { title: 'NAT' }, excerpt: '部分词命中的摘要' }
+    expect(pagefindHit({ ...candidate, content: '不存在的文件返回 404，教学中应该区分回应。' }, '不存在的教学概念abcdef987654321', 'https://easytier.icebreaker.top')).toBeNull()
+    expect(pagefindHit({ ...candidate, content: '甲乙、丙丁、乙丙分别出现。' }, '甲乙丙丁', 'https://easytier.icebreaker.top')).toBeNull()
+    expect(pagefindHit({ ...candidate, content: 'NAT64 的映射。' }, 'NAT', 'https://easytier.icebreaker.top')).toBeNull()
+    expect(pagefindHit({ ...candidate, content: 'NAT 映射存在。' }, 'NAT 打洞', 'https://easytier.icebreaker.top')).toBeNull()
+    expect(pagefindHit({ ...candidate, content: undefined as unknown as string }, 'NAT', 'https://easytier.icebreaker.top')).toBeNull()
+  })
+
+  it('完整正文匹配保留摘要以外的命中，展示文本去掉 Pagefind 高亮 HTML', () => {
+    vi.stubGlobal('DOMParser', DOMParser)
+    try {
+      const candidate = {
+        url: '/nat.html',
+        meta: { title: 'NAT 与打洞' },
+        content: `NAT 映射。${'正文中的其他说明。'.repeat(100)}双方 UDP 打洞。`,
+        excerpt: '<html><body><mark>NAT</mark> 映射。</body></html>',
+        sub_results: [{ title: '双向探测', url: '/nat.html#双向探测' }],
+      }
+      const hit = pagefindHit(candidate, 'nat 打洞', 'https://easytier.icebreaker.top')
+      expect(hit).toMatchObject({ url: '/nat', title: 'NAT 与打洞', excerpt: 'NAT 映射。', source: 'pagefind' })
+      expect(hit!.subResults).toEqual([{ title: '双向探测', url: '/nat#%E5%8F%8C%E5%90%91%E6%8E%A2%E6%B5%8B' }])
+    }
+    finally {
+      vi.unstubAllGlobals()
+    }
   })
 
   it('摘要保持纯文本，结果渲染不执行提供方的 HTML', () => {

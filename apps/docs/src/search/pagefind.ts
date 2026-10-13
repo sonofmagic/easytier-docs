@@ -1,8 +1,10 @@
 import type { SearchHit } from '../lib/search.ts'
-import { canonicalSearchUrl } from '../lib/search.ts'
+import { canonicalSearchUrl, matchesQuery } from '../lib/search.ts'
 
 interface PagefindData {
   url: string
+  /** Pagefind 1.5.2 returns the entire indexed body as plain text. */
+  content: string
   meta: { title?: string }
   excerpt?: string
   sub_results?: { title: string, url: string }[]
@@ -16,6 +18,21 @@ interface PagefindInstance {
 
 interface PagefindModule {
   createInstance: (options: { basePath: string, baseUrl: string }) => PagefindInstance
+}
+
+/** Native token matches are candidates; require evidence in the complete body. */
+export function pagefindHit(page: PagefindData, query: string, origin: string): SearchHit | null {
+  const url = canonicalSearchUrl(page.url, origin)
+  if (!url || typeof page.content !== 'string' || !matchesQuery(page.content, query)) {
+    return null
+  }
+  // An excerpt can omit query parts elsewhere in the page. Use it only for
+  // presentation, after full-content validation, and decode highlights safely.
+  const excerpt = new DOMParser().parseFromString(page.excerpt ?? '', 'text/html').body.textContent ?? ''
+  return { url, title: page.meta.title ?? url, heading: '', excerpt, source: 'pagefind', subResults: page.sub_results?.flatMap((item) => {
+    const target = canonicalSearchUrl(item.url, origin)
+    return target ? [{ title: item.title, url: target }] : []
+  }) }
 }
 
 /** Pagefind is generated after Vite builds. It must remain an external import. */
@@ -54,17 +71,8 @@ export function createPagefindSearch(base: string, origin: string) {
       const response = await api.search(query)
       const pages = await Promise.all(response.results.slice(0, 30).map(result => result.data()))
       return pages.flatMap((page) => {
-        const url = canonicalSearchUrl(page.url, origin)
-        if (!url) {
-          return []
-        }
-        // Pagefind excerpts include highlight HTML. Decode into an unattached
-        // document, then expose plain text only to the result renderer.
-        const excerpt = new DOMParser().parseFromString(page.excerpt ?? '', 'text/html').body.textContent ?? ''
-        return [{ url, title: page.meta.title ?? url, heading: '', excerpt, source: 'pagefind' as const, subResults: page.sub_results?.flatMap((item) => {
-          const target = canonicalSearchUrl(item.url, origin)
-          return target ? [{ title: item.title, url: target }] : []
-        }) }]
+        const hit = pagefindHit(page, query, origin)
+        return hit ? [hit] : []
       })
     },
     async destroy() {

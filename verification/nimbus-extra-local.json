@@ -1,0 +1,153 @@
+{
+  "origin": "http://127.0.0.1:4173",
+  "date": "2026-10-13T08:19:23.252Z",
+  "search": [
+    {
+      "query": "路",
+      "pages": 20,
+      "status": "找到 20 个相关页面。",
+      "deduplicated": true,
+      "safeSummary": true
+    },
+    {
+      "query": "洞",
+      "pages": 20,
+      "status": "找到 20 个相关页面。",
+      "deduplicated": true,
+      "safeSummary": true
+    },
+    {
+      "query": "卡",
+      "pages": 14,
+      "status": "找到 14 个相关页面。",
+      "deduplicated": true,
+      "safeSummary": true
+    },
+    {
+      "query": "服务",
+      "pages": 20,
+      "status": "找到 20 个相关页面。",
+      "deduplicated": true,
+      "safeSummary": true
+    },
+    {
+      "query": "回程",
+      "pages": 17,
+      "status": "找到 17 个相关页面。",
+      "deduplicated": true,
+      "safeSummary": true
+    },
+    {
+      "query": "中继",
+      "pages": 18,
+      "status": "找到 18 个相关页面。",
+      "deduplicated": true,
+      "safeSummary": true
+    },
+    {
+      "query": "NAT",
+      "pages": 17,
+      "status": "找到 17 个相关页面。",
+      "deduplicated": true,
+      "safeSummary": true
+    },
+    {
+      "query": "nat",
+      "pages": 17,
+      "status": "找到 17 个相关页面。",
+      "deduplicated": true,
+      "safeSummary": true
+    },
+    {
+      "query": "NaT",
+      "pages": 17,
+      "status": "找到 17 个相关页面。",
+      "deduplicated": true,
+      "safeSummary": true
+    },
+    {
+      "query": "TUN",
+      "pages": 17,
+      "status": "找到 17 个相关页面。",
+      "deduplicated": true,
+      "safeSummary": true
+    },
+    {
+      "query": "tun",
+      "pages": 17,
+      "status": "找到 17 个相关页面。",
+      "deduplicated": true,
+      "safeSummary": true
+    },
+    {
+      "query": "不存在的教学概念abcdef987654321",
+      "pages": 0,
+      "status": "没有找到“不存在的教学概念abcdef987654321”，试试较短词语。",
+      "deduplicated": true,
+      "safeSummary": true
+    },
+    {
+      "query": "路由",
+      "pages": 20,
+      "status": "找到 20 个相关页面。",
+      "deduplicated": true,
+      "safeSummary": true
+    }
+  ],
+  "pagefind": {
+    "服务": 31,
+    "监听": 20,
+    "本机": 32,
+    "回环": 8,
+    "端口": 2,
+    "路由": 22,
+    "打洞": 23,
+    "网卡": 32,
+    "NAT": 17,
+    "TUN": 17
+  },
+  "headingTarget": {
+    "route": "/glossary",
+    "anchor": "先修实验里看得到的东西",
+    "title": "先修实验里看得到的东西"
+  },
+  "beginnerFlow": [
+    {
+      "route": "/basics/browser-and-programs",
+      "title": "预备 1：浏览器、文件和运行中的程序",
+      "answers": 2,
+      "advanced": 2
+    },
+    {
+      "route": "/basics/local-webpage",
+      "title": "预备 2：在自己电脑上打开一个网页",
+      "answers": 2,
+      "advanced": 1
+    },
+    {
+      "route": "/basics/read-a-url",
+      "title": "预备 3：拆开一行网址",
+      "answers": 2,
+      "advanced": 1
+    },
+    {
+      "route": "/basics/my-network",
+      "title": "预备 4：找到自己电脑的网络地址",
+      "answers": 2,
+      "advanced": 2
+    },
+    {
+      "route": "/basics/observe-a-request",
+      "title": "预备 5：亲眼看请求和回应",
+      "answers": 2,
+      "advanced": 1
+    },
+    {
+      "route": "/chapters/01-why",
+      "title": "01 · B 能打开自己的网页，为什么 A 不一定能",
+      "answers": 2,
+      "advanced": 1
+    }
+  ],
+  "beginnerBoundary": "Reading-only flow; no local Python server, device-network change, scan or real-node probe."
+}

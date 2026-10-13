@@ -8,16 +8,16 @@
 - 保留 32 页中文课程、原有路由和 371 个旧标题锚点、三个 Vue 岛实验、下载包和脱敏 GUI 附录；26 页 Markdown、6 页 MDX。课程清单与模型在独立数据模块中，`course-manifest.json` 兼容旧结构。
 - 已通过官方 `repo workspace remove` 审核计划并移除旧站；重新生成受管 TypeScript 配置、运行 `repo init` 和 frozen-lockfile 安装。旧模板登记和基线保留作为历史。
 - `repo doctor`：57 通过、307 警告、0 失败，见[脱敏报告](verification/nimbus-doctor.json)。预期警告包含旧 `apps/website` 目标已移除、原模板定向改造及既有依赖安装证据提示；没有改登记或关闭规则隐藏警告。
-- `repo check --full` 通过 lint、类型、48 项测试、类型测试及构建，见[执行报告](verification/nimbus-repo-check.json)。Astro diagnostics 为 0 errors、0 warnings、0 hints。
+- `repo check --full` 通过 lint、类型、50 项测试、类型测试及构建，见[执行报告](verification/nimbus-repo-check.json)。Astro diagnostics 为 0 errors、0 warnings、0 hints。
 - 部署 dry-run 通过，读取 311 个静态资源。Workers Static Assets 改为 `apps/docs/dist`；无尾斜杠 URL、真实 404、源码 MIME 和缓存规则均有静态检查。
 - [本地后台浏览器验收](verification/nimbus-local-browser.json)：桌面和手机各 32 页、28 幅 Mermaid 图、十个真实搜索词、三模型正反向与重置、浅色/暗色、移动目录和展开内容通过；0 运行错误、0 失败请求。检查全部页面 DOM id 唯一和实验 label 对应控件。
-- Pagefind 原生索引及真实正文中文补充索引均已生成。补充索引覆盖 32 页、2182 个正文块；单字、双字、大小写、连续正文证据、安全摘要、按页面去重及无结果通过模型/产物检查，线上交互继续复验。
+- Pagefind 原生索引及真实正文中文补充索引均已生成。补充索引覆盖 32 页、2182 个正文块；单字、双字、大小写、连续正文证据、安全摘要、按页面去重及无结果通过模型/产物检查，[补充浏览器验收](verification/nimbus-extra-local.json)实际验证单字、双字、英文大小写、无结果、去重与标题定位；Pagefind 原生十词查询均有结果。首页通过五节预备课连续进入第一章，全部答案和进阶区可展开。
 - Markdown、MDX、根和分节 llms 索引及 llms-full 已校验；机器可读输出保留 Mermaid 源码，并包含课程组件和实验文字说明。
 - 本轮没有重测历史组网，没有改变 EasyTier 配置、节点、接口、路由、防火墙或 DNS。
 
 ### Nimbus 自动部署
 
-迁移提交与线上验收待本轮实际推送后补充。沿用已授权的单仓库 Git 集成，仅 `main` 自动完整检查与发布，不重新申请 GitHub App 权限。
+首次迁移提交 `db2b905eaa09b2663f3a4aded5d24baef859f7b9` 已自动上线，构建 `87bf9860-1f74-4625-bd16-67f8da979704`，控制台显示就绪、1m 50s、版本前缀 `353a759c` 承担 100% 流量。随后补充验收发现 Pagefind 原生部分词候选需要完整正文校验，已修复并增加两项回归测试；修正版与正式站全面验收将在下一次实际推送后记录。沿用已授权的单仓库 Git 集成，仅 `main` 自动完整检查与发布，不重新申请 GitHub App 权限。
 
 ## 零基础课程改版
 
