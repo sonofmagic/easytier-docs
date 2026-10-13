@@ -1,0 +1,46 @@
+{
+  "origin": "https://easytier.icebreaker.top",
+  "source_commit": "b8fe3b15e193bb63a2b787ce4e1af15784b8e0df",
+  "worker_version": "4a37649e-ab2d-49b7-881b-7bb482fed311",
+  "pages": 32,
+  "diagrams": 28,
+  "search": [
+    "服务",
+    "监听",
+    "本机",
+    "回环",
+    "端口",
+    "路由",
+    "打洞",
+    "网卡",
+    "NAT",
+    "TUN"
+  ],
+  "interactions": [
+    "packet forward/reply/relay/mode change/reset",
+    "all three NAT presets/reset",
+    "topology metrics/fallback/partition/reset"
+  ],
+  "mobile": {
+    "viewport": "390x844",
+    "pages_tested": 32,
+    "document_overflow": false,
+    "expanded_advanced_content": true
+  },
+  "links": {
+    "internal": 2341,
+    "anchors": 743,
+    "downloads": 1,
+    "broken": 0,
+    "mobile_menu": true,
+    "quiz_expansion": true,
+    "next_chapter": true,
+    "beginner_to_chapter1": true
+  },
+  "download": "network-basics-demo.zip",
+  "dark_theme": true,
+  "runtime_errors": [],
+  "failed_requests": [],
+  "method": "existing task-owned headless Chrome; browser-qa.js and links-navigation-qa.js; normal domain resolution and TLS",
+  "recorded_at": "2026-10-13T06:21:47.695711+00:00"
+}

@@ -1,0 +1,30 @@
+{
+  "commit": "b8fe3b15e193bb63a2b787ce4e1af15784b8e0df",
+  "branch": "main",
+  "trigger": "git push",
+  "build_id": "834fa71d-6cce-480e-af8e-a4f85156fb2a",
+  "result": "success",
+  "github_check": {
+    "name": "Workers Builds: easytier-docs",
+    "status": "completed",
+    "conclusion": "success",
+    "completed_at": "2026-10-13T06:17:06Z"
+  },
+  "node": "24.21.0",
+  "pnpm": "12.10.1",
+  "wrangler": "4.149.0",
+  "install": "pnpm install --frozen-lockfile",
+  "build": "pnpm exec repo check --full",
+  "deploy": "pnpm exec wrangler deploy",
+  "tests_passed": 30,
+  "assets_read": 228,
+  "assets_uploaded": 103,
+  "worker_version": "4a37649e-ab2d-49b7-881b-7bb482fed311",
+  "deployed_at": "2026-10-13T06:17:03.859Z",
+  "custom_domain": "easytier.icebreaker.top",
+  "preview_branch_builds": false,
+  "github_app_repository_scope": [
+    "sonofmagic/easytier-docs"
+  ],
+  "evidence": "Authenticated Cloudflare build page, deploy log, GitHub check-run and live browser acceptance; control-plane screenshots retained locally outside Git."
+}

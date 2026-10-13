@@ -1,6 +1,6 @@
 # 验证记录
 
-验证日期：2026-10-13（Asia/Shanghai）。本轮将课程改为从本机观察开始，保留历史实机记录。下方分别记录本轮验收与首次发布；自动部署已配置，正在等待实际 `main` 推送验证。
+验证日期：2026-10-13（Asia/Shanghai）。本轮将课程改为从本机观察开始，保留历史实机记录。下方分别记录本轮验收与首次发布；自动部署已通过实际 `main` 推送、云端检查、正式站验收。
 
 ## 零基础课程改版
 
@@ -15,17 +15,28 @@
 
 ### 本轮自动检查
 
-| 检查                | 实际结果                                                                                                          |
-| ------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `repo doctor`       | exit 0；42 通过、267 提示、0 失败，保留模板改造及锁文件 override 证据限制提示                                     |
-| `repo check --full` | lint、类型、30 项模型/分词/服务测试、类型测试、构建均通过；[脱敏执行报告](verification/newcourse-repo-check.json) |
-| 文档检查            | 32 页、先修顺序、八段教学结构、图解、两道答案练习、来源、文件链接通过；50,381 个汉字仅报告                        |
-| 模型覆盖            | 100% 行覆盖、97.08% 分支覆盖；保留正反向地址、双向打洞、断链重选、分区与重置验证                                  |
-| Wrangler dry-run    | 4.149.0 通过，读取 228 个静态资源，无绑定，未以 dry-run 发布                                                      |
+| 检查                | 实际结果                                                                                                                |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `repo doctor`       | exit 0；42 通过、267 提示、0 失败，保留模板改造及锁文件 override 证据限制提示                                           |
+| `repo check --full` | lint、类型、30 项模型/分词/图表与渲染测试、类型测试、构建均通过；[脱敏执行报告](verification/newcourse-repo-check.json) |
+| 文档检查            | 32 页、先修顺序、八段教学结构、图解、两道答案练习、来源、文件链接通过；50,381 个汉字仅报告                              |
+| 模型覆盖            | 100% 行覆盖、97.08% 分支覆盖；保留正反向地址、双向打洞、断链重选、分区与重置验证                                        |
+| Wrangler dry-run    | 4.149.0 通过，读取 228 个静态资源，无绑定，未以 dry-run 发布                                                            |
 
 ### 自动发布配置
 
-已通过登录后的控制台连接 `sonofmagic/easytier-docs`，GitHub App 只获该仓库范围，按用户确认恢复运行。生产分支为 `main`，预览分支构建关闭；环境 `NODE_VERSION=24`、`PNPM_VERSION=12.10.1`，构建命令 `pnpm exec repo check --full`，部署命令 `pnpm exec wrangler deploy`，Wrangler 固定 4.149.0。需要实际提交、成功构建及线上版本三者匹配后才认定自动部署验收完成。
+已通过登录后的控制台连接 `sonofmagic/easytier-docs`，GitHub App 只获该仓库范围，按用户确认恢复运行。生产分支为 `main`，预览分支构建关闭；环境 `NODE_VERSION=24`、`PNPM_VERSION=12.10.1`，构建命令 `pnpm exec repo check --full`，部署命令 `pnpm exec wrangler deploy`，Wrangler 固定 4.149.0。实际提交、成功构建及线上版本已匹配，首次自动部署验收完成。
+
+### 本轮首次自动部署验收
+
+- 提交：[`b8fe3b15e193bb63a2b787ce4e1af15784b8e0df`](https://github.com/sonofmagic/easytier-docs/commit/b8fe3b15e193bb63a2b787ce4e1af15784b8e0df)。实际推送到 `main`，由 Git 集成触发，没有运行本机手动发布代替。
+- 构建：`834fa71d-6cce-480e-af8e-a4f85156fb2a`。GitHub `Workers Builds: easytier-docs` 检查为 completed/success；控制台显示安装、完整检查、部署均成功。
+- 云端工具：Node.js 24.21.0、pnpm 12.10.1；使用 `pnpm install --frozen-lockfile`。完整检查包括 lint、类型、30 项测试、类型测试和构建，日志显示 `Checks finished`，再执行固定 Wrangler 4.149.0。
+- 发布完成：`2026-10-13T06:17:03.859Z`（北京时间 14:17:03.859）；Worker 版本 `4a37649e-ab2d-49b7-881b-7bb482fed311`，自定义域名 `easytier.icebreaker.top`。
+- [正式站浏览器记录](verification/newcourse-remote-browser.json)：32 页、28 幅图、十个搜索词、三个模型及重置、暗色、32 页手机无横向溢出；0 运行错误、0 失败请求。2341 个内部链接和 743 个锚点全部有效，下载和预备课到第一章连续导航通过。
+- [正式 HTTPS 记录](verification/newcourse-remote-http.json)：32 页 HTTP 200，标题与 H1 匹配构建；未知路径 404，`.html` 重定向干净 URL，sitemap 恰好 32 项；下载 ZIP 与本地包及三个源码文件逐字节一致，SHA-256 为 `72859b3f5fc9d23e77a0c1f430e41dfd38f14291cb36084fb8772d30b75b5130`。
+- 正式域名此次可直接正常解析。浏览器使用已有隔离后台会话，HTTPS 保留正常证书校验；无需本轮系统 DNS 或 hosts 修改。
+- 自动部署记录更新将再推送一次，成功状态通过 GitHub 检查与 Cloudflare 构建记录核对；其验收摘要在仓库部署记录提交后的 GitHub 检查中可独立查看。
 
 以下为首次 26 页版本的历史记录，不能当作本轮的新测量。
 
