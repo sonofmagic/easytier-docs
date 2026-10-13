@@ -1,0 +1,675 @@
+{
+  "tested_at": "2026-10-13T12:07:50+08:00",
+  "origin": "https://easytier.icebreaker.top",
+  "method": "Read-only HTTPS/HTTP requests through curl with --noproxy * and per-process --resolve; four concurrent workers; local HTMLParser/XML parse; no browser or system DNS/proxy changes. Each request has 10 s connection and 20 s total timeout, at most one retry. TLS validation retained.",
+  "dns_observation": {
+    "initial_homepage_request": "HTTP 200 without --resolve",
+    "subsequent_system_resolution": "curl exit 6 for 26 pages; Could not resolve host",
+    "public_dns_fallback": "Parent independently read A record via 1.1.1.1; all requests below use only per-process edge-address mapping, not a system change.",
+    "edge_address": "104.21.94.91",
+    "initial_failed_attempt_at": "2026-10-13T12:06:19+08:00"
+  },
+  "page_count": 26,
+  "pages_passed": 26,
+  "pages": [
+    {
+      "url": "https://easytier.icebreaker.top/",
+      "status": 200,
+      "curl_exit": 0,
+      "effective_url": "https://easytier.icebreaker.top/",
+      "redirects": 0,
+      "tls_verify_result": 0,
+      "headers": [
+        {
+          "status": 200,
+          "location": null,
+          "content_type": "text/html"
+        }
+      ],
+      "route": "/",
+      "title": "从零理解 EasyTier",
+      "main_h1": [
+        "跟着一个数据包，看懂 EasyTier。"
+      ],
+      "pass": true
+    },
+    {
+      "url": "https://easytier.icebreaker.top/course",
+      "status": 200,
+      "curl_exit": 0,
+      "effective_url": "https://easytier.icebreaker.top/course",
+      "redirects": 0,
+      "tls_verify_result": 0,
+      "headers": [
+        {
+          "status": 200,
+          "location": null,
+          "content_type": "text/html"
+        }
+      ],
+      "route": "/course",
+      "title": "学习路线与贯穿案例 | 从零理解 EasyTier",
+      "main_h1": [
+        "学习路线与贯穿案例 \u200b"
+      ],
+      "pass": true
+    },
+    {
+      "url": "https://easytier.icebreaker.top/labs",
+      "status": 200,
+      "curl_exit": 0,
+      "effective_url": "https://easytier.icebreaker.top/labs",
+      "redirects": 0,
+      "tls_verify_result": 0,
+      "headers": [
+        {
+          "status": 200,
+          "location": null,
+          "content_type": "text/html"
+        }
+      ],
+      "route": "/labs",
+      "title": "浏览器交互实验 | 从零理解 EasyTier",
+      "main_h1": [
+        "浏览器交互实验 \u200b"
+      ],
+      "pass": true
+    },
+    {
+      "url": "https://easytier.icebreaker.top/glossary",
+      "status": 200,
+      "curl_exit": 0,
+      "effective_url": "https://easytier.icebreaker.top/glossary",
+      "redirects": 0,
+      "tls_verify_result": 0,
+      "headers": [
+        {
+          "status": 200,
+          "location": null,
+          "content_type": "text/html"
+        }
+      ],
+      "route": "/glossary",
+      "title": "术语表 · 用一句话接住新概念 | 从零理解 EasyTier",
+      "main_h1": [
+        "术语表 · 用一句话接住新概念 \u200b"
+      ],
+      "pass": true
+    },
+    {
+      "url": "https://easytier.icebreaker.top/sources",
+      "status": 200,
+      "curl_exit": 0,
+      "effective_url": "https://easytier.icebreaker.top/sources",
+      "redirects": 0,
+      "tls_verify_result": 0,
+      "headers": [
+        {
+          "status": 200,
+          "location": null,
+          "content_type": "text/html"
+        }
+      ],
+      "route": "/sources",
+      "title": "来源与版本说明 | 从零理解 EasyTier",
+      "main_h1": [
+        "来源与版本说明 \u200b"
+      ],
+      "pass": true
+    },
+    {
+      "url": "https://easytier.icebreaker.top/cases/local-gui",
+      "status": 200,
+      "curl_exit": 0,
+      "effective_url": "https://easytier.icebreaker.top/cases/local-gui",
+      "redirects": 0,
+      "tls_verify_result": 0,
+      "headers": [
+        {
+          "status": 200,
+          "location": null,
+          "content_type": "text/html"
+        }
+      ],
+      "route": "/cases/local-gui",
+      "title": "实机案例 · 读懂已有 GUI 组网 | 从零理解 EasyTier",
+      "main_h1": [
+        "实机案例 · 读懂已有 GUI 组网 \u200b"
+      ],
+      "pass": true
+    },
+    {
+      "url": "https://easytier.icebreaker.top/chapters/01-why",
+      "status": 200,
+      "curl_exit": 0,
+      "effective_url": "https://easytier.icebreaker.top/chapters/01-why",
+      "redirects": 0,
+      "tls_verify_result": 0,
+      "headers": [
+        {
+          "status": 200,
+          "location": null,
+          "content_type": "text/html"
+        }
+      ],
+      "route": "/chapters/01-why",
+      "title": "为什么隔着两台路由器就连不上 | 从零理解 EasyTier",
+      "main_h1": [
+        "为什么隔着两台路由器就连不上 \u200b"
+      ],
+      "pass": true
+    },
+    {
+      "url": "https://easytier.icebreaker.top/chapters/02-packets",
+      "status": 200,
+      "curl_exit": 0,
+      "effective_url": "https://easytier.icebreaker.top/chapters/02-packets",
+      "redirects": 0,
+      "tls_verify_result": 0,
+      "headers": [
+        {
+          "status": 200,
+          "location": null,
+          "content_type": "text/html"
+        }
+      ],
+      "route": "/chapters/02-packets",
+      "title": "一次网页请求怎样变成数据包 | 从零理解 EasyTier",
+      "main_h1": [
+        "一次网页请求怎样变成数据包 \u200b"
+      ],
+      "pass": true
+    },
+    {
+      "url": "https://easytier.icebreaker.top/chapters/03-addresses",
+      "status": 200,
+      "curl_exit": 0,
+      "effective_url": "https://easytier.icebreaker.top/chapters/03-addresses",
+      "redirects": 0,
+      "tls_verify_result": 0,
+      "headers": [
+        {
+          "status": 200,
+          "location": null,
+          "content_type": "text/html"
+        }
+      ],
+      "route": "/chapters/03-addresses",
+      "title": "IP 地址和 CIDR 怎样划分网络 | 从零理解 EasyTier",
+      "main_h1": [
+        "IP 地址和 CIDR 怎样划分网络 \u200b"
+      ],
+      "pass": true
+    },
+    {
+      "url": "https://easytier.icebreaker.top/chapters/04-protocols",
+      "status": 200,
+      "curl_exit": 0,
+      "effective_url": "https://easytier.icebreaker.top/chapters/04-protocols",
+      "redirects": 0,
+      "tls_verify_result": 0,
+      "headers": [
+        {
+          "status": 200,
+          "location": null,
+          "content_type": "text/html"
+        }
+      ],
+      "route": "/chapters/04-protocols",
+      "title": "TCP、UDP、端口和 ping 分别做什么 | 从零理解 EasyTier",
+      "main_h1": [
+        "TCP、UDP、端口和 ping 分别做什么 \u200b"
+      ],
+      "pass": true
+    },
+    {
+      "url": "https://easytier.icebreaker.top/chapters/05-routing",
+      "status": 200,
+      "curl_exit": 0,
+      "effective_url": "https://easytier.icebreaker.top/chapters/05-routing",
+      "redirects": 0,
+      "tls_verify_result": 0,
+      "headers": [
+        {
+          "status": 200,
+          "location": null,
+          "content_type": "text/html"
+        }
+      ],
+      "route": "/chapters/05-routing",
+      "title": "路由怎样决定下一跳 | 从零理解 EasyTier",
+      "main_h1": [
+        "路由怎样决定下一跳 \u200b"
+      ],
+      "pass": true
+    },
+    {
+      "url": "https://easytier.icebreaker.top/chapters/06-nat",
+      "status": 200,
+      "curl_exit": 0,
+      "effective_url": "https://easytier.icebreaker.top/chapters/06-nat",
+      "redirects": 0,
+      "tls_verify_result": 0,
+      "headers": [
+        {
+          "status": 200,
+          "location": null,
+          "content_type": "text/html"
+        }
+      ],
+      "route": "/chapters/06-nat",
+      "title": "NAT 为什么让主动连接变困难 | 从零理解 EasyTier",
+      "main_h1": [
+        "NAT 为什么让主动连接变困难 \u200b"
+      ],
+      "pass": true
+    },
+    {
+      "url": "https://easytier.icebreaker.top/chapters/07-tun",
+      "status": 200,
+      "curl_exit": 0,
+      "effective_url": "https://easytier.icebreaker.top/chapters/07-tun",
+      "redirects": 0,
+      "tls_verify_result": 0,
+      "headers": [
+        {
+          "status": 200,
+          "location": null,
+          "content_type": "text/html"
+        }
+      ],
+      "route": "/chapters/07-tun",
+      "title": "TUN 怎样把系统 IP 包交给 EasyTier | 从零理解 EasyTier",
+      "main_h1": [
+        "TUN 怎样把系统 IP 包交给 EasyTier \u200b"
+      ],
+      "pass": true
+    },
+    {
+      "url": "https://easytier.icebreaker.top/chapters/08-startup",
+      "status": 200,
+      "curl_exit": 0,
+      "effective_url": "https://easytier.icebreaker.top/chapters/08-startup",
+      "redirects": 0,
+      "tls_verify_result": 0,
+      "headers": [
+        {
+          "status": 200,
+          "location": null,
+          "content_type": "text/html"
+        }
+      ],
+      "route": "/chapters/08-startup",
+      "title": "08 · EasyTier 启动时做了什么 | 从零理解 EasyTier",
+      "main_h1": [
+        "08 · EasyTier 启动时做了什么 \u200b"
+      ],
+      "pass": true
+    },
+    {
+      "url": "https://easytier.icebreaker.top/chapters/09-membership",
+      "status": 200,
+      "curl_exit": 0,
+      "effective_url": "https://easytier.icebreaker.top/chapters/09-membership",
+      "redirects": 0,
+      "tls_verify_result": 0,
+      "headers": [
+        {
+          "status": 200,
+          "location": null,
+          "content_type": "text/html"
+        }
+      ],
+      "route": "/chapters/09-membership",
+      "title": "09 · 节点如何加入和发现彼此 | 从零理解 EasyTier",
+      "main_h1": [
+        "09 · 节点如何加入和发现彼此 \u200b"
+      ],
+      "pass": true
+    },
+    {
+      "url": "https://easytier.icebreaker.top/chapters/10-stun",
+      "status": 200,
+      "curl_exit": 0,
+      "effective_url": "https://easytier.icebreaker.top/chapters/10-stun",
+      "redirects": 0,
+      "tls_verify_result": 0,
+      "headers": [
+        {
+          "status": 200,
+          "location": null,
+          "content_type": "text/html"
+        }
+      ],
+      "route": "/chapters/10-stun",
+      "title": "10 · STUN 如何观察 NAT | 从零理解 EasyTier",
+      "main_h1": [
+        "10 · STUN 如何观察 NAT \u200b"
+      ],
+      "pass": true
+    },
+    {
+      "url": "https://easytier.icebreaker.top/chapters/11-hole-punch",
+      "status": 200,
+      "curl_exit": 0,
+      "effective_url": "https://easytier.icebreaker.top/chapters/11-hole-punch",
+      "redirects": 0,
+      "tls_verify_result": 0,
+      "headers": [
+        {
+          "status": 200,
+          "location": null,
+          "content_type": "text/html"
+        }
+      ],
+      "route": "/chapters/11-hole-punch",
+      "title": "11 · NAT 打洞为什么可能成功 | 从零理解 EasyTier",
+      "main_h1": [
+        "11 · NAT 打洞为什么可能成功 \u200b"
+      ],
+      "pass": true
+    },
+    {
+      "url": "https://easytier.icebreaker.top/chapters/12-security",
+      "status": 200,
+      "curl_exit": 0,
+      "effective_url": "https://easytier.icebreaker.top/chapters/12-security",
+      "redirects": 0,
+      "tls_verify_result": 0,
+      "headers": [
+        {
+          "status": 200,
+          "location": null,
+          "content_type": "text/html"
+        }
+      ],
+      "route": "/chapters/12-security",
+      "title": "12 · 加密、认证与信任边界 | 从零理解 EasyTier",
+      "main_h1": [
+        "12 · 加密、认证与信任边界 \u200b"
+      ],
+      "pass": true
+    },
+    {
+      "url": "https://easytier.icebreaker.top/chapters/13-relay",
+      "status": 200,
+      "curl_exit": 0,
+      "effective_url": "https://easytier.icebreaker.top/chapters/13-relay",
+      "redirects": 0,
+      "tls_verify_result": 0,
+      "headers": [
+        {
+          "status": 200,
+          "location": null,
+          "content_type": "text/html"
+        }
+      ],
+      "route": "/chapters/13-relay",
+      "title": "13 · 直连与中继各解决什么 | 从零理解 EasyTier",
+      "main_h1": [
+        "13 · 直连与中继各解决什么 \u200b"
+      ],
+      "pass": true
+    },
+    {
+      "url": "https://easytier.icebreaker.top/chapters/14-topology",
+      "status": 200,
+      "curl_exit": 0,
+      "effective_url": "https://easytier.icebreaker.top/chapters/14-topology",
+      "redirects": 0,
+      "tls_verify_result": 0,
+      "headers": [
+        {
+          "status": 200,
+          "location": null,
+          "content_type": "text/html"
+        }
+      ],
+      "route": "/chapters/14-topology",
+      "title": "14 · 拓扑、选路与故障收敛 | 从零理解 EasyTier",
+      "main_h1": [
+        "14 · 拓扑、选路与故障收敛 \u200b"
+      ],
+      "pass": true
+    },
+    {
+      "url": "https://easytier.icebreaker.top/chapters/15-journey",
+      "status": 200,
+      "curl_exit": 0,
+      "effective_url": "https://easytier.icebreaker.top/chapters/15-journey",
+      "redirects": 0,
+      "tls_verify_result": 0,
+      "headers": [
+        {
+          "status": 200,
+          "location": null,
+          "content_type": "text/html"
+        }
+      ],
+      "route": "/chapters/15-journey",
+      "title": "15 · 追踪一次完整请求 | 从零理解 EasyTier",
+      "main_h1": [
+        "15 · 追踪一次完整请求 \u200b"
+      ],
+      "pass": true
+    },
+    {
+      "url": "https://easytier.icebreaker.top/chapters/16-subnet-proxy",
+      "status": 200,
+      "curl_exit": 0,
+      "effective_url": "https://easytier.icebreaker.top/chapters/16-subnet-proxy",
+      "redirects": 0,
+      "tls_verify_result": 0,
+      "headers": [
+        {
+          "status": 200,
+          "location": null,
+          "content_type": "text/html"
+        }
+      ],
+      "route": "/chapters/16-subnet-proxy",
+      "title": "16 · 访问远端整个局域网 | 从零理解 EasyTier",
+      "main_h1": [
+        "16 · 访问远端整个局域网 \u200b"
+      ],
+      "pass": true
+    },
+    {
+      "url": "https://easytier.icebreaker.top/chapters/17-apps-dns",
+      "status": 200,
+      "curl_exit": 0,
+      "effective_url": "https://easytier.icebreaker.top/chapters/17-apps-dns",
+      "redirects": 0,
+      "tls_verify_result": 0,
+      "headers": [
+        {
+          "status": 200,
+          "location": null,
+          "content_type": "text/html"
+        }
+      ],
+      "route": "/chapters/17-apps-dns",
+      "title": "17 · 网络通了，应用为什么还不通 | 从零理解 EasyTier",
+      "main_h1": [
+        "17 · 网络通了，应用为什么还不通 \u200b"
+      ],
+      "pass": true
+    },
+    {
+      "url": "https://easytier.icebreaker.top/chapters/18-performance",
+      "status": 200,
+      "curl_exit": 0,
+      "effective_url": "https://easytier.icebreaker.top/chapters/18-performance",
+      "redirects": 0,
+      "tls_verify_result": 0,
+      "headers": [
+        {
+          "status": 200,
+          "location": null,
+          "content_type": "text/html"
+        }
+      ],
+      "route": "/chapters/18-performance",
+      "title": "18 · 延迟、丢包与 MTU | 从零理解 EasyTier",
+      "main_h1": [
+        "18 · 延迟、丢包与 MTU \u200b"
+      ],
+      "pass": true
+    },
+    {
+      "url": "https://easytier.icebreaker.top/chapters/19-diagnostics",
+      "status": 200,
+      "curl_exit": 0,
+      "effective_url": "https://easytier.icebreaker.top/chapters/19-diagnostics",
+      "redirects": 0,
+      "tls_verify_result": 0,
+      "headers": [
+        {
+          "status": 200,
+          "location": null,
+          "content_type": "text/html"
+        }
+      ],
+      "route": "/chapters/19-diagnostics",
+      "title": "19 · 按层排查，而不是反复重装 | 从零理解 EasyTier",
+      "main_h1": [
+        "19 · 按层排查，而不是反复重装 \u200b"
+      ],
+      "pass": true
+    },
+    {
+      "url": "https://easytier.icebreaker.top/chapters/20-practice",
+      "status": 200,
+      "curl_exit": 0,
+      "effective_url": "https://easytier.icebreaker.top/chapters/20-practice",
+      "redirects": 0,
+      "tls_verify_result": 0,
+      "headers": [
+        {
+          "status": 200,
+          "location": null,
+          "content_type": "text/html"
+        }
+      ],
+      "route": "/chapters/20-practice",
+      "title": "20 · 模拟复习与可选两机实践 | 从零理解 EasyTier",
+      "main_h1": [
+        "20 · 模拟复习与可选两机实践 \u200b"
+      ],
+      "pass": true
+    }
+  ],
+  "unknown_path": {
+    "url": "https://easytier.icebreaker.top/__easytier_audit_missing_20261013",
+    "status": 404,
+    "curl_exit": 0,
+    "effective_url": "https://easytier.icebreaker.top/__easytier_audit_missing_20261013",
+    "redirects": 0,
+    "tls_verify_result": 0,
+    "headers": [
+      {
+        "status": 404,
+        "location": null,
+        "content_type": "text/html"
+      }
+    ],
+    "pass": true
+  },
+  "html_clean_redirect": {
+    "url": "https://easytier.icebreaker.top/chapters/01-why.html",
+    "status": 200,
+    "curl_exit": 0,
+    "effective_url": "https://easytier.icebreaker.top/chapters/01-why",
+    "redirects": 1,
+    "tls_verify_result": 0,
+    "headers": [
+      {
+        "status": 307,
+        "location": "/chapters/01-why",
+        "content_type": null
+      },
+      {
+        "status": 200,
+        "location": null,
+        "content_type": "text/html"
+      }
+    ],
+    "pass": true
+  },
+  "sitemap": {
+    "url": "https://easytier.icebreaker.top/sitemap.xml",
+    "status": 200,
+    "curl_exit": 0,
+    "effective_url": "https://easytier.icebreaker.top/sitemap.xml",
+    "redirects": 0,
+    "tls_verify_result": 0,
+    "headers": [
+      {
+        "status": 200,
+        "location": null,
+        "content_type": "application/xml"
+      }
+    ],
+    "urls": [
+      "https://easytier.icebreaker.top/cases/local-gui",
+      "https://easytier.icebreaker.top/chapters/01-why",
+      "https://easytier.icebreaker.top/chapters/02-packets",
+      "https://easytier.icebreaker.top/chapters/03-addresses",
+      "https://easytier.icebreaker.top/chapters/04-protocols",
+      "https://easytier.icebreaker.top/chapters/05-routing",
+      "https://easytier.icebreaker.top/chapters/06-nat",
+      "https://easytier.icebreaker.top/chapters/07-tun",
+      "https://easytier.icebreaker.top/chapters/08-startup",
+      "https://easytier.icebreaker.top/chapters/09-membership",
+      "https://easytier.icebreaker.top/chapters/10-stun",
+      "https://easytier.icebreaker.top/chapters/11-hole-punch",
+      "https://easytier.icebreaker.top/chapters/12-security",
+      "https://easytier.icebreaker.top/chapters/13-relay",
+      "https://easytier.icebreaker.top/chapters/14-topology",
+      "https://easytier.icebreaker.top/chapters/15-journey",
+      "https://easytier.icebreaker.top/chapters/16-subnet-proxy",
+      "https://easytier.icebreaker.top/chapters/17-apps-dns",
+      "https://easytier.icebreaker.top/chapters/18-performance",
+      "https://easytier.icebreaker.top/chapters/19-diagnostics",
+      "https://easytier.icebreaker.top/chapters/20-practice",
+      "https://easytier.icebreaker.top/course",
+      "https://easytier.icebreaker.top/glossary",
+      "https://easytier.icebreaker.top/",
+      "https://easytier.icebreaker.top/labs",
+      "https://easytier.icebreaker.top/sources"
+    ],
+    "url_count": 26,
+    "expected_page_count": 26,
+    "missing_expected_pages": [],
+    "unexpected_urls": [],
+    "all_urls_use_formal_hostname": true,
+    "pass": true
+  },
+  "pass": true,
+  "additional_observations": {
+    "http_to_https": {
+      "url": "http://easytier.icebreaker.top/",
+      "status": 200,
+      "curl_exit": 0,
+      "effective_url": "http://easytier.icebreaker.top/",
+      "redirects": 0,
+      "tls_verify_result": 0,
+      "headers": [
+        {
+          "status": 200,
+          "location": null,
+          "content_type": "text/html"
+        }
+      ],
+      "pass": false
+    },
+    "scope": "HTTP-to-HTTPS redirection is recorded as an extra observation; the approved acceptance criterion requires valid HTTPS, not an HTTP redirect. No Worker or zone setting was changed."
+  },
+  "required_checks_passed": true,
+  "acceptance_criteria": [
+    "26 expected pages return HTTPS 200 with certificate validation and a title plus one main H1",
+    "Unknown path returns HTTP 404",
+    "HTML extension redirects to clean URL",
+    "Sitemap contains exactly the 26 expected formal-hostname URLs"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "pages": 26,
+  "diagrams": 22,
+  "search": [
+    "路由",
+    "打洞",
+    "网卡",
+    "NAT",
+    "TUN"
+  ],
+  "interactions": [
+    "Packet: reply addresses, relay, completion, mode change and reset",
+    "NAT: all three presets, result and reset",
+    "Topology: metrics, fallback, partition and reset"
+  ],
+  "mobile": [
+    "/",
+    "/chapters/15-journey",
+    "/labs",
+    "/cases/local-gui"
+  ],
+  "errors": [],
+  "failures": [],
+  "origin": "https://easytier.icebreaker.top",
+  "headless": true,
+  "date": "2026-10-13",
+  "dns_note": "The task-owned browser used a per-process host mapping to the address returned by public DNS while the system held a negative cache. HTTPS certificate verification was enabled. No system network configuration changed.",
+  "internal_links": {
+    "pages": 26,
+    "links": 1402,
+    "anchors": 381,
+    "broken": 0
+  },
+  "mobile_navigation": {
+    "mobileMenu": true,
+    "quizExpansion": true,
+    "nextChapter": true
+  },
+  "internal_links_note": "Counts are rendered links observed in this remote run; the local run counted 1410/389. Both independently resolved all collected routes and anchors.",
+  "console_warnings": [
+    "VitePress preloaded font not used within a few seconds."
+  ],
+  "test_browser_closed": true,
+  "browser_resource_status": "Task-owned Playwright session closed; CLI list showed no browsers."
+}

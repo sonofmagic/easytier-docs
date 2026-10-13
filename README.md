@@ -55,22 +55,24 @@ pnpm docs:deploy
 
 已登录时可跳过 `wrangler login`。项目固定 Wrangler 4.149.0，部署命令为 `pnpm exec wrangler deploy`；不要把 OAuth 凭据或 API 令牌写进 Git。`.wrangler/`、`.dev.vars*` 和本地环境文件已忽略。修改账号或域名时同步修改 `wrangler.jsonc` 和 VitePress 的 sitemap 正式域名。
 
-Cloudflare Workers Builds 的 Git 集成使用以下设置：
+首次手动上线已完成。GitHub 检查工作流处于启用状态（PR/手动触发）；Cloudflare Workers Builds 的 Git 自动部署尚待控制台连接。以下为要接通的目标设置，并非自动部署已成功的记录：
 
-| 设置 | 值 |
-| --- | --- |
-| Git 仓库 | `sonofmagic/easytier-docs` |
-| 生产分支 | `main` |
-| 构建根目录 | 仓库根目录 |
-| Node.js | `24` |
-| pnpm | `12.10.1` |
-| 构建命令 | `pnpm exec repo check --full` |
-| 部署命令 | `pnpm exec wrangler deploy` |
-| 自动部署 | 仅 `main`；关闭非生产分支和 PR 预览部署 |
+| 设置       | 值                                      |
+| ---------- | --------------------------------------- |
+| Git 仓库   | `sonofmagic/easytier-docs`              |
+| 生产分支   | `main`                                  |
+| 构建根目录 | 仓库根目录                              |
+| Node.js    | `24`                                    |
+| pnpm       | `12.10.1`                               |
+| 构建命令   | `pnpm exec repo check --full`           |
+| 部署命令   | `pnpm exec wrangler deploy`             |
+| 自动部署   | 仅 `main`；关闭非生产分支和 PR 预览部署 |
 
-构建环境设置 `NODE_VERSION=24`、`PNPM_VERSION=12.10.1`，并保留工作区的冻结锁文件。由 Cloudflare Git 集成安装依赖并管理部署令牌；不把本机 OAuth 凭据复制到 GitHub。模板的 npm 发布工作流在新仓库中禁用，文档更新只通过 `main` 发布网站。
+连接 Git 集成时，构建环境设置 `NODE_VERSION=24`、`PNPM_VERSION=12.10.1`，并保留工作区的冻结锁文件。目标是由 Cloudflare Git 集成安装依赖并管理部署令牌；不把本机 OAuth 凭据复制到 GitHub。模板的 npm 发布工作流已在新仓库中禁用，仅保留检查 CI。自动部署接通前，更新网站需要完整检查后手动执行 `pnpm docs:deploy`。
 
-检查失败时不会运行部署，线上保留上一次成功版本。查看或回退版本：
+目前 CLI 的 OAuth 缺少 Workers CI 权限，尚不能通过该登录直接创建 Git 构建连接；控制台登录也尚待完成。实际接通及一次 `main` 推送部署验收完成后，再更新这里的状态。
+
+目标自动部署流程中，检查失败时不会运行部署，线上保留上一次成功版本。当前手动发布也应遵守先检查再发布的顺序。查看或回退版本：
 
 ```sh
 pnpm exec wrangler versions list

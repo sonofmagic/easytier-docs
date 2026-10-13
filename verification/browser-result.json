@@ -1,6 +1,6 @@
 {
   "date": "2026-10-13",
-  "environment": "26-page production build served by loopback-only project preview server; remote deployment not yet verified",
+  "environment": "26-page production build served by loopback-only project preview server; formal HTTPS site independently verified in remote-browser-result.json",
   "headless": true,
   "pages": 26,
   "diagrams": 22,
@@ -29,7 +29,7 @@
     "quizExpansion": true,
     "nextChapter": true
   },
-  "test_browser_closed": false,
+  "test_browser_closed": true,
   "internal_links": {
     "pages": 26,
     "links": 1410,
@@ -45,7 +45,7 @@
     "traversal403": true,
     "method405": true
   },
-  "browser_resource_status": "Task-owned headless browser remains open for subsequent deployment verification.",
+  "browser_resource_status": "Task-owned Playwright session closed; CLI list showed no browsers.",
   "build_hash": "d249de5a6083a50e",
-  "publication_status": "not_yet_verified"
+  "publication_status": "manually_deployed_and_remote_verified; git_build_connection_pending"
 }
