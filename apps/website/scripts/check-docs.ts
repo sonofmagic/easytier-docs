@@ -5,19 +5,36 @@ import process from 'node:process'
 import { fileURLToPath } from 'node:url'
 import { createMarkdownRenderer } from 'vitepress'
 import { parse as parseYaml } from 'yaml'
-import { chapters } from '../.vitepress/data/course.ts'
+import { chapters, learningPages, sitePages } from '../.vitepress/data/course.ts'
 
 type MarkdownToken = ReturnType<MarkdownRenderer['parse']>[number]
 
 const docsRoot = fileURLToPath(new URL('../', import.meta.url))
 const chapterFiles = chapters.map(([slug]) => `chapters/${slug}.md`)
-const pages = ['index.md', 'course.md', 'labs.md', 'glossary.md', 'sources.md', 'cases/local-gui.md', ...chapterFiles]
+const pages = sitePages.map(page => page.file)
 const errors: string[] = []
 const markdown = await createMarkdownRenderer(docsRoot)
 let checked = 0
+let proseCharacters = 0
+const requiredSections = ['这一章要解决的问题', '先回顾两件事', '一步一步看', '先预测，再观察', '常见误解', '两道练习', '进阶阅读', '来源与下一章']
 
 if (chapters.length !== 20 || new Set(chapterFiles).size !== 20) {
   errors.push('课程导航必须包含 20 个不同的章节。')
+}
+
+if (pages.length !== 32 || new Set(pages).size !== pages.length) {
+  errors.push('站点清单必须包含 32 个不同的页面。')
+}
+for (const [index, lesson] of learningPages.entries()) {
+  if (!lesson.goal.trim() || !lesson.terms.length) {
+    errors.push(`${lesson.file}: 清单缺少学习目标或核心术语。`)
+  }
+  for (const prerequisite of lesson.prerequisites) {
+    const prerequisiteIndex = learningPages.findIndex(page => page.route === prerequisite)
+    if (prerequisiteIndex < 0 || prerequisiteIndex >= index) {
+      errors.push(`${lesson.file}: 先修内容不存在或顺序倒置 ${prerequisite}`)
+    }
+  }
 }
 
 function flattenTokens(tokens: readonly MarkdownToken[]): MarkdownToken[] {
@@ -152,16 +169,29 @@ for (const file of pages) {
     await checkInternalLink(file, href)
   }
 
-  if (chapterFiles.includes(file)) {
+  if (learningPages.some(page => page.file === file)) {
     const prose = proseLines.join('\n')
     const openingAnswers = (prose.match(/<details(?:\s[^>]*)?>/g) ?? []).length
     const closingAnswers = (prose.match(/<\/details\s*>/g) ?? []).length
-    if (openingAnswers < 2 || closingAnswers !== openingAnswers) {
-      errors.push(`${file}: 至少需要两个完整的 details 折叠答案。`)
+    const answers = [...prose.matchAll(/<details\s+class=["']answer["'][^>]*>([\s\S]*?)<\/details\s*>/g)]
+    if (answers.length < 2 || answers.some(answer => !/<summary>[^<]+<\/summary>[\s\S]*\p{Script=Han}/u.test(answer[1]!)) || closingAnswers !== openingAnswers) {
+      errors.push(`${file}: 至少需要两个带说明的 class="answer" 折叠答案，且全部 details 必须闭合。`)
     }
     const chineseCharacters = (prose.match(/\p{Script=Han}/gu) ?? []).length
-    if (chineseCharacters < 1500) {
-      errors.push(`${file}: 非代码正文仅 ${chineseCharacters} 个中文字符，至少需要 1500。`)
+    proseCharacters += chineseCharacters
+    const sectionTitles = tokens.flatMap((token, index) => token.type === 'heading_open' && token.tag === 'h2' ? [tokens[index + 1]?.content ?? ''] : [])
+    for (const section of requiredSections) {
+      if (!sectionTitles.includes(section)) {
+        errors.push(`${file}: 缺少教学段落「${section}」。`)
+      }
+    }
+    if (!/<details\s+class=["']advanced["']/.test(prose)) {
+      errors.push(`${file}: 进阶阅读需要使用 class="advanced"，不能冒充练习答案。`)
+    }
+    for (const prerequisite of learningPages.find(page => page.file === file)!.prerequisites) {
+      if (!hrefs.includes(prerequisite)) {
+        errors.push(`${file}: 未链接清单中的先修内容 ${prerequisite}`)
+      }
     }
     if (!tokens.some(token => token.type === 'fence' && token.info.trim() === 'mermaid')) {
       errors.push(`${file}: 缺少 Mermaid 图解。`)
@@ -178,6 +208,6 @@ if (errors.length) {
   process.exitCode = 1
 }
 else {
-  console.log(`文档检查通过：${checked} 个页面、${chapterFiles.length} 个导航章节；标题、围栏、文件链接、图解、练习与正文长度符合要求。`)
-  console.log('本检查验证链接对应的文件；页内锚点暂不校验。')
+  console.log(`文档检查通过：${checked} 个页面、5 节预备课、${chapterFiles.length} 个正文章节；教学结构、先修顺序、标题、围栏、文件链接、图解与练习符合要求。`)
+  console.log(`非代码教学正文合计 ${proseCharacters} 个汉字（仅报告，不作为易懂程度的门槛）。锚点与真实阅读体验另由浏览器验收和人工审阅确认。`)
 }

@@ -1,0 +1,59 @@
+{
+  "started_at": "2026-10-13T06:08:04.824284+00:00",
+  "ok": true,
+  "scope": "dedicated loopback HTTP lab; existing EasyTier unchanged",
+  "host": "127.0.0.1",
+  "browser_cache_tested": false,
+  "request_timeout_seconds": 1,
+  "startup_timeout_seconds": 5,
+  "checks": {
+    "homepage": {
+      "status": 200,
+      "expected_text_found": true
+    },
+    "message": {
+      "status": 200,
+      "content_matches": true
+    },
+    "missing": {
+      "status": 404
+    },
+    "occupied_port": {
+      "second_start_failed": true,
+      "exit_code": 1,
+      "reason": "address_in_use"
+    },
+    "first_server_after_duplicate": {
+      "status": 200
+    }
+  },
+  "cleanup": {
+    "post_stop_http_connection_failed": true,
+    "server_stop_method": "SIGINT",
+    "owned_child_count": 2,
+    "all_owned_children_exited": true,
+    "temporary_directory_removed": true,
+    "errors": []
+  },
+  "archive": {
+    "files": [
+      "README.txt",
+      "index.html",
+      "message.txt"
+    ],
+    "file_count": 3,
+    "matches_examples": true
+  },
+  "port": 8878,
+  "port_selection": "preferred",
+  "port_probes": [
+    {
+      "port": 8877,
+      "available": false
+    },
+    {
+      "port": 8878,
+      "available": true
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "cwd": "<cwd>",
+  "mode": "full",
+  "status": "success",
+  "startedAt": "2026-10-13T06:10:25.205Z",
+  "endedAt": "2026-10-13T06:10:32.983Z",
+  "durationMs": 7778.810042,
+  "exitCode": 0,
+  "tasks": [
+    {
+      "name": "lint",
+      "command": "pnpm lint",
+      "executable": "pnpm",
+      "args": [
+        "lint"
+      ],
+      "cwd": "<cwd>",
+      "status": "success",
+      "startedAt": "2026-10-13T06:10:25.206Z",
+      "endedAt": "2026-10-13T06:10:28.468Z",
+      "durationMs": 3262.268209,
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "name": "typecheck",
+      "command": "pnpm typecheck",
+      "executable": "pnpm",
+      "args": [
+        "typecheck"
+      ],
+      "cwd": "<cwd>",
+      "status": "success",
+      "startedAt": "2026-10-13T06:10:28.468Z",
+      "endedAt": "2026-10-13T06:10:29.802Z",
+      "durationMs": 1333.634583,
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "name": "test",
+      "command": "pnpm test",
+      "executable": "pnpm",
+      "args": [
+        "test"
+      ],
+      "cwd": "<cwd>",
+      "status": "success",
+      "startedAt": "2026-10-13T06:10:29.802Z",
+      "endedAt": "2026-10-13T06:10:32.864Z",
+      "durationMs": 3062.242792,
+      "exitCode": 0,
+      "signal": null
+    },
+    {
+      "name": "build",
+      "command": "pnpm build",
+      "executable": "pnpm",
+      "args": [
+        "build"
+      ],
+      "cwd": "<cwd>",
+      "status": "success",
+      "startedAt": "2026-10-13T06:10:32.864Z",
+      "endedAt": "2026-10-13T06:10:32.983Z",
+      "durationMs": 119.1352909999996,
+      "exitCode": 0,
+      "signal": null
+    }
+  ]
+}

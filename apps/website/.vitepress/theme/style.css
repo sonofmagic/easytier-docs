@@ -176,7 +176,27 @@ select {
 .network-row b {
   display: block;
   color: var(--vp-c-brand-1);
-  font-size: 25px;
+  font-size: 22px;
+}
+.network-row small {
+  font-size: 12px;
+  color: var(--vp-c-text-2);
+}
+.reply-wire i {
+  transform: rotate(180deg);
+}
+.chapter-number {
+  flex-shrink: 0;
+}
+.vp-doc details.advanced {
+  background: var(--lab-bg);
+  border-left: 3px solid var(--lab-teal);
+}
+.vp-doc details.answer {
+  border-left: 3px solid var(--vp-c-brand-1);
+}
+.vp-doc details > :last-child {
+  margin-bottom: 0;
 }
 .network-row code {
   font-size: 11px;

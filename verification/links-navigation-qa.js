@@ -1,8 +1,12 @@
 /* eslint no-unused-expressions: off, unicorn/prefer-dom-node-text-content: off -- Playwright CLI evaluates this function; innerText checks rendered text. */
 async (page) => {
   const base = await page.evaluate(() => location.origin)
-  const slugs = ['01-why', '02-packets', '03-addresses', '04-protocols', '05-routing', '06-nat', '07-tun', '08-startup', '09-membership', '10-stun', '11-hole-punch', '12-security', '13-relay', '14-topology', '15-journey', '16-subnet-proxy', '17-apps-dns', '18-performance', '19-diagnostics', '20-practice']
-  const routes = ['/', '/course', '/labs', '/glossary', '/sources', '/cases/local-gui', ...slugs.map(slug => `/chapters/${slug}`)]
+  const manifestResponse = await page.request.get(`${base}/course-manifest.json`)
+  if (!manifestResponse.ok()) {
+    throw new Error('Course manifest unavailable')
+  }
+  const manifest = await manifestResponse.json()
+  const routes = manifest.pages.map(entry => entry.route)
   const pages = new Map()
   const links = []
   for (const route of routes) {
@@ -16,8 +20,19 @@ async (page) => {
     links.push(...data.links.map(link => ({ from: route, ...link })))
   }
   let anchors = 0
+  const assets = new Set()
   for (const { from, href, pathname, hash } of links) {
     const route = pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/'
+    if (route.startsWith('/downloads/')) {
+      if (!assets.has(route)) {
+        const response = await page.request.get(base + route)
+        if (!response.ok()) {
+          throw new Error(`Broken download: ${from} -> ${href}`)
+        }
+        assets.add(route)
+      }
+      continue
+    }
     const ids = pages.get(route)
     if (!ids) {
       throw new Error(`Unknown internal route: ${from} -> ${href}`)
@@ -32,15 +47,19 @@ async (page) => {
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto(`${base}/chapters/01-why`)
   await page.getByRole('button', { name: '章节目录', exact: true }).click()
-  await page.getByRole('link', { name: '02 请求怎样变成数据包', exact: true }).click()
+  await page.getByRole('link', { name: manifest.lessons.find(entry => entry.route === '/chapters/02-packets').title, exact: true }).click()
   await page.waitForURL('**/chapters/02-packets')
   await page.goto(`${base}/chapters/01-why`)
-  const quiz = page.locator('main details').first()
+  const quiz = page.locator('main details.answer').first()
   await quiz.locator('summary').click()
   if (!(await quiz.getAttribute('open') !== null)) {
     throw new Error('Quiz failed to expand')
   }
-  await page.getByRole('link', { name: '下一章 02 请求怎样变成数据包', exact: true }).click()
+  await page.getByRole('link', { name: `下一章 ${manifest.lessons.find(entry => entry.route === '/chapters/02-packets').title}`, exact: true }).click()
   await page.waitForURL('**/chapters/02-packets')
-  return { pages: pages.size, internalLinks: links.length, anchors, mobileMenu: true, quizExpansion: true, nextChapter: true }
+  await page.goto(`${base}/basics/observe-a-request`)
+  const next = manifest.lessons[5]
+  await page.getByRole('link', { name: `下一章 ${next.title}`, exact: true }).click()
+  await page.waitForURL('**/chapters/01-why')
+  return { downloads: assets.size, beginnerToChapter: true, pages: pages.size, internalLinks: links.length, anchors, mobileMenu: true, quizExpansion: true, nextChapter: true }
 }

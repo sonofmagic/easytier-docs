@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>这是我电脑上的网页</title>
+  <style>
+    :root { color-scheme: light dark; font-family: system-ui, sans-serif; }
+    body { margin: 0; background: light-dark(#f6f9fc, #131b28); color: light-dark(#182638, #e3eaf5); }
+    main { max-width: 650px; margin: 10vh auto; padding: 28px; }
+    h1 { font-size: clamp(26px, 5vw, 40px); line-height: 1.5; }
+    p, li { line-height: 1.9; font-size: 18px; }
+    a { color: light-dark(#2563eb, #8cb4ff); }
+    code { overflow-wrap: anywhere; }
+  </style>
+</head>
+<body>
+  <main>
+    <p>从零理解 EasyTier · 本机网络预备实验</p>
+    <h1>这是我电脑上的网页</h1>
+    <p>浏览器是请求者；终端里运行的 Python 程序是回答者。</p>
+    <p>看看地址栏：以 <code>http://127.0.0.1:8877/</code> 开头时，你在请求本机网页服务；以 <code>file://</code> 开头时，只是在直接读文件。若用 8878，地址栏也应使用 8878。</p>
+    <ul>
+      <li><a href="./message.txt">请求存在的文字文件：message.txt</a></li>
+      <li><a href="./not-here.txt">请求不存在的文件：not-here.txt</a></li>
+    </ul>
+    <p>观察终端记录和 Chrome 网络面板，再按 Control+C 停止专门的服务。这个网页没有探测或上传任何网络信息。</p>
+  </main>
+</body>
+</html>

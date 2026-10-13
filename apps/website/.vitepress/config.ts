@@ -1,11 +1,13 @@
+import { writeFile } from 'node:fs/promises'
+import path from 'node:path'
 import { defineConfig } from 'vitepress'
-import { chapterLink, chapters, stages, tokenize } from './data/course.ts'
+import { basics, chapterLink, chapters, learningPages, sitePages, stages, tokenize } from './data/course.ts'
 import { mermaidMarkdown } from './mermaid/markdown.ts'
 
 export default defineConfig({
   lang: 'zh-CN',
   title: '从零理解 EasyTier',
-  description: '20 章中文教程与三个交互实验：从 IP、路由和 NAT，理解 EasyTier 的完整数据流。',
+  description: '先在自己电脑上看见网页请求，再用五节预备课、二十章教程和三个实验理解 EasyTier。',
   cleanUrls: true,
   sitemap: { hostname: 'https://easytier.icebreaker.top' },
   head: [['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }]],
@@ -13,6 +15,7 @@ export default defineConfig({
     logo: '/favicon.svg',
     siteTitle: '从零理解 EasyTier',
     nav: [
+      { text: '零基础起步', link: '/basics' },
       { text: '学习路线', link: '/course' },
       { text: '交互实验', link: '/labs' },
       { text: '实机案例', link: '/cases/local-gui' },
@@ -21,6 +24,7 @@ export default defineConfig({
     ],
     sidebar: [
       { text: '开始阅读', items: [{ text: '学习路线与贯穿案例', link: '/course' }, { text: '浏览器交互实验', link: '/labs' }] },
+      { text: '预备课 · 先在本机看见', collapsed: false, items: [{ text: '五节预备课与下载实验包', link: '/basics' }, ...basics.map(lesson => ({ text: lesson.title, link: lesson.route }))] },
       ...stages.map(stage => ({
         text: `${stage.range} · ${stage.title}`,
         collapsed: false,
@@ -51,6 +55,19 @@ export default defineConfig({
         },
       },
     },
+  },
+  transformPageData(page) {
+    const index = learningPages.findIndex(lesson => lesson.file === page.relativePath)
+    if (index < 0) {
+      return
+    }
+    const previous = learningPages[index - 1]
+    const next = learningPages[index + 1]
+    page.frontmatter.prev = previous ? { text: previous.title, link: previous.route } : { text: '五节预备课与下载实验包', link: '/basics' }
+    page.frontmatter.next = next ? { text: next.title, link: next.route } : { text: '本机 GUI 实测附录', link: '/cases/local-gui' }
+  },
+  async buildEnd(site) {
+    await writeFile(path.join(site.outDir, 'course-manifest.json'), JSON.stringify({ pages: sitePages, lessons: learningPages }, null, 2))
   },
   markdown: { config: mermaidMarkdown },
 })

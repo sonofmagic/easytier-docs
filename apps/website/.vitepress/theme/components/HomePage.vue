@@ -7,49 +7,49 @@ import CourseMap from './CourseMap.vue'
     <section class="home-hero">
       <div class="hero-copy">
         <p class="eyebrow">
-          从网络基础开始 · EasyTier v2.6.4
+          零基础起步 · 界面观察与少量命令
         </p>
-        <h1>跟着一个数据包，<br><span>看懂 EasyTier。</span></h1>
+        <h1>先在自己的电脑上，<br><span>看见一次网络请求。</span></h1>
         <p class="hero-lead">
-          两台电脑都能上网，为什么却不能互访？<br>从 IP、路由和 NAT 出发，一步步理解异地组网。
+          打开一个由自己电脑提供的网页，看它怎样回应、怎样失败。<br>再一步步理解：EasyTier 如何把请求送到另一台电脑。
         </p>
         <div class="hero-actions">
-          <a class="primary-link" href="/chapters/01-why">从第一章开始 <span aria-hidden="true">→</span></a><a class="secondary-link" href="/labs">先动手看三个实验</a>
+          <a class="primary-link" href="/basics/browser-and-programs">从本机预备课开始 <span aria-hidden="true">→</span></a><a class="secondary-link" href="/chapters/01-why">直接进入第一章</a>
         </div>
         <div class="hero-facts">
-          <span>20 章完整教程</span><span>图解与带答案练习</span><span>无需先安装</span>
+          <span>5 节预备课 + 20 章</span><span>真实本机实验</span><span>EasyTier v2.6.4</span>
         </div>
       </div>
       <div class="hero-network">
         <p class="diagram-title">
-          同一个业务包，两层网络。
+          第一站：同一台电脑里的两个程序
         </p>
         <div class="network-row virtual-row">
-          <div><b>A</b><code>10.144.144.1</code></div><div class="network-wire">
-            <span>虚拟 IP · 业务 TCP</span><i />
-          </div><div><b>B</b><code>10.144.144.2</code></div>
+          <div><b>浏览器</b><small>提出请求</small></div><div class="network-wire">
+            <span>请给我网页</span><i />
+          </div><div><b>服务</b><small>提供网页</small></div>
         </div>
         <div class="encapsulation">
-          <span>↓ 封装到隧道</span><span>解封装 ↑</span>
+          <span>看地址栏</span><span>看终端记录</span>
         </div>
         <div class="network-row physical-row">
-          <div><span class="node-outline">家庭网络 A</span></div><div class="network-wire">
-            <span>互联网 · 外层传输</span><i />
-          </div><div><span class="node-outline">家庭网络 B</span></div>
+          <div><span class="node-outline">显示网页内容</span></div><div class="network-wire reply-wire">
+            <span>把内容送回来</span><i />
+          </div><div><span class="node-outline">读取演示文件</span></div>
         </div>
         <div class="diagram-bottom">
-          <span class="packet-symbol" aria-hidden="true">▤</span><p>虚拟地址指向业务目标。<br>外层端点负责把包送到另一边。</p>
+          <span class="packet-symbol" aria-hidden="true">▤</span><p>先在本机认识地址、端口和服务。<br>再把服务放到另一台电脑，理解异地连接。</p>
         </div>
       </div>
     </section>
     <section class="home-intro">
       <p class="eyebrow">
-        一条贯穿全书的主线
-      </p><h2>A 想访问 B 的 8080 服务。</h2><p>我们始终使用同一组电脑和地址。从“为什么不通”出发，看到 EasyTier 改变了哪一步，再用模型和状态输出验证。每章只向前迈一步，新术语会当场解释。</p>
+        从眼前的现象，到异地组网
+      </p><h2>本机网页 → 同一网络 → 异地网络 → EasyTier</h2><p>预备课先把程序、网址和请求变成实际窗口里的现象。正文再跟着 A 访问 B 的网页，逐章解释路径和失败原因。必要的新词当场解释，计算与协议细节可以稍后选读。</p>
     </section>
     <CourseMap />
     <section class="home-ending">
-      <div><h2>看懂之后，试着解释出来。</h2><p>改变 NAT 过滤条件，切断一条链路，追踪一次回程。比起记住名词，知道原因更有用。</p></div><a class="primary-link" href="/labs">进入交互实验 →</a>
+      <div><h2>电脑里已经运行 EasyTier？</h2><p>对照现有 GUI 的地址和路径，再看一次真实 ICMP 往返能证明什么。基础还不熟时，先完成上面的预备课。</p></div><a class="primary-link" href="/cases/local-gui">读真实 GUI 案例 →</a>
     </section>
     <footer class="home-footer">
       独立学习资料，非 EasyTier 官方网站。实现说明固定依据 v2.6.4；模型边界与资料来源见各章。

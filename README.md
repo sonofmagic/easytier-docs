@@ -1,13 +1,33 @@
 # 从零理解 EasyTier
 
-20 章完整中文教程、术语表、带答案练习、三个浏览器交互实验，以及本机 EasyTier GUI 实测附录。面向网络基础还没有串起来的读者；这是独立学习资料，非 EasyTier 官方网站。
+5 节本机预备课 + 20 章中文教程，共 32 个阅读页面，包含术语表、带答案练习、三个浏览器交互模型和已有 EasyTier GUI 实机附录。面向从零开始的读者：先看见自己电脑里的网页请求，再解释异地网络。独立学习资料，非 EasyTier 官方网站。
 
 - 网站：[easytier.icebreaker.top](https://easytier.icebreaker.top/)
 - 源码：[sonofmagic/easytier-docs](https://github.com/sonofmagic/easytier-docs)
-- [从第一章开始](https://easytier.icebreaker.top/chapters/01-why)
+- [从本机预备课开始](https://easytier.icebreaker.top/basics/browser-and-programs)
+- [预备课索引与实验下载](https://easytier.icebreaker.top/basics)
+- [直接进入第一章](https://easytier.icebreaker.top/chapters/01-why)
 - [本机 GUI 实测](https://easytier.icebreaker.top/cases/local-gui)
 
-## 本地阅读
+## 零基础阅读与本机实验
+
+阅读正式网站不需要克隆源码或安装 Node.js。首页优先提供“从本机预备课开始”，按浏览器与程序 → 本机网页 → 网址 → 网络地址 → 请求与回应走完 5 节，再进入正文第一章。每节先解释动作和预期现象，正文中先回顾基础、预测再观察；答案与进阶内容可以折叠。
+
+实验 ZIP：[network-basics-demo.zip](https://easytier.icebreaker.top/downloads/network-basics-demo.zip)。解压后专用文件夹内只有 `index.html`、`message.txt`、`README.txt`；源码在 `examples/network-basics-demo/`。网页没有自动探测、遥测或上传本机读数。
+
+亲手实验需要已安装的 Python 3。先修课讲解如何检查版本、打开终端、进入实验目录，以及 macOS、Windows、Linux 的必要区别；缺少 Python 时由读者按官方说明安装。网站和下载文件不会自动安装软件，也不会修改现有 EasyTier、路由或防火墙。
+
+在确认好的实验目录中，macOS/Linux 执行：
+
+```sh
+python3 -m http.server 8877 --bind 127.0.0.1
+```
+
+Windows 使用已确认的 Python 3 入口，如 `py -3 -m http.server 8877 --bind 127.0.0.1`。打开 <http://127.0.0.1:8877/>，观察网页、Python 请求日志和 Chrome Network 面板，比较 `message.txt` 的 200、`not-here.txt` 的 404，以及停止服务后的连接失败。端口占用时改用 8878，网址同步修改，不结束未知程序。实验只监听回环，不能被其他电脑通过家庭 IP 或 EasyTier 虚拟 IP 访问；这与远端教学服务 TCP 8080 是不同实验。
+
+停止时只在自己启动的 Python 终端按 Ctrl+C，再停用浏览器缓存或使用新查询 URL 验证连接失败。已有 EasyTier GUI 保持运行。完整步骤和边界见预备课，HTTP、监听、路由等术语在相应操作中解释。
+
+## 源码本地阅读
 
 推荐 Node.js 24；工作区最低要求 Node.js 22.13，固定使用 pnpm 12.10.1。先安装对应版本的 Node.js 和 pnpm，然后执行：
 
@@ -18,7 +38,7 @@ pnpm install --frozen-lockfile
 pnpm docs:dev
 ```
 
-打开 <http://127.0.0.1:4173/>，点击“从第一章开始”。退出服务用 Ctrl+C。依赖安装会运行工作区的初次构建。
+打开 <http://127.0.0.1:4173/>，点击“从本机预备课开始”；已有基础时可选择“直接进入第一章”。退出服务用 Ctrl+C。依赖安装会运行工作区的初次构建。
 
 ## 构建与检查
 
@@ -36,7 +56,25 @@ pnpm exec repo doctor
 pnpm exec repo check --full
 ```
 
-`repo check --full` 覆盖文档结构、内部路径、lint、类型、模型测试及站点构建。浏览器验收补充渲染后的锚点、手机导航、搜索、图表和交互。`verification/browser-qa.js` 与 `verification/links-navigation-qa.js` 从当前页面获取站点 origin，可用于本地或正式站；使用 Playwright CLI 时，在仓库根目录运行，先打开待测站点，然后通过 `run-code --filename=verification/browser-qa.js` 或 `run-code --filename=verification/links-navigation-qa.js` 执行。截图写入仓库的 `verification/`，测试浏览器使用独立后台会话，结束后关闭。
+`repo check --full` 覆盖课程清单、预备课和章节结构、内部路径、lint、类型、模型测试及站点构建。浏览器验收补充渲染后的锚点、手机导航、搜索、图表、模型和新手完整学习路线。
+
+本机实验有独立的标准库验收脚本，无第三方依赖、无浏览器：
+
+```sh
+python3 verification/local-lab-qa.py
+```
+
+脚本核对 ZIP 恰好包含三个文件、内容与 `examples/` 一致；临时解压并启动只监听 `127.0.0.1` 的 Python 服务，验证首页、文本、404、端口占用与停止后连接失败。优先 8877，其次 8878，均占用则选临时端口并写入结果；只清理自己创建的子进程与临时目录，保留未知监听。实际 JSON 写入 `verification/local-lab-results.json`。浏览器缓存和可见 Network 面板行为另外验收，不由此脚本代替。
+
+浏览器脚本均从当前页面获取待测网站 origin，可用于本地或正式站：
+
+- `verification/browser-qa.js`：32 页、图表、搜索、三个模型与手机布局。
+- `verification/links-navigation-qa.js`：渲染后内部路由、锚点和手机导航。
+- `verification/beginner-walkthrough.js`：点击首页新手入口，逐节展开答案，走完 5 节进入第一章，再在浏览器验证实验网页、文本和 404，并停用缓存。
+
+使用 Playwright CLI 时，从仓库根目录运行，先打开待测网站，然后通过 `run-code --filename=verification/browser-qa.js` 等执行。新手脚本的实验段还要求执行者预先从专用演示目录启动本任务的 `127.0.0.1:8877` 服务；脚本不自动启动 Python，执行者需在最后停止自建服务并另验一次新请求连接失败。它不能替代独立 Python 脚本的资源清理。
+
+截图写入 `verification/`。浏览器测试使用独立后台会话，结束后显式关闭；保留其他任务或用户原有浏览器。实际通过情况见 `VERIFICATION.md`，命令说明本身不表示某次验收已完成。
 
 ## 发布与自动部署
 
@@ -55,7 +93,7 @@ pnpm docs:deploy
 
 已登录时可跳过 `wrangler login`。项目固定 Wrangler 4.149.0，部署命令为 `pnpm exec wrangler deploy`；不要把 OAuth 凭据或 API 令牌写进 Git。`.wrangler/`、`.dev.vars*` 和本地环境文件已忽略。修改账号或域名时同步修改 `wrangler.jsonc` 和 VitePress 的 sitemap 正式域名。
 
-首次手动上线已完成。GitHub 检查工作流处于启用状态（PR/手动触发）；Cloudflare Workers Builds 的 Git 自动部署尚待控制台连接。以下为要接通的目标设置，并非自动部署已成功的记录：
+首次手动上线已完成。GitHub 检查工作流处于启用状态（PR/手动触发）；Cloudflare 控制台的 Workers Builds Git 连接已配置，当前状态是“已配置，等待实际 `main` 推送验证”。以下是配置设置，不代表自动构建和发布已经验收成功：
 
 | 设置       | 值                                      |
 | ---------- | --------------------------------------- |
@@ -68,9 +106,9 @@ pnpm docs:deploy
 | 部署命令   | `pnpm exec wrangler deploy`             |
 | 自动部署   | 仅 `main`；关闭非生产分支和 PR 预览部署 |
 
-连接 Git 集成时，构建环境设置 `NODE_VERSION=24`、`PNPM_VERSION=12.10.1`，并保留工作区的冻结锁文件。目标是由 Cloudflare Git 集成安装依赖并管理部署令牌；不把本机 OAuth 凭据复制到 GitHub。模板的 npm 发布工作流已在新仓库中禁用，仅保留检查 CI。自动部署接通前，更新网站需要完整检查后手动执行 `pnpm docs:deploy`。
+Cloudflare Git 集成使用 `NODE_VERSION=24`、`PNPM_VERSION=12.10.1` 和工作区锁文件，由平台安装依赖并管理部署令牌，不把本机 OAuth 凭据复制到 GitHub。模板的 npm 发布工作流已在新仓库中禁用，仅保留检查 CI。配置后的首次实际 `main` 推送仍待观察构建、检查、发布及远程访问结果；需要手动发布时仍先完整检查，再执行 `pnpm docs:deploy`。
 
-目前 CLI 的 OAuth 缺少 Workers CI 权限，尚不能通过该登录直接创建 Git 构建连接；控制台登录也尚待完成。实际接通及一次 `main` 推送部署验收完成后，再更新这里的状态。
+首次实际自动部署验收完成后，应在 `VERIFICATION.md` 记录触发提交、构建结果和线上版本，并更新这里的状态。
 
 目标自动部署流程中，检查失败时不会运行部署，线上保留上一次成功版本。当前手动发布也应遵守先检查再发布的顺序。查看或回退版本：
 
@@ -83,15 +121,17 @@ pnpm exec wrangler rollback <VERSION_ID>
 
 ## 内容与维护
 
+- `apps/website/basics/`、`basics.md`：5 节本机预备课和入门索引。
+- `examples/network-basics-demo/`、`apps/website/public/downloads/`：实验源文件及公开 ZIP。
 - `apps/website/chapters/`：20 章教程，使用统一 A、B、R 案例及版本。
 - `apps/website/cases/local-gui.md`：真实观测附录；公开地址已替换，设备使用别名。
 - `apps/website/glossary.md`、`sources.md`：术语和来源。
 - `apps/website/labs.md`：三个实验的操作说明。
-- `apps/website/.vitepress/data/course.ts`：标题、学习阶段、导航和中文分词。
+- `apps/website/.vitepress/data/course.ts`：单一课程清单，统一预备课、章节、前置关系、导航和中文分词。
 - `apps/website/.vitepress/data/models.ts`：确定性教学模型；Vue 组件位于主题 `components/`。
 - `apps/website/scripts/check-docs.ts`：文档结构和内部路径检查；Vitest 覆盖模型与分词。
 
-各实现相关结论固定依据 EasyTier v2.6.4，release commit 为 `8428a89d2dabc94c97d370ec607c6ca142473626`。当前官网可能更新，正文区分通用原理与该版本实现。真实实验命令是可选说明，网站不会安装 EasyTier 或修改网络配置。附录仅记录授权的有限 ICMP 测试，不代表 HTTP 可用性、具体打洞过程或性能已验证。
+各实现相关结论固定依据 EasyTier v2.6.4，release commit 为 `8428a89d2dabc94c97d370ec607c6ca142473626`。当前官网可能更新，正文区分通用原理与该版本实现。先修本机实验由读者亲手运行 Python，真实新建双机组网放在可选进阶说明；网站不会自动安装 EasyTier、Python 或修改网络配置。附录仅记录授权的有限 ICMP 测试，不代表 HTTP 可用性、具体打洞过程或性能已验证。
 
 ## 项目来源
 

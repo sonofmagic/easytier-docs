@@ -1,0 +1,30 @@
+{
+  "verified_at": "2026-10-13T14:08:04+08:00",
+  "method": "task-owned headless Chrome; real loopback Python standard-library service",
+  "visited": [
+    "/basics/browser-and-programs",
+    "/basics/local-webpage",
+    "/basics/read-a-url",
+    "/basics/my-network",
+    "/basics/observe-a-request"
+  ],
+  "continued_to_chapter_1": true,
+  "answers_expanded": true,
+  "demo": {
+    "home_status": 200,
+    "message_readable_in_browser": true,
+    "missing_status": 404,
+    "browser_cache_disabled": true,
+    "utf8_text_encoding_verified": true
+  },
+  "after_ctrl_c": {
+    "fresh_request_error": "net::ERR_CONNECTION_REFUSED",
+    "http_404_received": false
+  },
+  "cleanup": {
+    "owned_server_session": 50230,
+    "stopped": true,
+    "port_8877_listener": false
+  },
+  "existing_easytier_network_changed": false
+}

@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-13",
+  "site": "http://127.0.0.1:4173",
+  "pages": 32,
+  "diagrams": 28,
+  "terms": 67,
+  "search": [
+    "服务",
+    "监听",
+    "本机",
+    "回环",
+    "端口",
+    "路由",
+    "打洞",
+    "网卡",
+    "NAT",
+    "TUN"
+  ],
+  "model_interactions": [
+    "packet forward/reply/relay/reset",
+    "three NAT presets/reset",
+    "topology metric/fallback/partition/reset"
+  ],
+  "mobile": {
+    "viewport": "390x844",
+    "pages_without_document_overflow": 32,
+    "expanded_advanced_content": true
+  },
+  "navigation": {
+    "pages": 32,
+    "internal_links": 2341,
+    "anchors": 743,
+    "downloads": 1,
+    "broken_links": 0,
+    "beginner_to_chapter_1": true
+  },
+  "dark_theme": true,
+  "runtime_errors": [],
+  "failed_requests": [],
+  "scope": "Results observed from browser-qa.js and links-navigation-qa.js before publication; lab behavior recorded separately."
+}

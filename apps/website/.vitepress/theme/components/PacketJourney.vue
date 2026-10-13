@@ -25,7 +25,6 @@ watch(mode, () => {
           经过 R 中继
         </option>
       </select>
-      <span class="lab-tag">业务 TCP · 外层 UDP · 安全模式</span>
     </div>
     <div class="packet-track" aria-label="当前处理位置">
       <div v-for="node in mode === 'direct' ? ['A', 'B'] : ['A', 'R', 'B']" :key="node" class="packet-node" :class="{ active: current.at === node }">
@@ -44,15 +43,23 @@ watch(mode, () => {
     </div>
     <div class="packet-fields">
       <div class="inner-fields">
-        <span class="field-label">内层 · 业务 TCP 包（教学视角）</span><code>{{ current.innerSource }}</code><span>→</span><code>{{ current.innerTarget }}</code>
-      </div>
-      <div class="outer-fields">
-        <span class="field-label">外层 · 互联网 UDP 端点</span><code>{{ current.outerSource }}</code><span>→</span><code>{{ current.outerTarget }}</code>
+        <span class="field-label">应用要访问谁 · 内层地址与业务端口</span><code>{{ current.innerSource }}</code><span>→</span><code>{{ current.innerTarget }}</code>
       </div>
     </div>
-    <p class="lab-note">
-      {{ current.encrypted ? '此处业务负载已加密；显示内层字段是为学习，不代表 R 或运营商能读取它们。' : '已建立的网络被简化为一个包的轨迹；握手、TCP 确认、重传与实际链路时序没有展开。' }}
-    </p>
+    <details class="advanced packet-transport">
+      <summary>展开：外层端点与安全细节</summary>
+      <p class="lab-tag">
+        此模型的业务使用 TCP，外层使用 UDP，安全模式会话已经建立。
+      </p>
+      <div class="packet-fields">
+        <div class="outer-fields">
+          <span class="field-label">外层 · 互联网 UDP 端点</span><code>{{ current.outerSource }}</code><span>→</span><code>{{ current.outerTarget }}</code>
+        </div>
+      </div>
+      <p class="lab-note">
+        {{ current.encrypted ? '此处业务负载已加密；显示内层字段是为学习，不代表 R 或运营商能读取它们。' : '已建立的网络被简化为一个包的轨迹；握手、TCP 确认、重传与实际链路时序没有展开。' }}
+      </p>
+    </details>
     <div class="lab-actions">
       <button :disabled="index === 0" @click="index--">
         上一步

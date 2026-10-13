@@ -8,7 +8,7 @@ const { Layout } = DefaultTheme
   <Layout>
     <template #doc-before>
       <div class="version-note">
-        独立学习教程 · EasyTier v2.6.4 · 从一个数据包开始
+        独立学习教程 · EasyTier v2.6.4 · 从本机观察开始
       </div>
     </template>
     <template #not-found>

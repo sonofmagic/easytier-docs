@@ -25,13 +25,17 @@ async (page) => {
   try {
     await page.setViewportSize({ width: 1440, height: 1000 })
     await page.goto(base)
-    await page.getByRole('heading', { name: /跟着一个数据包/ }).waitFor()
+    await page.getByRole('heading', { name: /先在自己的电脑上/ }).waitFor()
     await page.screenshot({ path: `${output}/home-desktop.png`, fullPage: true })
-    await page.getByRole('link', { name: '从第一章开始' }).click()
-    await page.waitForURL('**/chapters/01-why')
-    check(page.url().endsWith('/chapters/01-why'), 'First chapter navigation')
-    const slugs = ['01-why', '02-packets', '03-addresses', '04-protocols', '05-routing', '06-nat', '07-tun', '08-startup', '09-membership', '10-stun', '11-hole-punch', '12-security', '13-relay', '14-topology', '15-journey', '16-subnet-proxy', '17-apps-dns', '18-performance', '19-diagnostics', '20-practice']
-    for (const route of ['/', '/course', '/labs', '/glossary', '/sources', '/cases/local-gui', ...slugs.map(slug => `/chapters/${slug}`)]) {
+    await page.getByRole('link', { name: '从本机预备课开始' }).click()
+    await page.waitForURL('**/basics/browser-and-programs')
+    check(page.url().endsWith('/basics/browser-and-programs'), 'Beginner entry navigation')
+    const manifestResponse = await page.request.get(`${base}/course-manifest.json`)
+    check(manifestResponse.ok(), 'Course manifest available')
+    const manifest = await manifestResponse.json()
+    const routes = manifest.pages.map(entry => entry.route)
+    check(routes.length === 32, 'All 32 pages in central manifest')
+    for (const route of routes) {
       await page.goto(base + route)
       await page.locator('main h1').waitFor()
       check(await page.locator('main h1').count() === 1, `Single H1: ${route}`)
@@ -47,6 +51,9 @@ async (page) => {
     await page.goto(`${base}/labs`)
     const packet = page.getByTestId('packet-lab')
     await equalText(packet.getByTestId('packet-step'), 'A 发出业务请求')
+    check(await packet.locator('.packet-transport').getAttribute('open') === null, 'Transport detail starts collapsed')
+    await packet.locator('.packet-transport summary').click()
+    check(await packet.locator('.outer-fields').isVisible(), 'Transport detail expands')
     for (let i = 0; i < 7; i++) {
       await packet.getByRole('button', { name: '下一步', exact: true }).click()
     }
@@ -94,7 +101,7 @@ async (page) => {
     report.interactions.push('Topology: metrics, fallback, partition and reset')
     await page.evaluate(() => window.scrollTo(0, 0))
     await page.screenshot({ path: `${output}/labs-desktop.png`, fullPage: true })
-    for (const query of ['路由', '打洞', '网卡', 'NAT', 'TUN']) {
+    for (const query of ['服务', '监听', '本机', '回环', '端口', '路由', '打洞', '网卡', 'NAT', 'TUN']) {
       await page.getByRole('button', { name: '搜索教程' }).click()
       const input = page.locator('#localsearch-input')
       await input.fill(query)
@@ -109,7 +116,7 @@ async (page) => {
     await page.screenshot({ path: `${output}/labs-dark.png`, fullPage: true })
     await page.getByRole('switch').click()
     await page.setViewportSize({ width: 390, height: 844 })
-    for (const route of ['/', '/chapters/15-journey', '/labs', '/cases/local-gui']) {
+    for (const route of routes) {
       await page.goto(base + route)
       await page.locator('main h1').waitFor()
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1)
@@ -121,10 +128,18 @@ async (page) => {
       if (route === '/labs') {
         await page.screenshot({ path: `${output}/labs-mobile.png`, fullPage: true })
       }
+      if (route === '/basics/observe-a-request') {
+        await page.locator('details.advanced summary').first().click()
+        check(!(await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1)), 'Expanded beginner detail mobile overflow')
+        await page.screenshot({ path: `${output}/basics-mobile.png`, fullPage: true })
+      }
       if (route === '/cases/local-gui') {
         await page.screenshot({ path: `${output}/case-mobile.png`, fullPage: true })
       }
     }
+    const download = await page.request.get(`${base}/downloads/network-basics-demo.zip`)
+    check(download.ok() && (await download.body()).length > 100, 'Demo ZIP downloadable')
+    report.download = 'network-basics-demo.zip'
     check(errors.length === 0, `Browser runtime errors: ${errors.join('; ')}`)
     check(failures.length === 0, `Failed requests: ${failures.join('; ')}`)
     return report
