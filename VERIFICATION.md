@@ -17,7 +17,24 @@
 
 ### Nimbus 自动部署
 
-首次迁移提交 `db2b905eaa09b2663f3a4aded5d24baef859f7b9` 已自动上线，构建 `87bf9860-1f74-4625-bd16-67f8da979704`，控制台显示就绪、1m 50s、版本前缀 `353a759c` 承担 100% 流量。随后补充验收发现 Pagefind 原生部分词候选需要完整正文校验，已修复并增加两项回归测试；修正版与正式站全面验收将在下一次实际推送后记录。沿用已授权的单仓库 Git 集成，仅 `main` 自动完整检查与发布，不重新申请 GitHub App 权限。
+首次迁移提交 `db2b905eaa09b2663f3a4aded5d24baef859f7b9` 已自动上线，构建 `87bf9860-1f74-4625-bd16-67f8da979704`，控制台显示就绪、1m 50s，版本 `353a759c-9ff9-4ddb-87b5-5f57ac540237`。补充验收发现 Pagefind 原生部分词候选需要完整正文校验，随后修复并增加两项回归测试。
+
+正式验收对应提交 [`f061f774d03dea3007a722d24c9537720a9d5aaf`](https://github.com/sonofmagic/easytier-docs/commit/f061f774d03dea3007a722d24c9537720a9d5aaf)：
+
+- Cloudflare 构建 `e940f8ed-3f3d-42f1-8626-ab103e239c8a` 就绪，耗时 1m 51s；GitHub `Workers Builds: easytier-docs` 为 completed/success，并明确匹配提交 SHA。
+- 正式 Worker 版本 `1b768ae5-1849-4050-b49d-1ac944e36901`，发布时间 `2026-10-13T08:24:19.489061Z`，100% 流量；控制台与 Wrangler 只读部署列表一致。完整检查和发布由 `main` 推送触发，本轮没有用本机手动发布替代。
+- [线上后台浏览器](verification/nimbus-remote-browser.json)：32 页桌面与手机、28 图、十词搜索、全部模型及重置、暗色、目录、下载均通过；没有运行错误或失败请求。
+- [线上补充交互](verification/nimbus-extra-remote.json)：单字、双字、英文大小写、按页面去重、无结果、摘要安全呈现、标题锚点跳转及完整新手阅读流程通过；直接调用 Pagefind 原生 API 的十个查询均有结果。
+- [HTTPS 验收](verification/nimbus-remote-http.json)：正常证书校验与系统 DNS，177 次请求；32 页、371 旧锚点、内部链接与导航、64 个源码入口、llms、28 图源码、62 个干净 URL 重定向、真实 404、源码 MIME 与 nosniff、ZIP 均通过，错误为 0。
+- 下载 ZIP SHA-256 保持 `72859b3f5fc9d23e77a0c1f430e41dfd38f14291cb36084fb8772d30b75b5130`，与本地包及三个实验源文件逐字节一致。
+- Pagefind 的 macOS 与 Linux 构建可能产生不同索引哈希；验收读取线上清单来请求实际元数据及 WASM，验证 1.5.2、中文 32 页、压缩包装和 WASM 内容，并实际查询。稳定运行时 JS 保持严格字节比较，生成资源的哈希差异保留在报告中。
+- 已沿用单仓库 Git 集成，仅 `main` 自动完整检查与部署，没有重新申请 GitHub App 权限。发布成功，没有触发回滚。
+
+[部署摘要](verification/nimbus-deployment.json)关联提交、构建、Worker 与验收记录。本记录单独推送到 `main`；记录提交的后续自动部署状态可在该提交的 `Workers Builds: easytier-docs` 检查中查看。
+
+### Nimbus 资源收尾
+
+本地 Nimbus 生产预览仅监听 `127.0.0.1:4173`，替换旧预览并保留供本地阅读。用户原有文档页面与 EasyTier 网络保持运行。后台测试会话结束后定向关闭；部署观察标签结束后关闭。原生 Chrome 的一次新标签尝试在活动窗口变化后无法可靠定位，控制被用户窗口切换打断，因此保留无法确认归属的标签，避免误关用户页面。
 
 ## 零基础课程改版
 

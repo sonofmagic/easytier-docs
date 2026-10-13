@@ -17,6 +17,7 @@ from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from datetime import datetime, timezone
 import hashlib
+import gzip
 from html.parser import HTMLParser
 import io
 import json
@@ -149,6 +150,34 @@ def markdown_links(body, origin):
     return [urljoin(origin + "/", match) for match in re.findall(r"\]\(([^)]+)\)", body.decode("utf-8"))]
 
 
+def pagefind_payload(body):
+    """Validate the Pagefind 1.5.2 transport wrapper with bounded decoding.
+
+    Pagefind accepts a pagefind_dcd-prefixed payload or its gzip encoding. The
+    gzip filename/timestamp and generated index hashes can vary between builds.
+    They are not a portable content identity for a macOS/Linux comparison.
+    """
+    if body.startswith(b"\x1f\x8b"):
+        with gzip.GzipFile(fileobj=io.BytesIO(body)) as compressed:
+            decoded = compressed.read(MAX_BODY + 1)
+    else:
+        decoded = body
+    if len(decoded) > MAX_BODY or not decoded.startswith(b"pagefind_dcd"):
+        raise ValueError("Invalid Pagefind transport signature or size")
+    return decoded[12:]
+
+
+def pagefind_meta_version(payload):
+    # The 1.5.2 metadata CBOR array starts with its UTF-8 version string. Decode
+    # that actual field rather than treating a successful HTTP response as proof.
+    if len(payload) < 8 or payload[0] >> 5 != 4 or payload[0] & 31 >= 24:
+        raise ValueError("Invalid Pagefind metadata array")
+    text_length = payload[1] & 31
+    if payload[1] >> 5 != 3 or text_length >= 24:
+        raise ValueError("Invalid Pagefind metadata version field")
+    return payload[2:2 + text_length].decode("utf-8")
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--origin", required=True, help="Deployed HTTPS origin, without a path or credentials.")
@@ -196,8 +225,27 @@ def main():
         for path in ["/course-manifest.json", "/pagefind/pagefind-entry.json", "/search/chinese-index.json"]:
             endpoints[path] = "application/json"
         metadata = json.loads((DIST / "pagefind/pagefind-entry.json").read_bytes())
-        pagefind_paths = {"/pagefind/pagefind.js", "/pagefind/pagefind-worker.js", "/pagefind/wasm.unknown.pagefind"}
-        pagefind_paths.update(f"/pagefind/pagefind.{language['hash']}.pf_meta" for language in metadata["languages"].values())
+        metadata_path = "/pagefind/pagefind-entry.json"
+        metadata_response = fetch(origin, metadata_path)
+        require(metadata_response.status == 200, "Remote Pagefind manifest is unavailable.")
+        remote_metadata = json.loads(metadata_response.body)
+        require(remote_metadata.get("version") == "1.5.2" and any(
+            key.startswith("zh") and value.get("page_count") == 32
+            for key, value in remote_metadata.get("languages", {}).items()
+        ), "Pagefind must be version 1.5.2 and index all 32 Chinese pages.")
+        pagefind_paths = {"/pagefind/pagefind.js", "/pagefind/pagefind-worker.js"}
+        generated_paths = {}
+        for language, index in remote_metadata["languages"].items():
+            hash_name = index.get("hash", "")
+            wasm_name = index.get("wasm") or "unknown"
+            if not isinstance(hash_name, str) or not re.fullmatch(r"[a-z0-9_-]+", hash_name) or not isinstance(wasm_name, str) or not re.fullmatch(r"[a-z0-9_-]+", wasm_name):
+                raise ValueError("Invalid public Pagefind resource name")
+            local_index = metadata.get("languages", {}).get(language, {})
+            meta_path = f"/pagefind/pagefind.{hash_name}.pf_meta"
+            wasm_path = f"/pagefind/wasm.{wasm_name}.pagefind"
+            generated_paths[meta_path] = f"/pagefind/pagefind.{local_index.get('hash', '')}.pf_meta"
+            generated_paths[wasm_path] = f"/pagefind/wasm.{local_index.get('wasm') or 'unknown'}.pagefind"
+            pagefind_paths.update((meta_path, wasm_path))
         linked_paths = set()
         for route, page in local.items():
             for href in page.links:
@@ -208,8 +256,10 @@ def main():
         missing_paths = ["/missing-nimbus-qa-page", "/_headers"]
         zip_path = "/downloads/network-basics-demo.zip"
         paths = set(routes) | set(endpoints) | set(llms_paths) | pagefind_paths | linked_paths | set(redirect_targets) | set(missing_paths) | {zip_path, "/sitemap-index.xml", "/sitemap-0.xml"}
+        paths.discard(metadata_path)
         with ThreadPoolExecutor(max_workers=CONCURRENCY) as pool:
             responses = dict(zip(sorted(paths), pool.map(lambda path: fetch(origin, path), sorted(paths))))
+        responses[metadata_path] = metadata_response
         report["request_count"] = len(responses)
 
         remote = {}
@@ -260,7 +310,10 @@ def main():
             record = result.public(path)
             record["matches_local_bytes"] = result.body == local_file(path).read_bytes()
             record["sha256"] = digest(result.body)
-            record["ok"] = result.status == 200 and record["nosniff"] and record["matches_local_bytes"] and result.headers.get("content-type", "").split(";", 1)[0].strip() == media_type
+            record["ok"] = result.status == 200 and record["nosniff"] and (record["matches_local_bytes"] or path == metadata_path) and result.headers.get("content-type", "").split(";", 1)[0].strip() == media_type
+            if path == metadata_path:
+                record["byte_identity_required"] = False
+                record["validation"] = "Actual deployed manifest version/language/page count and referenced binary resources are validated separately."
             require(record["ok"], f"{path}: public source bytes, HTTP status, MIME or nosniff mismatch.")
             report["source_endpoints"].append(record)
         report["markdown_count"] = sum(path.endswith(".md") for path in endpoints)
@@ -321,19 +374,41 @@ def main():
         report["zip"] = zip_record
         require(zip_record["ok"], "Download ZIP must match the reviewed archive and all three public example source files.")
 
-        remote_metadata = json.loads(responses["/pagefind/pagefind-entry.json"].body)
         remote_supplement = json.loads(responses["/search/chinese-index.json"].body)
         report["search_resources"] = {"pagefind_version": remote_metadata.get("version"),
                                       "languages": remote_metadata.get("languages"),
-                                      "supplement_pages": len(remote_supplement.get("pages", [])), "resources": []}
-        require(remote_metadata.get("version") == "1.5.2" and any(key.startswith("zh") and value.get("page_count") == 32 for key, value in remote_metadata.get("languages", {}).items()), "Pagefind must be version 1.5.2 and index all 32 Chinese pages.")
+                                      "supplement_pages": len(remote_supplement.get("pages", [])), "resources": [],
+                                      "generated_artifact_policy": "Follow deployed manifest hashes; validate gzip/Pagefind signature, CBOR version and WASM header/size. Cross-platform generated byte differences are informational."}
         require(remote_supplement.get("version") == 1 and {page["url"] for page in remote_supplement.get("pages", [])} == set(routes), "Supplemental search index must cover all 32 pages.")
         for path in sorted(pagefind_paths):
             result = responses[path]
             record = result.public(path)
-            record["matches_local_bytes"] = result.body == local_file(path).read_bytes()
-            record["ok"] = result.status == 200 and record["nosniff"] and record["matches_local_bytes"]
-            require(record["ok"], path + ": Pagefind runtime resource differs from the local build or is unavailable.")
+            local_path = generated_paths.get(path, path)
+            local_body = local_file(local_path).read_bytes() if local_file(local_path).is_file() else b""
+            record.update({"sha256": digest(result.body), "local_equivalent_path": local_path,
+                           "local_sha256": digest(local_body) if local_body else None,
+                           "matches_local_bytes": result.body == local_body})
+            if path in generated_paths:
+                record["byte_identity_required"] = False
+                try:
+                    payload = pagefind_payload(result.body)
+                    record["decoded_size"] = len(payload)
+                    record["payload_sha256"] = digest(payload)
+                    record["matches_local_payload"] = bool(local_body) and payload == pagefind_payload(local_body)
+                    if path.endswith(".pf_meta"):
+                        record["metadata_version"] = pagefind_meta_version(payload)
+                        record["valid_payload"] = record["metadata_version"] == "1.5.2" and 32 <= len(payload) <= 2 * 1024 * 1024
+                    else:
+                        record["valid_payload"] = payload.startswith(b"\x00asm\x01\x00\x00\x00") and 1024 <= len(payload) <= 2 * 1024 * 1024
+                    record["ok"] = result.status == 200 and record["nosniff"] and record["valid_payload"]
+                except Exception as error:
+                    record["payload_error_type"] = type(error).__name__
+                    record["ok"] = False
+            else:
+                # The fixed-version JS loader/worker is the stable distribution.
+                record["byte_identity_required"] = True
+                record["ok"] = result.status == 200 and record["nosniff"] and record["matches_local_bytes"] and result.headers.get("content-type", "").split(";", 1)[0].strip() in ("text/javascript", "application/javascript")
+            require(record["ok"], path + ": deployed Pagefind runtime resource is unavailable or fails its format/version validation.")
             report["search_resources"]["resources"].append(record)
     except Exception as error:
         errors.append("Acceptance operation failed: " + type(error).__name__ + "; raw machine details omitted.")
@@ -343,7 +418,13 @@ def main():
     serialized = json.dumps(report, ensure_ascii=False, indent=2) + "\n"
     args.report.parent.mkdir(parents=True, exist_ok=True)
     args.report.write_text(serialized, encoding="utf-8")
-    print(serialized, end="")
+    print(json.dumps({"ok": report["ok"], "report": args.report.name,
+                      "pages": report.get("page_count", 0),
+                      "old_anchors": report.get("old_anchors_checked", 0),
+                      "markdown": report.get("markdown_count", 0),
+                      "mdx": report.get("mdx_count", 0),
+                      "diagrams": report.get("diagram_count", 0),
+                      "requests": report.get("request_count", 0), "errors": errors}, ensure_ascii=False))
     return 0 if report["ok"] else 1
 
 

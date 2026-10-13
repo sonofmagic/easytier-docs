@@ -1,0 +1,44 @@
+{
+  "origin": "https://easytier.icebreaker.top",
+  "repository": "https://github.com/sonofmagic/easytier-docs",
+  "branch": "main",
+  "automatic": true,
+  "build_command": "pnpm exec repo check --full",
+  "deploy_command": "pnpm exec wrangler deploy",
+  "node_major": 24,
+  "pnpm": "12.10.1",
+  "wrangler": "4.149.0",
+  "migration": {
+    "commit": "db2b905eaa09b2663f3a4aded5d24baef859f7b9",
+    "build_id": "87bf9860-1f74-4625-bd16-67f8da979704",
+    "worker_version": "353a759c-9ff9-4ddb-87b5-5f57ac540237",
+    "status": "ready",
+    "duration": "1m 50s"
+  },
+  "accepted_release": {
+    "commit": "f061f774d03dea3007a722d24c9537720a9d5aaf",
+    "build_id": "e940f8ed-3f3d-42f1-8626-ab103e239c8a",
+    "worker_version": "1b768ae5-1849-4050-b49d-1ac944e36901",
+    "deployed_at": "2026-10-13T08:24:19.489061Z",
+    "traffic_percent": 100,
+    "status": "ready",
+    "duration": "1m 51s",
+    "github_checks": [
+      {
+        "completed_at": "2026-10-13T08:24:24Z",
+        "conclusion": "success",
+        "details_url": "https://dash.cloudflare.com/2db8e8dc78d5ffdd9fe579a7188b7826/workers/services/view/easytier-docs/production/builds/e940f8ed-3f3d-42f1-8626-ab103e239c8a",
+        "head_sha": "f061f774d03dea3007a722d24c9537720a9d5aaf",
+        "name": "Workers Builds: easytier-docs",
+        "started_at": "2026-10-13T08:24:24Z",
+        "status": "completed"
+      }
+    ]
+  },
+  "evidence": {
+    "browser": "nimbus-remote-browser.json",
+    "search_and_beginner_flow": "nimbus-extra-remote.json",
+    "https": "nimbus-remote-http.json"
+  },
+  "rollback_required": false
+}

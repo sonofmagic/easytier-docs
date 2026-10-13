@@ -1,0 +1,1748 @@
+{
+  "started_at": "2026-10-13T08:32:12.157068+00:00",
+  "origin": "https://easytier.icebreaker.top",
+  "tls_verification": true,
+  "dns_override": false,
+  "proxy_bypassed": true,
+  "timeout_seconds": 15,
+  "max_concurrency": 4,
+  "ok": true,
+  "errors": [],
+  "request_count": 177,
+  "pages": [
+    {
+      "path": "/",
+      "status": 200,
+      "content_type": "text/html",
+      "nosniff": true,
+      "title": [
+        "从零理解 EasyTier"
+      ],
+      "h1": [
+        "从零理解 EasyTier"
+      ],
+      "old_anchors_checked": 0,
+      "diagrams": 0,
+      "matches_local_structure": true,
+      "ok": true
+    },
+    {
+      "path": "/course",
+      "status": 200,
+      "content_type": "text/html",
+      "nosniff": true,
+      "title": [
+        "学习路线：从本机网页到异地组网 | 从零理解 EasyTier"
+      ],
+      "h1": [
+        "学习路线：从本机网页到异地组网"
+      ],
+      "old_anchors_checked": 6,
+      "diagrams": 1,
+      "matches_local_structure": true,
+      "ok": true
+    },
+    {
+      "path": "/labs",
+      "status": 200,
+      "content_type": "text/html",
+      "nosniff": true,
+      "title": [
+        "浏览器交互实验 | 从零理解 EasyTier"
+      ],
+      "h1": [
+        "浏览器交互实验"
+      ],
+      "old_anchors_checked": 5,
+      "diagrams": 0,
+      "matches_local_structure": true,
+      "ok": true
+    },
+    {
+      "path": "/glossary",
+      "status": 200,
+      "content_type": "text/html",
+      "nosniff": true,
+      "title": [
+        "术语表 · 从看见的现象找到名字 | 从零理解 EasyTier"
+      ],
+      "h1": [
+        "术语表 · 从看见的现象找到名字"
+      ],
+      "old_anchors_checked": 6,
+      "diagrams": 0,
+      "matches_local_structure": true,
+      "ok": true
+    },
+    {
+      "path": "/sources",
+      "status": 200,
+      "content_type": "text/html",
+      "nosniff": true,
+      "title": [
+        "来源与版本说明 | 从零理解 EasyTier"
+      ],
+      "h1": [
+        "来源与版本说明"
+      ],
+      "old_anchors_checked": 5,
+      "diagrams": 0,
+      "matches_local_structure": true,
+      "ok": true
+    },
+    {
+      "path": "/cases/local-gui",
+      "status": 200,
+      "content_type": "text/html",
+      "nosniff": true,
+      "title": [
+        "实机案例 · 读懂已有 GUI 组网 | 从零理解 EasyTier"
+      ],
+      "h1": [
+        "实机案例 · 读懂已有 GUI 组网"
+      ],
+      "old_anchors_checked": 10,
+      "diagrams": 1,
+      "matches_local_structure": true,
+      "ok": true
+    },
+    {
+      "path": "/basics",
+      "status": 200,
+      "content_type": "text/html",
+      "nosniff": true,
+      "title": [
+        "零基础起步：先在自己的电脑上看见网络 | 从零理解 EasyTier"
+      ],
+      "h1": [
+        "零基础起步：先在自己的电脑上看见网络"
+      ],
+      "old_anchors_checked": 5,
+      "diagrams": 0,
+      "matches_local_structure": true,
+      "ok": true
+    },
+    {
+      "path": "/basics/browser-and-programs",
+      "status": 200,
+      "content_type": "text/html",
+      "nosniff": true,
+      "title": [
+        "预备 1：浏览器、文件和运行中的程序 | 从零理解 EasyTier"
+      ],
+      "h1": [
+        "预备 1：浏览器、文件和运行中的程序"
+      ],
+      "old_anchors_checked": 12,
+      "diagrams": 1,
+      "matches_local_structure": true,
+      "ok": true
+    },
+    {
+      "path": "/basics/local-webpage",
+      "status": 200,
+      "content_type": "text/html",
+      "nosniff": true,
+      "title": [
+        "预备 2：在自己电脑上打开一个网页 | 从零理解 EasyTier"
+      ],
+      "h1": [
+        "预备 2：在自己电脑上打开一个网页"
+      ],
+      "old_anchors_checked": 12,
+      "diagrams": 1,
+      "matches_local_structure": true,
+      "ok": true
+    },
+    {
+      "path": "/basics/read-a-url",
+      "status": 200,
+      "content_type": "text/html",
+      "nosniff": true,
+      "title": [
+        "预备 3：拆开一行网址 | 从零理解 EasyTier"
+      ],
+      "h1": [
+        "预备 3：拆开一行网址"
+      ],
+      "old_anchors_checked": 11,
+      "diagrams": 1,
+      "matches_local_structure": true,
+      "ok": true
+    },
+    {
+      "path": "/basics/my-network",
+      "status": 200,
+      "content_type": "text/html",
+      "nosniff": true,
+      "title": [
+        "预备 4：找到自己电脑的网络地址 | 从零理解 EasyTier"
+      ],
+      "h1": [
+        "预备 4：找到自己电脑的网络地址"
+      ],
+      "old_anchors_checked": 11,
+      "diagrams": 1,
+      "matches_local_structure": true,
+      "ok": true
+    },
+    {
+      "path": "/basics/observe-a-request",
+      "status": 200,
+      "content_type": "text/html",
+      "nosniff": true,
+      "title": [
+        "预备 5：亲眼看请求和回应 | 从零理解 EasyTier"
+      ],
+      "h1": [
+        "预备 5：亲眼看请求和回应"
+      ],
+      "old_anchors_checked": 13,
+      "diagrams": 1,
+      "matches_local_structure": true,
+      "ok": true
+    },
+    {
+      "path": "/chapters/01-why",
+      "status": 200,
+      "content_type": "text/html",
+      "nosniff": true,
+      "title": [
+        "01 · B 能打开自己的网页，为什么 A 不一定能 | 从零理解 EasyTier"
+      ],
+      "h1": [
+        "01 · B 能打开自己的网页，为什么 A 不一定能"
+      ],
+      "old_anchors_checked": 13,
+      "diagrams": 1,
+      "matches_local_structure": true,
+      "ok": true
+    },
+    {
+      "path": "/chapters/02-packets",
+      "status": 200,
+      "content_type": "text/html",
+      "nosniff": true,
+      "title": [
+        "02 · 一次请求怎样交到另一个程序 | 从零理解 EasyTier"
+      ],
+      "h1": [
+        "02 · 一次请求怎样交到另一个程序"
+      ],
+      "old_anchors_checked": 14,
+      "diagrams": 1,
+      "matches_local_structure": true,
+      "ok": true
+    },
+    {
+      "path": "/chapters/03-addresses",
+      "status": 200,
+      "content_type": "text/html",
+      "nosniff": true,
+      "title": [
+        "03 · 电脑上的地址和地址范围 | 从零理解 EasyTier"
+      ],
+      "h1": [
+        "03 · 电脑上的地址和地址范围"
+      ],
+      "old_anchors_checked": 13,
+      "diagrams": 1,
+      "matches_local_structure": true,
+      "ok": true
+    },
+    {
+      "path": "/chapters/04-protocols",
+      "status": 200,
+      "content_type": "text/html",
+      "nosniff": true,
+      "title": [
+        "04 · 到了这台电脑，怎样找到正确程序 | 从零理解 EasyTier"
+      ],
+      "h1": [
+        "04 · 到了这台电脑，怎样找到正确程序"
+      ],
+      "old_anchors_checked": 14,
+      "diagrams": 1,
+      "matches_local_structure": true,
+      "ok": true
+    },
+    {
+      "path": "/chapters/05-routing",
+      "status": 200,
+      "content_type": "text/html",
+      "nosniff": true,
+      "title": [
+        "05 · 系统怎样选择下一步，回应怎样回来 | 从零理解 EasyTier"
+      ],
+      "h1": [
+        "05 · 系统怎样选择下一步，回应怎样回来"
+      ],
+      "old_anchors_checked": 14,
+      "diagrams": 1,
+      "matches_local_structure": true,
+      "ok": true
+    },
+    {
+      "path": "/chapters/06-nat",
+      "status": 200,
+      "content_type": "text/html",
+      "nosniff": true,
+      "title": [
+        "06 · 为什么出去容易，别人找进来却可能失败 | 从零理解 EasyTier"
+      ],
+      "h1": [
+        "06 · 为什么出去容易，别人找进来却可能失败"
+      ],
+      "old_anchors_checked": 14,
+      "diagrams": 1,
+      "matches_local_structure": true,
+      "ok": true
+    },
+    {
+      "path": "/chapters/07-tun",
+      "status": 200,
+      "content_type": "text/html",
+      "nosniff": true,
+      "title": [
+        "07 · 系统怎样把 IP 包交给 EasyTier | 从零理解 EasyTier"
+      ],
+      "h1": [
+        "07 · 系统怎样把 IP 包交给 EasyTier"
+      ],
+      "old_anchors_checked": 13,
+      "diagrams": 1,
+      "matches_local_structure": true,
+      "ok": true
+    },
+    {
+      "path": "/chapters/08-startup",
+      "status": 200,
+      "content_type": "text/html",
+      "nosniff": true,
+      "title": [
+        "08 · 启动成功，还需要哪些条件 | 从零理解 EasyTier"
+      ],
+      "h1": [
+        "08 · 启动成功，还需要哪些条件"
+      ],
+      "old_anchors_checked": 14,
+      "diagrams": 1,
+      "matches_local_structure": true,
+      "ok": true
+    },
+    {
+      "path": "/chapters/09-membership",
+      "status": 200,
+      "content_type": "text/html",
+      "nosniff": true,
+      "title": [
+        "09 · 先认识入口，再认识彼此 | 从零理解 EasyTier"
+      ],
+      "h1": [
+        "09 · 先认识入口，再认识彼此"
+      ],
+      "old_anchors_checked": 14,
+      "diagrams": 1,
+      "matches_local_structure": true,
+      "ok": true
+    },
+    {
+      "path": "/chapters/10-stun",
+      "status": 200,
+      "content_type": "text/html",
+      "nosniff": true,
+      "title": [
+        "10 · 请外部观察者告诉我地址 | 从零理解 EasyTier"
+      ],
+      "h1": [
+        "10 · 请外部观察者告诉我地址"
+      ],
+      "old_anchors_checked": 14,
+      "diagrams": 1,
+      "matches_local_structure": true,
+      "ok": true
+    },
+    {
+      "path": "/chapters/11-hole-punch",
+      "status": 200,
+      "content_type": "text/html",
+      "nosniff": true,
+      "title": [
+        "11 · 双方发包，为什么可能连起来 | 从零理解 EasyTier"
+      ],
+      "h1": [
+        "11 · 双方发包，为什么可能连起来"
+      ],
+      "old_anchors_checked": 14,
+      "diagrams": 1,
+      "matches_local_structure": true,
+      "ok": true
+    },
+    {
+      "path": "/chapters/12-security",
+      "status": 200,
+      "content_type": "text/html",
+      "nosniff": true,
+      "title": [
+        "12 · 内容、身份与权限是三件事 | 从零理解 EasyTier"
+      ],
+      "h1": [
+        "12 · 内容、身份与权限是三件事"
+      ],
+      "old_anchors_checked": 14,
+      "diagrams": 1,
+      "matches_local_structure": true,
+      "ok": true
+    },
+    {
+      "path": "/chapters/13-relay",
+      "status": 200,
+      "content_type": "text/html",
+      "nosniff": true,
+      "title": [
+        "13 · 中继帮忙搬包，目标仍然是 B | 从零理解 EasyTier"
+      ],
+      "h1": [
+        "13 · 中继帮忙搬包，目标仍然是 B"
+      ],
+      "old_anchors_checked": 14,
+      "diagrams": 1,
+      "matches_local_structure": true,
+      "ok": true
+    },
+    {
+      "path": "/chapters/14-topology",
+      "status": 200,
+      "content_type": "text/html",
+      "nosniff": true,
+      "title": [
+        "14 · 有几条路，应该选哪一条 | 从零理解 EasyTier"
+      ],
+      "h1": [
+        "14 · 有几条路，应该选哪一条"
+      ],
+      "old_anchors_checked": 14,
+      "diagrams": 1,
+      "matches_local_structure": true,
+      "ok": true
+    },
+    {
+      "path": "/chapters/15-journey",
+      "status": 200,
+      "content_type": "text/html",
+      "nosniff": true,
+      "title": [
+        "15 · 追踪一次完整请求 | 从零理解 EasyTier"
+      ],
+      "h1": [
+        "15 · 追踪一次完整请求"
+      ],
+      "old_anchors_checked": 13,
+      "diagrams": 1,
+      "matches_local_structure": true,
+      "ok": true
+    },
+    {
+      "path": "/chapters/16-subnet-proxy",
+      "status": 200,
+      "content_type": "text/html",
+      "nosniff": true,
+      "title": [
+        "16 · 访问远端整个局域网 | 从零理解 EasyTier"
+      ],
+      "h1": [
+        "16 · 访问远端整个局域网"
+      ],
+      "old_anchors_checked": 13,
+      "diagrams": 1,
+      "matches_local_structure": true,
+      "ok": true
+    },
+    {
+      "path": "/chapters/17-apps-dns",
+      "status": 200,
+      "content_type": "text/html",
+      "nosniff": true,
+      "title": [
+        "17 · 网络通了，应用为什么还不通 | 从零理解 EasyTier"
+      ],
+      "h1": [
+        "17 · 网络通了，应用为什么还不通"
+      ],
+      "old_anchors_checked": 13,
+      "diagrams": 1,
+      "matches_local_structure": true,
+      "ok": true
+    },
+    {
+      "path": "/chapters/18-performance",
+      "status": 200,
+      "content_type": "text/html",
+      "nosniff": true,
+      "title": [
+        "18 · 延迟、丢包与 MTU | 从零理解 EasyTier"
+      ],
+      "h1": [
+        "18 · 延迟、丢包与 MTU"
+      ],
+      "old_anchors_checked": 13,
+      "diagrams": 1,
+      "matches_local_structure": true,
+      "ok": true
+    },
+    {
+      "path": "/chapters/19-diagnostics",
+      "status": 200,
+      "content_type": "text/html",
+      "nosniff": true,
+      "title": [
+        "19 · 按层排查，而不是反复重装 | 从零理解 EasyTier"
+      ],
+      "h1": [
+        "19 · 按层排查，而不是反复重装"
+      ],
+      "old_anchors_checked": 13,
+      "diagrams": 1,
+      "matches_local_structure": true,
+      "ok": true
+    },
+    {
+      "path": "/chapters/20-practice",
+      "status": 200,
+      "content_type": "text/html",
+      "nosniff": true,
+      "title": [
+        "20 · 模拟复习与可选两机实践 | 从零理解 EasyTier"
+      ],
+      "h1": [
+        "20 · 模拟复习与可选两机实践"
+      ],
+      "old_anchors_checked": 17,
+      "diagrams": 2,
+      "matches_local_structure": true,
+      "ok": true
+    }
+  ],
+  "page_count": 32,
+  "old_anchors_checked": 371,
+  "diagram_count": 28,
+  "internal_links_checked": 1960,
+  "source_endpoints": [
+    {
+      "path": "/basics/browser-and-programs/index.md",
+      "status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "afecb0e1b4e89ec3b94864157a65950c13ddfc9aad8a67c84f759f335e954f20",
+      "ok": true
+    },
+    {
+      "path": "/basics/browser-and-programs/index.mdx",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "d2438f3e6e9439ad113371e11aa2cd5fbdd675c7d8b5d21d465819a09d74fa16",
+      "ok": true
+    },
+    {
+      "path": "/basics/index.md",
+      "status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "caa623dd704766fe1456f71c1c65133fca7fcd5b3c17e752af16e230a9f336a3",
+      "ok": true
+    },
+    {
+      "path": "/basics/index.mdx",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "332e17990dcb6dc8477c0b31e7fb9e7863974ed7226e76f058e4f0f2b37f3ff4",
+      "ok": true
+    },
+    {
+      "path": "/basics/llms.txt",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "8433753dacc753959fbceaf45853a4d310f13400b4a784bf72436867768ae7eb",
+      "ok": true
+    },
+    {
+      "path": "/basics/local-webpage/index.md",
+      "status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "fa4682710c4b7bb5ba12d7073a30c5e0a94cb40ca2e1369e2c7e3ccccd6e4b7f",
+      "ok": true
+    },
+    {
+      "path": "/basics/local-webpage/index.mdx",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "1731bc8b1502c748279c8032b44acb6456e10158c1b8b3133ca53890a9492b6b",
+      "ok": true
+    },
+    {
+      "path": "/basics/my-network/index.md",
+      "status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "6b40f73e35bd1437b87217dfee8cace7f4c42fd1a94db167a53367e3d48326d8",
+      "ok": true
+    },
+    {
+      "path": "/basics/my-network/index.mdx",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "c689cbd61f7b93eb16cd8eeeadde2ff771e74af615a01e392d4e8168c56ff4d2",
+      "ok": true
+    },
+    {
+      "path": "/basics/observe-a-request/index.md",
+      "status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "001384d9a1834ac3df52c72c9a6b2f04a9b6f3bfa266c2ea83f64ffdb1aa43af",
+      "ok": true
+    },
+    {
+      "path": "/basics/observe-a-request/index.mdx",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "b59a1680852191e63928f73701da3b8873a7aadd84ea6ff24e4fb946e7cc58fc",
+      "ok": true
+    },
+    {
+      "path": "/basics/read-a-url/index.md",
+      "status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "5fd3bbcf5c1095ca1152680adef9795ea0a6a41ee9825b1d7fc860b93c401382",
+      "ok": true
+    },
+    {
+      "path": "/basics/read-a-url/index.mdx",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "77271a105e7609284e55e9d84dfa55fac07d59c56f8f1357c7aa8d38aed03749",
+      "ok": true
+    },
+    {
+      "path": "/cases/llms.txt",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "a2dc2c5a93f9177a5497efe24a2046df5975664b9b9f2e354e0e05b979f53cbc",
+      "ok": true
+    },
+    {
+      "path": "/cases/local-gui/index.md",
+      "status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "46acf6370f652457a074ff386c5746cfefda042ef939ef7e62edc6e0e0be76a8",
+      "ok": true
+    },
+    {
+      "path": "/cases/local-gui/index.mdx",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "1641cbd4ea73d725636412de88cdd1580458951a1293163e927b155a70139cf1",
+      "ok": true
+    },
+    {
+      "path": "/chapters/01-why/index.md",
+      "status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "948e18b9d86a60449df17dfd68e844d70dbd4407c7ddd63e5a4161f5eecc27b6",
+      "ok": true
+    },
+    {
+      "path": "/chapters/01-why/index.mdx",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "1cc28c176ff324223c9ebf005aa1cb2c1769ca1815c98b8104e497c680d79ae4",
+      "ok": true
+    },
+    {
+      "path": "/chapters/02-packets/index.md",
+      "status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "e96de812ca597fb633089dad0c655cbabb0e90991d00e00f86f2b1ba887c6284",
+      "ok": true
+    },
+    {
+      "path": "/chapters/02-packets/index.mdx",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "7cd5904c298b709f1ef5be400d4ac1f5ecfe4be883ded9a9b3f87590a69e5ea0",
+      "ok": true
+    },
+    {
+      "path": "/chapters/03-addresses/index.md",
+      "status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "a1ec31d7e795148e777f0b38e41b8076a10f7bae2dd1e25bd499d244fb3e8381",
+      "ok": true
+    },
+    {
+      "path": "/chapters/03-addresses/index.mdx",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "0d04387f698c967a3515cec0533dcb17174607eb8606af0a83605df0397c60ac",
+      "ok": true
+    },
+    {
+      "path": "/chapters/04-protocols/index.md",
+      "status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "91cee85e07cb926973d508fd6ec152f96423af4b4c94e62e62275774cf2a16d9",
+      "ok": true
+    },
+    {
+      "path": "/chapters/04-protocols/index.mdx",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "06aa745d3bcdfdc48db282b079f44fe68cf4eec22e8f2562ab73d004b3346951",
+      "ok": true
+    },
+    {
+      "path": "/chapters/05-routing/index.md",
+      "status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "4b570f68b8671d16155ce9286efb2352a0222f47d087bd3ad835589655ce39af",
+      "ok": true
+    },
+    {
+      "path": "/chapters/05-routing/index.mdx",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "19a15a930e1c0e36c6187581b34c1d7890d06d86652c310747a7c0eb122d305d",
+      "ok": true
+    },
+    {
+      "path": "/chapters/06-nat/index.md",
+      "status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "cb0d65bc7d8faa0145e956abe249be9651fe06cfaf46addce088c537d81de3fe",
+      "ok": true
+    },
+    {
+      "path": "/chapters/06-nat/index.mdx",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "775fb9d1015b2ac7b3c01d4181b01ce46f5e2046cd3c7dfdf0c9923fb2e260f9",
+      "ok": true
+    },
+    {
+      "path": "/chapters/07-tun/index.md",
+      "status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "810a5d37123a4fc34241408d4933a38e0b1ce3a490f55c4fb2638c9cef7b1761",
+      "ok": true
+    },
+    {
+      "path": "/chapters/07-tun/index.mdx",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "5e091247eb08dba5c053a908dfce0c7633941015ba0c2c43a8eb59750bff1c37",
+      "ok": true
+    },
+    {
+      "path": "/chapters/08-startup/index.md",
+      "status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "125009102fe51a40533177bbf53cf7358eea9ac6cfbb329f03c0ac401f8ba8b8",
+      "ok": true
+    },
+    {
+      "path": "/chapters/08-startup/index.mdx",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "7735a63ab4378531b16caf028fce5f4ee66cce409b589cb76d05b8ee08f6ba75",
+      "ok": true
+    },
+    {
+      "path": "/chapters/09-membership/index.md",
+      "status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "43b4988de4a4b68f4e4a8d54514847ed60302a87274650b4e5071e1021d9256a",
+      "ok": true
+    },
+    {
+      "path": "/chapters/09-membership/index.mdx",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "ae5a25447dd7a67d41f0c0543f604cafdb54b211c02d590624679026f2298976",
+      "ok": true
+    },
+    {
+      "path": "/chapters/10-stun/index.md",
+      "status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "edfcd3018c531b6cb6711352f3b16ebb682a9ea3fed24f48660c2b866302b464",
+      "ok": true
+    },
+    {
+      "path": "/chapters/10-stun/index.mdx",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "48a3134b75fed8b34515e46f87ef9da5bdd3af459eefa60fa13dfecb9ae88a87",
+      "ok": true
+    },
+    {
+      "path": "/chapters/11-hole-punch/index.md",
+      "status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "f77a5cf424bf2f0038ff6ce0a33a441bdbe1d9631fb59983ee4aef9b6bc37a50",
+      "ok": true
+    },
+    {
+      "path": "/chapters/11-hole-punch/index.mdx",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "35095d15716c57bc4625fbd2d2bd4f0e2ad3529f31eea8ed905d38c8f222074b",
+      "ok": true
+    },
+    {
+      "path": "/chapters/12-security/index.md",
+      "status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "89d7674646115e0a0204caa8eee7ec9f69d3dc19e8b771e793b43025bd092d56",
+      "ok": true
+    },
+    {
+      "path": "/chapters/12-security/index.mdx",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "123e119b98660f54d5ec855cf9c297b1f32e1afd38efc52751b049440cf2616b",
+      "ok": true
+    },
+    {
+      "path": "/chapters/13-relay/index.md",
+      "status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "d2d241ead33e1492d03b3b8fc68e3070ddf66fd05ccf86fbc89ff51fc4f3cce4",
+      "ok": true
+    },
+    {
+      "path": "/chapters/13-relay/index.mdx",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "7f692329d4cd7e444251cbe58b3b05660d983be8e60c196a025bb67874949e6b",
+      "ok": true
+    },
+    {
+      "path": "/chapters/14-topology/index.md",
+      "status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "c2441db28073fc43f3ab8d0bec0c5ab1baa9ae1d09498be27127631957701065",
+      "ok": true
+    },
+    {
+      "path": "/chapters/14-topology/index.mdx",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "4b9791579c9babda1c729628c0c58dddc981f6f581e2012505c63eaac4d197d0",
+      "ok": true
+    },
+    {
+      "path": "/chapters/15-journey/index.md",
+      "status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "d005d785a4395c0b895166a0bcf5e09c94c4003e4d210cf5181ef4061acc71f2",
+      "ok": true
+    },
+    {
+      "path": "/chapters/15-journey/index.mdx",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "13119d52657c5874897b250732938c7a473e7c68e897effbb090fef2aac74c4f",
+      "ok": true
+    },
+    {
+      "path": "/chapters/16-subnet-proxy/index.md",
+      "status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "b457aeb38ff6f5bdcb55b0ba6e6ef5b6379f8ba95b92496402a7671c7e895fb4",
+      "ok": true
+    },
+    {
+      "path": "/chapters/16-subnet-proxy/index.mdx",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "24e2511617c549f61eb463f61cfae82d3213803436a521a0119ee1294e42f084",
+      "ok": true
+    },
+    {
+      "path": "/chapters/17-apps-dns/index.md",
+      "status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "256a5e72cc22b9bd312db6a5196bcb70003a958180c5793dbb25a6b84b62fa26",
+      "ok": true
+    },
+    {
+      "path": "/chapters/17-apps-dns/index.mdx",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "63ecec79af50f1b531ebdac0747781d4078637269f93a8f7f7e85c8564a2bb21",
+      "ok": true
+    },
+    {
+      "path": "/chapters/18-performance/index.md",
+      "status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "a8202149979d5acd1ae91b316ac0457151c689652ace1d9b60f54239e927f5db",
+      "ok": true
+    },
+    {
+      "path": "/chapters/18-performance/index.mdx",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "a4f9441f331469081b9ae28be5fc9a25a7715c74981d5e7264bc91a374c25420",
+      "ok": true
+    },
+    {
+      "path": "/chapters/19-diagnostics/index.md",
+      "status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "5a297d3691cdfd45be941081103f4f01cdbf8c4cbf638c867307fa04aa9353f3",
+      "ok": true
+    },
+    {
+      "path": "/chapters/19-diagnostics/index.mdx",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "f6037f0d2e6c1a965f9d4b717276f456eacd57ea0232f1a47e01700993c672ef",
+      "ok": true
+    },
+    {
+      "path": "/chapters/20-practice/index.md",
+      "status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "e098c1d6f994bc636530622faa3140ee1c1f1eaf2b3307e271f750f6fcff6d56",
+      "ok": true
+    },
+    {
+      "path": "/chapters/20-practice/index.mdx",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "50ad5c969ed752375e9c7a0a6777c61619c4aeb54fc42e03c6c8d4f139989d1e",
+      "ok": true
+    },
+    {
+      "path": "/chapters/llms.txt",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "64afe076df48c0e9b4a3b7f2bf0cf3cf01df76dbb5fa7ac4f9d3391ed793feb4",
+      "ok": true
+    },
+    {
+      "path": "/course-manifest.json",
+      "status": 200,
+      "content_type": "application/json",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "249f22a8c1cb15dc873d226573c65427c9956c0f61b32d6582afb3c936f7d582",
+      "ok": true
+    },
+    {
+      "path": "/course/index.md",
+      "status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "5eb007a41a835510d2c80ce84dbe4c4e3d01a6eea98d97f2718e3dfc429301a1",
+      "ok": true
+    },
+    {
+      "path": "/course/index.mdx",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "e649386ef8a8eeff9a194567967a31acdf9fb6de8c80254ca3aa03e824b9c9af",
+      "ok": true
+    },
+    {
+      "path": "/glossary/index.md",
+      "status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "55dd74be71fce176e69f5745eaab5a1558a1105ca848700c02b2cad293c6202d",
+      "ok": true
+    },
+    {
+      "path": "/glossary/index.mdx",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "0accad38220545b1bfe0aed4de688062a385234adabf2cb24eb3a63991b4b1d8",
+      "ok": true
+    },
+    {
+      "path": "/index.md",
+      "status": 200,
+      "content_type": "text/markdown; charset=utf-8, text/markdown; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "8fc2c3c0815c5162cf5d5e80a6e278141fd82f909613c1037ccc75ebe3a9749a",
+      "ok": true
+    },
+    {
+      "path": "/index.mdx",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "ce7b576b387ae72842266024d0813dfc68ca10aa177f619eee8baccace05edaa",
+      "ok": true
+    },
+    {
+      "path": "/labs/index.md",
+      "status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "ce9810ed376f2f0f4f3da259bf6b47f6df556e31612e08c55b47d8244d5f6290",
+      "ok": true
+    },
+    {
+      "path": "/labs/index.mdx",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "8329fdb6cd57c7d03da6cedcce859b798d2e6b3c084e8df33d2814d8657573d9",
+      "ok": true
+    },
+    {
+      "path": "/llms-full.txt",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "e335673167e50a989f3014b91df280d76714c7bcf4f2ac4a3f1e9afb1a459b4d",
+      "ok": true
+    },
+    {
+      "path": "/llms.txt",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "69566544180683710f163cf5c1de46dcc7c7146c7c6833a44b63121723e0c8e3",
+      "ok": true
+    },
+    {
+      "path": "/pagefind/pagefind-entry.json",
+      "status": 200,
+      "content_type": "application/json",
+      "nosniff": true,
+      "matches_local_bytes": false,
+      "sha256": "cc61ed48ca9398a7b6653c6092994b1e81881c7632c2b1ae4acf380f6095c52a",
+      "ok": true,
+      "byte_identity_required": false,
+      "validation": "Actual deployed manifest version/language/page count and referenced binary resources are validated separately."
+    },
+    {
+      "path": "/robots.txt",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "5a9888a9b4e2fd1fc1f0d9bceda201457b2ed5ad4c1c80a00ce33d84b5810a80",
+      "ok": true
+    },
+    {
+      "path": "/search/chinese-index.json",
+      "status": 200,
+      "content_type": "application/json",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "f7e5b6c71fdbca133ef9a038d60cf44d1a3901b8b8cf96f6ba0fbb4b912715aa",
+      "ok": true
+    },
+    {
+      "path": "/sources/index.md",
+      "status": 200,
+      "content_type": "text/markdown; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "4f0ddbfeb79243c3fca9019a47945909747ebdc24ca40afca230a7601858d420",
+      "ok": true
+    },
+    {
+      "path": "/sources/index.mdx",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "nosniff": true,
+      "matches_local_bytes": true,
+      "sha256": "09dc3c5eb6944b70458d0145f0a48ed98bdcca311528dc49529a286779b2f4eb",
+      "ok": true
+    }
+  ],
+  "markdown_count": 32,
+  "mdx_count": 32,
+  "llms_tree": {
+    "section_indexes": [
+      "/basics/llms.txt",
+      "/cases/llms.txt",
+      "/chapters/llms.txt",
+      "/llms.txt"
+    ],
+    "page_count": 32,
+    "covers_manifest": true
+  },
+  "not_found": [
+    {
+      "path": "/missing-nimbus-qa-page",
+      "status": 404,
+      "content_type": "text/html",
+      "nosniff": true,
+      "ok": true
+    },
+    {
+      "path": "/_headers",
+      "status": 404,
+      "content_type": "text/html",
+      "nosniff": true,
+      "ok": true
+    }
+  ],
+  "clean_url_redirects": [
+    {
+      "path": "/basics.html",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/basics",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/basics/",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/basics",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/basics/browser-and-programs.html",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/basics/browser-and-programs",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/basics/browser-and-programs/",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/basics/browser-and-programs",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/basics/local-webpage.html",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/basics/local-webpage",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/basics/local-webpage/",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/basics/local-webpage",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/basics/my-network.html",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/basics/my-network",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/basics/my-network/",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/basics/my-network",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/basics/observe-a-request.html",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/basics/observe-a-request",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/basics/observe-a-request/",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/basics/observe-a-request",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/basics/read-a-url.html",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/basics/read-a-url",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/basics/read-a-url/",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/basics/read-a-url",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/cases/local-gui.html",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/cases/local-gui",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/cases/local-gui/",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/cases/local-gui",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/01-why.html",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/01-why",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/01-why/",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/01-why",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/02-packets.html",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/02-packets",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/02-packets/",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/02-packets",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/03-addresses.html",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/03-addresses",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/03-addresses/",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/03-addresses",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/04-protocols.html",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/04-protocols",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/04-protocols/",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/04-protocols",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/05-routing.html",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/05-routing",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/05-routing/",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/05-routing",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/06-nat.html",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/06-nat",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/06-nat/",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/06-nat",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/07-tun.html",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/07-tun",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/07-tun/",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/07-tun",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/08-startup.html",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/08-startup",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/08-startup/",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/08-startup",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/09-membership.html",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/09-membership",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/09-membership/",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/09-membership",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/10-stun.html",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/10-stun",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/10-stun/",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/10-stun",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/11-hole-punch.html",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/11-hole-punch",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/11-hole-punch/",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/11-hole-punch",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/12-security.html",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/12-security",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/12-security/",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/12-security",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/13-relay.html",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/13-relay",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/13-relay/",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/13-relay",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/14-topology.html",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/14-topology",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/14-topology/",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/14-topology",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/15-journey.html",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/15-journey",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/15-journey/",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/15-journey",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/16-subnet-proxy.html",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/16-subnet-proxy",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/16-subnet-proxy/",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/16-subnet-proxy",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/17-apps-dns.html",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/17-apps-dns",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/17-apps-dns/",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/17-apps-dns",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/18-performance.html",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/18-performance",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/18-performance/",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/18-performance",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/19-diagnostics.html",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/19-diagnostics",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/19-diagnostics/",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/19-diagnostics",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/20-practice.html",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/20-practice",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/chapters/20-practice/",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/chapters/20-practice",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/course.html",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/course",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/course/",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/course",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/glossary.html",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/glossary",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/glossary/",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/glossary",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/labs.html",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/labs",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/labs/",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/labs",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/sources.html",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/sources",
+      "target_status": 200,
+      "ok": true
+    },
+    {
+      "path": "/sources/",
+      "status": 307,
+      "location": "https://easytier.icebreaker.top/sources",
+      "target_status": 200,
+      "ok": true
+    }
+  ],
+  "sitemap": {
+    "status": 200,
+    "page_count": 32,
+    "covers_manifest": true
+  },
+  "zip": {
+    "path": "/downloads/network-basics-demo.zip",
+    "status": 200,
+    "content_type": "application/zip",
+    "nosniff": true,
+    "sha256": "72859b3f5fc9d23e77a0c1f430e41dfd38f14291cb36084fb8772d30b75b5130",
+    "source_sha256": "72859b3f5fc9d23e77a0c1f430e41dfd38f14291cb36084fb8772d30b75b5130",
+    "matches_local_archive": true,
+    "files": [
+      "network-basics-demo/README.txt",
+      "network-basics-demo/index.html",
+      "network-basics-demo/message.txt"
+    ],
+    "matches_example_sources": true,
+    "ok": true
+  },
+  "search_resources": {
+    "pagefind_version": "1.5.2",
+    "languages": {
+      "zh-cn": {
+        "hash": "zh-cn_da7837b9b1e32",
+        "wasm": null,
+        "page_count": 32
+      }
+    },
+    "supplement_pages": 32,
+    "resources": [
+      {
+        "path": "/pagefind/pagefind-worker.js",
+        "status": 200,
+        "content_type": "text/javascript",
+        "nosniff": true,
+        "sha256": "4ca50d25bcab9e1c3afbc00ab5f7761114e83c8fc1b83d38655af1558b650c2a",
+        "local_equivalent_path": "/pagefind/pagefind-worker.js",
+        "local_sha256": "4ca50d25bcab9e1c3afbc00ab5f7761114e83c8fc1b83d38655af1558b650c2a",
+        "matches_local_bytes": true,
+        "byte_identity_required": true,
+        "ok": true
+      },
+      {
+        "path": "/pagefind/pagefind.js",
+        "status": 200,
+        "content_type": "text/javascript",
+        "nosniff": true,
+        "sha256": "252d272bd34d483d19a752060f6a065114d15ab12c42d8f905ca565e2768a009",
+        "local_equivalent_path": "/pagefind/pagefind.js",
+        "local_sha256": "252d272bd34d483d19a752060f6a065114d15ab12c42d8f905ca565e2768a009",
+        "matches_local_bytes": true,
+        "byte_identity_required": true,
+        "ok": true
+      },
+      {
+        "path": "/pagefind/pagefind.zh-cn_da7837b9b1e32.pf_meta",
+        "status": 200,
+        "content_type": "",
+        "nosniff": true,
+        "sha256": "2ed781585cd4636d8d87eadf87dda82db0ca26048039647238ac5fc1fb6583c2",
+        "local_equivalent_path": "/pagefind/pagefind.zh-cn_bf7f9fe32ea94.pf_meta",
+        "local_sha256": "c7e96db2d5aad0557ce5c217b0f0a1dc6a5ed699dfadea407efbb2d82250c21d",
+        "matches_local_bytes": false,
+        "byte_identity_required": false,
+        "decoded_size": 732,
+        "payload_sha256": "791810ba0bf38c415c2cd0ff6de37dbbfa229854a5f8282d307c5dc00b688f72",
+        "matches_local_payload": false,
+        "metadata_version": "1.5.2",
+        "valid_payload": true,
+        "ok": true
+      },
+      {
+        "path": "/pagefind/wasm.unknown.pagefind",
+        "status": 200,
+        "content_type": "",
+        "nosniff": true,
+        "sha256": "3a74cefceacd066e8d3bc8c52e7bc1c869544ca3d9031b44a9b7136356d5d7f4",
+        "local_equivalent_path": "/pagefind/wasm.unknown.pagefind",
+        "local_sha256": "2533da887ac06de36813d031310af0f737daadacc931775e342aa5a3857a4959",
+        "matches_local_bytes": false,
+        "byte_identity_required": false,
+        "decoded_size": 140524,
+        "payload_sha256": "26fc70ed88bf7c04481a2d5c92ac353218c2bc5af56d79e318d3c22c70d5bd8f",
+        "matches_local_payload": false,
+        "valid_payload": true,
+        "ok": true
+      }
+    ],
+    "generated_artifact_policy": "Follow deployed manifest hashes; validate gzip/Pagefind signature, CBOR version and WASM header/size. Cross-platform generated byte differences are informational."
+  },
+  "finished_at": "2026-10-13T08:32:52.642718+00:00"
+}
