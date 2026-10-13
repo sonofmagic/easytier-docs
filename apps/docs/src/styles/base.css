@@ -1,0 +1,164 @@
+@layer base {
+  :root {
+    --surface: #fbfcfe;
+    --ink: #24364a;
+    --muted: #5c6f83;
+    --line: #dce5ee;
+    --accent: #2469a8;
+    --soft: #edf3f9;
+
+    font-family:
+      -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+      "Microsoft YaHei", sans-serif;
+    font-size: 17px;
+    line-height: 1.85;
+    color: var(--ink);
+    color-scheme: light;
+    background: var(--surface);
+  }
+
+  :root.dark {
+    --surface: #121d2b;
+    --ink: #e2eaf3;
+    --muted: #a7b8ca;
+    --line: #31465c;
+    --accent: #8dc6ff;
+    --soft: #1d2e42;
+
+    color-scheme: dark;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  a {
+    color: var(--accent);
+    text-underline-offset: 0.2em;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    line-height: 1.45;
+    scroll-margin-top: 6rem;
+  }
+
+  h1 {
+    margin: 0 0 1rem;
+    font-size: clamp(1.85rem, 3.1vw, 2.75rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+
+  h2 {
+    margin-top: 2.8rem;
+    font-size: 1.45rem;
+  }
+
+  h3 {
+    margin-top: 2rem;
+    font-size: 1.15rem;
+  }
+
+  p,
+  li {
+    overflow-wrap: anywhere;
+  }
+
+  code {
+    font-family: SFMono-Regular, Consolas, monospace;
+    font-size: 0.88em;
+  }
+
+  pre {
+    padding: 1.15rem;
+    overflow: auto;
+    border: 1px solid var(--line);
+    border-radius: 0.5rem;
+  }
+
+  :not(pre) > code {
+    padding: 0.12rem 0.3rem;
+    background: var(--soft);
+    border-radius: 0.2rem;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  table {
+    display: block;
+    width: 100%;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    font-size: 0.92rem;
+    border-collapse: collapse;
+  }
+
+  td,
+  th {
+    padding: 0.65rem 0.9rem;
+    text-align: start;
+    border: 1px solid var(--line);
+  }
+
+  th {
+    background: var(--soft);
+  }
+
+  blockquote {
+    padding-left: 1rem;
+    margin-left: 0;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+  }
+
+  button,
+  input,
+  select {
+    font: inherit;
+  }
+
+  button,
+  summary {
+    cursor: pointer;
+  }
+
+  button {
+    padding: 0.45rem 0.75rem;
+    color: var(--surface);
+    background: var(--accent);
+    border: 0;
+    border-radius: 0.4rem;
+  }
+
+  button:disabled {
+    cursor: default;
+    opacity: 0.5;
+  }
+
+  input,
+  select {
+    min-width: 0;
+    padding: 0.45rem;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 0.4rem;
+  }
+
+  input {
+    width: 100%;
+  }
+}

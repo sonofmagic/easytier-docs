@@ -4,7 +4,7 @@ on:
   # push:
   #   branches: ['main']
   pull_request:
-    types: [ opened, synchronize ]
+    types: [opened, synchronize]
     paths-ignore:
       - '**/*.md'
       - 'docs/**'
@@ -27,8 +27,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ ubuntu-latest, windows-latest, macos-latest ]
-        node-version: [ 22, 24 ]
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node-version: [24]
     runs-on: ${{ matrix.os }}
     # Remote Caching enabled - configure TURBO_TOKEN and TURBO_TEAM in repository settings
     env:
@@ -65,12 +65,7 @@ jobs:
         run: pnpm build
 
       - name: Typecheck
-        if: ${{ matrix.os != 'windows-latest' || matrix.node-version != 22 }}
         run: pnpm typecheck
-
-      - name: Typecheck (Windows Node 22)
-        if: ${{ matrix.os == 'windows-latest' && matrix.node-version == 22 }}
-        run: pnpm exec turbo run typecheck --concurrency=1
 
       - name: TSD
         run: pnpm tsd

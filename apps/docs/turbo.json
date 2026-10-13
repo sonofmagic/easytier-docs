@@ -1,0 +1,9 @@
+{
+  "extends": ["//"],
+  "tasks": {
+    "build": { "inputs": ["$TURBO_DEFAULT$"], "outputs": ["dist/**", ".astro/**", ".nimbus/**"] },
+    "lint": { "inputs": ["$TURBO_DEFAULT$"] },
+    "typecheck": { "inputs": ["$TURBO_DEFAULT$"] },
+    "test": { "inputs": ["$TURBO_DEFAULT$"] }
+  }
+}

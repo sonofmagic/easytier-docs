@@ -1,0 +1,8 @@
+---
+import NatLabClient from './NatLab.vue'
+
+interface Props { controlId?: string }
+const { controlId = 'nat-lab-preset' } = Astro.props
+---
+
+<NatLabClient controlId={controlId} client:load />

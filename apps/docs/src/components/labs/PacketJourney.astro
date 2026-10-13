@@ -1,0 +1,8 @@
+---
+import PacketJourneyClient from './PacketJourney.vue'
+
+interface Props { controlId?: string }
+const { controlId = 'packet-journey-path' } = Astro.props
+---
+
+<PacketJourneyClient controlId={controlId} client:load />

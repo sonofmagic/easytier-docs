@@ -7,7 +7,7 @@
   "description": "从零理解 EasyTier 的中文本地教程网站",
   "license": "MIT",
   "engines": {
-    "node": ">=22.13.0"
+    "node": ">=24"
   },
   "scripts": {
     "build": "turbo run build",
@@ -51,9 +51,9 @@
     "pr:next": "repo release pre enter next",
     "pr:exit": "repo release pre exit",
     "--------": "----------------",
-    "docs:dev": "pnpm --dir apps/website dev",
-    "docs:build": "pnpm --dir apps/website build",
-    "docs:preview": "pnpm --dir apps/website preview",
+    "docs:dev": "pnpm --dir apps/docs dev",
+    "docs:build": "pnpm --dir apps/docs build",
+    "docs:preview": "pnpm --dir apps/docs preview",
     "docs:deploy": "pnpm exec wrangler deploy"
   },
   "devDependencies": {
@@ -66,7 +66,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^17.6.0",
     "only-allow": "^1.2.2",
-    "repoctl": "5.10.3",
+    "repoctl": "^5.10.3",
     "stylelint": "^17.16.0",
     "tailwindcss": "^4.3.3",
     "tsd": "^0.33.0",

@@ -1,0 +1,8 @@
+---
+import TopologyLabClient from './TopologyLab.vue'
+
+interface Props { controlId?: string }
+const { controlId = 'topology-lab-metric' } = Astro.props
+---
+
+<TopologyLabClient controlId={controlId} client:load />

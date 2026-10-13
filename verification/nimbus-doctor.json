@@ -1,0 +1,2843 @@
+{
+  "cwd": "<workspace>",
+  "workspaceDir": "<workspace>",
+  "packageCount": 1,
+  "checks": [
+    {
+      "id": "template-version-evidence",
+      "title": "Template package comparison evidence",
+      "status": "pass",
+      "detail": "Actual installed template package metadata; the remote latest version was not queried."
+    },
+    {
+      "id": "template-instance-registry",
+      "title": "Managed template baseline registry",
+      "status": "pass",
+      "path": ".repoctl/template-instances.json",
+      "detail": "available: Registered template instances were loaded."
+    },
+    {
+      "id": "root-asset-registry",
+      "title": "Managed template baseline registry",
+      "status": "pass",
+      "path": ".repoctl/baselines/root",
+      "detail": "absent: No root asset baselines are registered; existing root files were not inspected."
+    },
+    {
+      "id": "template-instance-baseline",
+      "title": "Template instance baseline",
+      "path": "apps/docs",
+      "status": "pass",
+      "detail": "available: Both retained source and rendered snapshots passed integrity validation."
+    },
+    {
+      "id": "template-instance-version",
+      "title": "Retained template package version",
+      "path": "apps/docs",
+      "status": "pass",
+      "detail": "Compared retained 2.3.3 with installed 2.3.3; these package versions match."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/.gitignore",
+      "status": "pass",
+      "detail": "unchanged"
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/AGENTS.md",
+      "status": "warn",
+      "detail": "modified",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/LICENSE",
+      "status": "pass",
+      "detail": "unchanged"
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/README.md",
+      "status": "warn",
+      "detail": "modified",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/UPSTREAM.md",
+      "status": "warn",
+      "detail": "modified",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/astro.config.ts",
+      "status": "warn",
+      "detail": "modified",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/eslint.config.js",
+      "status": "pass",
+      "detail": "unchanged"
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/nimbus.json",
+      "status": "pass",
+      "detail": "unchanged"
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/package.json",
+      "status": "warn",
+      "detail": "modified",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/public/favicon.svg",
+      "status": "warn",
+      "detail": "modified",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/scripts/check-locales.mjs",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/components.ts",
+      "status": "warn",
+      "detail": "modified",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/components/aside.astro",
+      "status": "pass",
+      "detail": "unchanged"
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/components/head.astro",
+      "status": "warn",
+      "detail": "modified",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/components/search/client.ts",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/components/search/index.astro",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/components/sidebar.astro",
+      "status": "pass",
+      "detail": "unchanged"
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/content.config.ts",
+      "status": "pass",
+      "detail": "unchanged"
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/content/docs/get-started.mdx",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/content/docs/index.mdx",
+      "status": "warn",
+      "detail": "modified",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/content/docs/writing.mdx",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/content/docs/zh/get-started.mdx",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/content/docs/zh/index.mdx",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/content/docs/zh/writing.mdx",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/env.d.ts",
+      "status": "pass",
+      "detail": "unchanged"
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/layouts/docs.astro",
+      "status": "warn",
+      "detail": "modified",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/lib/locale.ts",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/pages/[...slug].astro",
+      "status": "warn",
+      "detail": "modified",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/pages/[...slug]/index.md.ts",
+      "status": "pass",
+      "detail": "unchanged"
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/pages/[...slug]/index.mdx.ts",
+      "status": "pass",
+      "detail": "unchanged"
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/pages/[section]/llms.txt.ts",
+      "status": "pass",
+      "detail": "unchanged"
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/pages/llms-full.txt.ts",
+      "status": "pass",
+      "detail": "unchanged"
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/pages/llms.txt.ts",
+      "status": "pass",
+      "detail": "unchanged"
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/pages/robots.txt.ts",
+      "status": "pass",
+      "detail": "unchanged"
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/styles/base.css",
+      "status": "warn",
+      "detail": "modified",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/styles/site.css",
+      "status": "warn",
+      "detail": "modified",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/stylelint.config.js",
+      "status": "pass",
+      "detail": "unchanged"
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/tsconfig.json",
+      "status": "pass",
+      "detail": "unchanged"
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/public",
+      "status": "pass",
+      "detail": "unchanged"
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/scripts",
+      "status": "pass",
+      "detail": "unchanged"
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src",
+      "status": "pass",
+      "detail": "unchanged"
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/components",
+      "status": "pass",
+      "detail": "unchanged"
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/components/search",
+      "status": "pass",
+      "detail": "unchanged"
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/content",
+      "status": "pass",
+      "detail": "unchanged"
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/content/docs",
+      "status": "pass",
+      "detail": "unchanged"
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/content/docs/zh",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/docs/src/content/docs/zh'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/layouts",
+      "status": "pass",
+      "detail": "unchanged"
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/lib",
+      "status": "pass",
+      "detail": "unchanged"
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/pages",
+      "status": "pass",
+      "detail": "unchanged"
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/pages/[...slug]",
+      "status": "pass",
+      "detail": "unchanged"
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/pages/[section]",
+      "status": "pass",
+      "detail": "unchanged"
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/docs/src/styles",
+      "status": "pass",
+      "detail": "unchanged"
+    },
+    {
+      "id": "template-instance-baseline",
+      "title": "Template instance baseline",
+      "path": "apps/website",
+      "status": "pass",
+      "detail": "available: Both retained source and rendered snapshots passed integrity validation."
+    },
+    {
+      "id": "template-instance-version",
+      "title": "Retained template package version",
+      "path": "apps/website",
+      "status": "pass",
+      "detail": "Compared retained 2.3.3 with installed 2.3.3; these package versions match."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/.gitignore",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/.vitepress/config.ts",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/.vitepress/env.d.ts",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/.vitepress/home/content.ts",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/.vitepress/home/faq.ts",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/.vitepress/home/types.ts",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/.vitepress/mermaid/markdown.ts",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/.vitepress/mermaid/mermaid.vue",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/.vitepress/mermaid/render.ts",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/.vitepress/navigation/routes.ts",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/.vitepress/seo.ts",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/.vitepress/theme/Layout.vue",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/.vitepress/theme/components/HomePage.vue",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/.vitepress/theme/home/foundation.css",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/.vitepress/theme/home/index.css",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/.vitepress/theme/home/responsive.css",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/.vitepress/theme/home/sections.css",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/.vitepress/theme/index.ts",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/.vitepress/theme/tailwind.css",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/ai/create.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/ai/index.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/ai/llms-txt.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/index.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/index.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/monorepo/commands.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/monorepo/index.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/monorepo/manage.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/monorepo/publish.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/monorepo/templates.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/monorepo/troubleshooting.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/assets/npm-dt.svg",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/assets/npm-ts.svg",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/0.npm-basic-package/index.js",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/0.npm-basic-package/package.json",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/1.npm-basic-package/index.cjs",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/1.npm-basic-package/index.d.ts",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/1.npm-basic-package/index.js",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/1.npm-basic-package/package.json",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/2.npm-basic-package/README.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/2.npm-basic-package/package.json",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/2.npm-basic-package/rename-ext.js",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/2.npm-basic-package/src/index.ts",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/2.npm-basic-package/tsconfig.cjs.json",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/2.npm-basic-package/tsconfig.esm.json",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/2.npm-basic-package/tsconfig.json",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/3.npm-basic-package/README.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/3.npm-basic-package/package.json",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/3.npm-basic-package/src/index.ts",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/3.npm-basic-package/tsconfig.json",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/3.npm-basic-package/tsdown.config.ts",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/usage-cjs/cjs.cjs",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/usage-cjs/esm.mjs",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/usage-cjs/index.js",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/usage-cjs/package.json",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/usage-esm/cjs.cjs",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/usage-esm/createRequire.js",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/usage-esm/esm.mjs",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/usage-esm/index.js",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/usage-esm/package.json",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/index.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/modern-overview.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/modern/bundlers.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/modern/dts.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/modern/esm-vs-cjs.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/modern/index.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/modern/package-entry-points.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/modern/typescript.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/module-extensions.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/publish.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/reuse-javascript.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/runtime-globals.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/repoctl-model.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/tools/changeset.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/tools/husky.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/tools/index.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/tools/lint-staged.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/tools/llms-txt.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/tools/pnpm.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/tools/renovate.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/tools/repoctl-vs-pnpm-turborepo.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/tools/turborepo.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/package.json",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/public/_redirects",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/public/brand/apple-touch-icon.png",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/public/brand/favicon.ico",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/public/brand/repoctl-lockup-dark.svg",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/public/brand/repoctl-lockup.svg",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/public/brand/repoctl-mark-192.png",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/public/brand/repoctl-mark-dark.svg",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/public/brand/repoctl-mark.svg",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/public/brand/repoctl-social-en.png",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/public/brand/repoctl-social-en.webp",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/public/brand/repoctl-social-zh.png",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/public/brand/repoctl-social-zh.webp",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/public/favicon.ico",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/public/logo.jpg",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/public/repoctl-doctor.png",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/public/robots.txt",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/reference/aliases.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/reference/artifacts.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/reference/commands.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/reference/config.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/reference/dependencies.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/reference/dependency-admission.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/reference/devcontainer.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/reference/execution-model.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/reference/index.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/reference/install-security.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/reference/knip.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/reference/move.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/reference/organization-presets.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/reference/output.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/reference/removal.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/reference/template-assets.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/reference/templates.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/scripts/check-locales.ts",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/start/choose-next.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/start/diagnose.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/start/first-run.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/start/index.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/start/install-repoctl.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/start/install.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/start/what-is-repoctl.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/tasks/adopt-existing.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/tasks/checks.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/tasks/ci.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/tasks/create-project.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/tasks/index.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/tasks/release.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/tasks/reports.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/tasks/troubleshooting.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/test/mermaid.test.ts",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/test/render.test.ts",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/test/seo.test.ts",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/tsconfig.json",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/vitest.config.ts",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/wrangler.jsonc",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/ai/create.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/ai/index.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/ai/llms-txt.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/index.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/index.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/monorepo/commands.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/monorepo/index.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/monorepo/manage.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/monorepo/publish.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/monorepo/templates.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/monorepo/troubleshooting.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/assets/npm-dt.svg",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/assets/npm-ts.svg",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/0.npm-basic-package/index.js",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/0.npm-basic-package/package.json",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/1.npm-basic-package/index.cjs",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/1.npm-basic-package/index.d.ts",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/1.npm-basic-package/index.js",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/1.npm-basic-package/package.json",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/2.npm-basic-package/README.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/2.npm-basic-package/package.json",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/2.npm-basic-package/rename-ext.js",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/2.npm-basic-package/src/index.ts",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/2.npm-basic-package/tsconfig.cjs.json",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/2.npm-basic-package/tsconfig.esm.json",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/2.npm-basic-package/tsconfig.json",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/3.npm-basic-package/README.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/3.npm-basic-package/package.json",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/3.npm-basic-package/src/index.ts",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/3.npm-basic-package/tsconfig.json",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/3.npm-basic-package/tsdown.config.ts",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/usage-cjs/cjs.cjs",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/usage-cjs/esm.mjs",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/usage-cjs/index.js",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/usage-cjs/package.json",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/usage-esm/cjs.cjs",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/usage-esm/createRequire.js",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/usage-esm/esm.mjs",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/usage-esm/index.js",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/usage-esm/package.json",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/index.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/modern-overview.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/modern/bundlers.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/modern/dts.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/modern/esm-vs-cjs.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/modern/index.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/modern/package-entry-points.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/modern/typescript.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/module-extensions.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/publish.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/reuse-javascript.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/runtime-globals.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/repoctl-model.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/tools/changeset.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/tools/husky.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/tools/index.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/tools/lint-staged.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/tools/llms-txt.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/tools/pnpm.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/tools/renovate.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/tools/repoctl-vs-pnpm-turborepo.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/tools/turborepo.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/reference/aliases.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/reference/artifacts.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/reference/commands.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/reference/config.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/reference/dependencies.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/reference/dependency-admission.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/reference/devcontainer.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/reference/execution-model.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/reference/index.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/reference/install-security.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/reference/knip.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/reference/move.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/reference/organization-presets.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/reference/output.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/reference/removal.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/reference/template-assets.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/reference/templates.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/start/choose-next.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/start/diagnose.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/start/first-run.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/start/index.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/start/install-repoctl.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/start/install.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/start/what-is-repoctl.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/tasks/adopt-existing.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/tasks/checks.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/tasks/ci.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/tasks/create-project.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/tasks/index.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/tasks/release.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/tasks/reports.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/tasks/troubleshooting.md",
+      "status": "warn",
+      "detail": "deleted",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/.vitepress",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/.vitepress'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/.vitepress/home",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/.vitepress/home'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/.vitepress/mermaid",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/.vitepress/mermaid'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/.vitepress/navigation",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/.vitepress/navigation'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/.vitepress/theme",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/.vitepress/theme'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/.vitepress/theme/components",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/.vitepress/theme/components'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/.vitepress/theme/home",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/.vitepress/theme/home'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/ai",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/ai'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/learn'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/monorepo",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/learn/monorepo'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/learn/packages'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/assets",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/learn/packages/assets'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/learn/packages/examples'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/0.npm-basic-package",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/learn/packages/examples/0.npm-basic-package'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/1.npm-basic-package",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/learn/packages/examples/1.npm-basic-package'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/2.npm-basic-package",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/learn/packages/examples/2.npm-basic-package'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/2.npm-basic-package/src",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/learn/packages/examples/2.npm-basic-package/src'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/3.npm-basic-package",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/learn/packages/examples/3.npm-basic-package'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/3.npm-basic-package/src",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/learn/packages/examples/3.npm-basic-package/src'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/usage-cjs",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/learn/packages/examples/usage-cjs'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/examples/usage-esm",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/learn/packages/examples/usage-esm'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/packages/modern",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/learn/packages/modern'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/learn/tools",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/learn/tools'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/public",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/public'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/public/brand",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/public/brand'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/reference",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/reference'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/scripts",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/scripts'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/start",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/start'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/tasks",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/tasks'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/test",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/test'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/zh'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/ai",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/zh/ai'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/zh/learn'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/monorepo",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/zh/learn/monorepo'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/zh/learn/packages'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/assets",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/zh/learn/packages/assets'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/zh/learn/packages/examples'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/0.npm-basic-package",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/zh/learn/packages/examples/0.npm-basic-package'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/1.npm-basic-package",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/zh/learn/packages/examples/1.npm-basic-package'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/2.npm-basic-package",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/zh/learn/packages/examples/2.npm-basic-package'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/2.npm-basic-package/src",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/zh/learn/packages/examples/2.npm-basic-package/src'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/3.npm-basic-package",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/zh/learn/packages/examples/3.npm-basic-package'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/3.npm-basic-package/src",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/zh/learn/packages/examples/3.npm-basic-package/src'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/usage-cjs",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/zh/learn/packages/examples/usage-cjs'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/examples/usage-esm",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/zh/learn/packages/examples/usage-esm'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/packages/modern",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/zh/learn/packages/modern'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/learn/tools",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/zh/learn/tools'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/reference",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/zh/reference'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/start",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/zh/start'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "template-instance-drift",
+      "title": "Managed template path",
+      "path": "apps/website/zh/tasks",
+      "status": "warn",
+      "detail": "deleted: ENOENT: no such file or directory, lstat '<workspace>/apps/website/zh/tasks'",
+      "fix": "Review local modifications and deletions; preserve business changes or explicitly exclude owned paths during an instance upgrade."
+    },
+    {
+      "id": "package-json",
+      "title": "package.json",
+      "status": "pass",
+      "detail": "Found root package manifest: <workspace>/package.json"
+    },
+    {
+      "id": "workspace-manifest",
+      "title": "pnpm workspace",
+      "status": "pass",
+      "detail": "Found a pnpm workspace with 1 package(s)."
+    },
+    {
+      "id": "config-file",
+      "title": "Configuration file",
+      "status": "pass",
+      "detail": "Found repoctl.config.ts."
+    },
+    {
+      "id": "commit-hooks",
+      "title": "Commit hooks",
+      "status": "pass",
+      "detail": "Found .husky/pre-commit and lint-staged.config.js."
+    },
+    {
+      "id": "workspace-patterns",
+      "title": "Workspace patterns",
+      "status": "pass",
+      "detail": "pnpm-workspace.yaml includes the existing conventional workspace directories."
+    },
+    {
+      "id": "workspace-package-coverage",
+      "title": "Workspace package coverage",
+      "status": "pass",
+      "detail": "Every package.json in a conventional workspace directory is covered."
+    },
+    {
+      "id": "manifest-health",
+      "title": "Workspace manifest health",
+      "status": "pass",
+      "detail": "Static manifest checks passed for 2 package(s)."
+    },
+    {
+      "id": "node-version",
+      "title": "Node version",
+      "status": "pass",
+      "detail": "Node v24.18.0 satisfies >=24."
+    },
+    {
+      "id": "node-version-files",
+      "title": "Node version files",
+      "status": "pass",
+      "detail": "Existing numeric Node version files agree with this runtime and engines.node (when declared); missing files are optional."
+    },
+    {
+      "id": "package-manager",
+      "title": "Declared package manager",
+      "status": "pass",
+      "detail": "packageManager pins pnpm@12.10.1."
+    },
+    {
+      "id": "pnpm-version",
+      "title": "Observed pnpm version",
+      "status": "pass",
+      "detail": "Observed pnpm 12.10.1; declared 12.10.1. Source: npm_config_user_agent (inherited launch evidence)."
+    },
+    {
+      "id": "lockfile-sync",
+      "title": "Manifest and lockfile consistency",
+      "status": "warn",
+      "detail": "Cannot prove consistency for transformed or unsupported specifiers: apps/docs: devDependencies.typescript (override); .: devDependencies.typescript (override).",
+      "fix": "Review the evidence limit and validate with the declared pnpm version. Regenerate the lockfile only when dependency state needs updating; unsupported transformations remain unknown."
+    },
+    {
+      "id": "installation-state",
+      "title": "Recorded installation state",
+      "status": "warn",
+      "detail": "Installation cannot be confirmed until manifest/lockfile consistency is resolved.",
+      "fix": "Review the evidence limit and validate with the declared pnpm version. Explicitly run pnpm install if the installation is missing or stale; unsupported layouts remain unknown."
+    },
+    {
+      "id": "install-security-version",
+      "status": "pass",
+      "title": "pnpm installation security policy",
+      "detail": "Audited pnpm 12.10.1; version evidence: observed. No pnpm launcher was executed."
+    },
+    {
+      "id": "install-security-release-age",
+      "status": "pass",
+      "title": "pnpm installation security policy",
+      "detail": "minimumReleaseAge: 0 minute(s), explicitly configured; release waiting is disabled. Exceptions are reported by package name."
+    },
+    {
+      "id": "install-security-trust",
+      "status": "pass",
+      "title": "pnpm installation security policy",
+      "detail": "trustPolicy: off; minimumReleaseAgeIgnoreMissingTime: true; trustPolicyIgnoreAfter: unset minute(s); trustLockfile: false. Off, exclusions, age cutoffs and trusted lockfiles reduce the checked scope."
+    },
+    {
+      "id": "install-security-builds",
+      "status": "pass",
+      "title": "pnpm installation security policy",
+      "detail": "Unlisted dependency builds: unreviewed; strictDepBuilds: true. Global build override: none. Explicit allow, deny and pending decisions describe configured declarations; overrides may prevent or bypass them. Installation pendingBuilds means not yet built, not necessarily unapproved. ignoreScripts does not disable pnpmfile hooks."
+    },
+    {
+      "id": "tool-package",
+      "title": "repo CLI dependency",
+      "status": "pass",
+      "detail": "Detected CLI dependency: repoctl@^5.10.3"
+    },
+    {
+      "id": "root-scripts",
+      "title": "repo:* root scripts",
+      "status": "pass",
+      "detail": "Found repo:init, repo:new, repo:check, and repo:doctor root scripts."
+    },
+    {
+      "id": "tooling-imports",
+      "title": "Tooling imports",
+      "status": "pass",
+      "detail": "Tooling configuration uses current repoctl entrypoints."
+    },
+    {
+      "id": "release-workflow",
+      "title": "release workflow",
+      "status": "pass",
+      "detail": "The release workflow is managed by # repoctl-managed: release/v2."
+    },
+    {
+      "id": "release-cli-version",
+      "title": "release CLI version",
+      "status": "pass",
+      "detail": "repoctl ^5.10.3 supports release ci."
+    },
+    {
+      "id": "release-versioning-config",
+      "title": "release versioning config",
+      "status": "pass",
+      "detail": "pnpm fixed groups are valid and repository changelog storage is configured."
+    }
+  ],
+  "summary": {
+    "pass": 57,
+    "warn": 307,
+    "fail": 0
+  }
+}

@@ -29,7 +29,7 @@ Windows 使用已确认的 Python 3 入口，如 `py -3 -m http.server 8877 --bi
 
 ## 源码本地阅读
 
-推荐 Node.js 24；工作区最低要求 Node.js 22.13，固定使用 pnpm 12.10.1。先安装对应版本的 Node.js 和 pnpm，然后执行：
+使用 Node.js 24；工作区最低要求 Node.js 24，固定使用 pnpm 12.10.1。先安装对应版本的 Node.js 和 pnpm，然后执行：
 
 ```sh
 git clone https://github.com/sonofmagic/easytier-docs.git
@@ -47,7 +47,7 @@ pnpm docs:build
 pnpm docs:preview
 ```
 
-构建产物在 `apps/website/.vitepress/dist`。生产预览使用项目内的静态服务器，明确绑定本机 `127.0.0.1:4173`；先停止占用该端口的本项目开发服务。当前 VitePress alpha 的内置 preview 未按 host 参数限制监听地址，因此项目使用该服务器保证只在本机阅读。如果端口被其他应用占用，开发时使用 `pnpm --dir apps/website dev --port 4174`，生产预览使用 `pnpm --dir apps/website preview --port 4174`，保留其他应用。
+构建产物在 `apps/docs/dist`。生产预览使用项目内的静态服务器，明确绑定本机 `127.0.0.1:4173`；先停止占用该端口的本项目开发服务。Nimbus 基于 Astro，项目的静态预览服务器明确绑定回环接口，并返回真实 404。如果端口被其他应用占用，开发时使用 `pnpm --dir apps/docs dev --port 4174`，生产预览使用 `pnpm --dir apps/docs preview --port 4174`，保留其他应用。
 
 完整验收：
 
@@ -121,15 +121,15 @@ pnpm exec wrangler rollback <VERSION_ID>
 
 ## 内容与维护
 
-- `apps/website/basics/`、`basics.md`：5 节本机预备课和入门索引。
-- `examples/network-basics-demo/`、`apps/website/public/downloads/`：实验源文件及公开 ZIP。
-- `apps/website/chapters/`：20 章教程，使用统一 A、B、R 案例及版本。
-- `apps/website/cases/local-gui.md`：真实观测附录；公开地址已替换，设备使用别名。
-- `apps/website/glossary.md`、`sources.md`：术语和来源。
-- `apps/website/labs.md`：三个实验的操作说明。
-- `apps/website/.vitepress/data/course.ts`：单一课程清单，统一预备课、章节、前置关系、导航和中文分词。
-- `apps/website/.vitepress/data/models.ts`：确定性教学模型；Vue 组件位于主题 `components/`。
-- `apps/website/scripts/check-docs.ts`：文档结构和内部路径检查；Vitest 覆盖模型与分词。
+- `apps/docs/src/content/docs/basics/`、`basics.md`：5 节本机预备课和入门索引。
+- `examples/network-basics-demo/`、`apps/docs/public/downloads/`：实验源文件及公开 ZIP。
+- `apps/docs/src/content/docs/chapters/`：20 章教程，使用统一 A、B、R 案例及版本。
+- `apps/docs/src/content/docs/cases/local-gui.md`：真实观测附录；公开地址已替换，设备使用别名。
+- `apps/docs/src/content/docs/glossary.md`、`sources.md`：术语和来源。
+- `apps/docs/src/content/docs/labs.mdx`：三个实验的操作说明。
+- `apps/docs/src/data/course.ts`：单一课程清单，统一预备课、章节、前置关系、导航和中文分词。
+- `apps/docs/src/data/models.ts`：确定性教学模型；Vue 岛组件位于 `apps/docs/src/components/labs/`。
+- `apps/docs/scripts/check-docs.ts`：文档结构和内部路径检查；Vitest 覆盖模型与分词。
 
 各实现相关结论固定依据 EasyTier v2.6.4，release commit 为 `8428a89d2dabc94c97d370ec607c6ca142473626`。当前官网可能更新，正文区分通用原理与该版本实现。先修本机实验由读者亲手运行 Python，真实新建双机组网放在可选进阶说明；网站不会自动安装 EasyTier、Python 或修改网络配置。附录仅记录授权的有限 ICMP 测试，不代表 HTTP 可用性、具体打洞过程或性能已验证。
 
@@ -140,3 +140,11 @@ pnpm exec wrangler rollback <VERSION_ID>
 三个实验是模型：NAT 映射与过滤分别展示，拓扑延迟使用简单相加且即时选路，包旅程省略真实握手和重传。模型测试不等于真实跨网组网或性能测试。
 
 验证记录与截图见 [VERIFICATION.md](VERIFICATION.md)、`verification/`。
+
+## Nimbus 工程
+
+站点由 repoctl 的 Nimbus 模板创建，使用 Nimbus 0.17.0、Astro 7.3.8、Pagefind 1.5.2 和 Vue 岛组件。源码位于 `apps/docs`；组件页面使用 MDX，其余课程使用 Markdown。中文单字与双字查询由真实公开正文生成的补充索引支持，搜索仅在浏览器本地运行。
+
+课程清单集中在 `src/data/course.ts`；布局从 frontmatter 输出唯一 H1。旧 URL 与页内锚点保留。Markdown、MDX 源码及 llms 入口随静态网站构建。
+
+原 VitePress 模板的登记与基线作为迁移历史保留，旧目标缺失会产生预期 doctor 警告；不修改登记来伪装为 Nimbus。当前验收记录见 `VERIFICATION.md`。

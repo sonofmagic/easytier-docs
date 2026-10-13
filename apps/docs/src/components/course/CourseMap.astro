@@ -1,0 +1,51 @@
+---
+import { basics, chapterLink, chapters, stages } from '../../data/course'
+---
+
+<div class="course-map">
+  <section class="course-stage">
+    <div class="stage-heading">
+      <span class="course-kicker">预备 1—5</span>
+      <h2>先在本机看见</h2>
+      <p>从网页启停和界面读数开始，知道请求者、服务、地址、端口各是什么。</p>
+      <a href="/basics">准备说明与实验包 →</a>
+    </div>
+    <ol class="course-list">
+      {basics.map((lesson, index) => (
+        <li>
+          <a href={lesson.route}>
+            <span class="course-number">预备 {index + 1}</span>
+            <span class="course-description">
+              <strong>{lesson.title.split(' · ')[1]}</strong>
+              <small>{lesson.goal}</small>
+            </span>
+            <span class="course-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </section>
+  {stages.map(stage => (
+    <section class="course-stage">
+      <div class="stage-heading">
+        <span class="course-kicker">{stage.range}</span>
+        <h2>{stage.title}</h2>
+        <p>{stage.goal}</p>
+      </div>
+      <ol class="course-list" start={stage.start + 1}>
+        {chapters.slice(stage.start, stage.end).map(([slug, title, description]) => (
+          <li>
+            <a href={chapterLink(slug)}>
+              <span class="course-number">{slug.slice(0, 2)}</span>
+              <span class="course-description">
+                <strong>{title}</strong>
+                <small>{description}</small>
+              </span>
+              <span class="course-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </section>
+  ))}
+</div>

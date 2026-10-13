@@ -1,0 +1,29 @@
+---
+import './search.css'
+---
+
+<details class="search-panel" data-search data-base={import.meta.env.BASE_URL}>
+  <summary>搜索正文 <span aria-hidden="true">⌕</span></summary>
+  <form role="search">
+    <label for="docs-search">输入概念或术语</label>
+    <div class="search-controls">
+      <input id="docs-search" name="query" type="search" autocomplete="off" placeholder="路由、打洞、NAT…" aria-describedby="search-help search-status" />
+      <button type="submit">搜索</button>
+    </div>
+  </form>
+  <p id="search-help" class="search-help">支持中文单字、双字词与英文术语；搜索在浏览器中完成。</p>
+  <p id="search-status" role="status" aria-live="polite" aria-atomic="true"></p>
+  <ul class="search-results" data-search-results aria-busy="false"></ul>
+</details>
+
+<script>
+  import { mountSearch } from './client.ts'
+
+  const cleanups = [...document.querySelectorAll<HTMLElement>('[data-search]')].map(mountSearch)
+  document.addEventListener('astro:before-swap', () => cleanups.forEach(cleanup => cleanup()), { once: true })
+  window.addEventListener('pagehide', (event) => {
+    if (!event.persisted) {
+      cleanups.forEach(cleanup => cleanup())
+    }
+  })
+</script>

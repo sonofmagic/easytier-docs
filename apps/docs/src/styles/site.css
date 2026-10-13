@@ -1,0 +1,291 @@
+@import "./base.css";
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 4.3rem;
+  padding: 0.75rem max(1.25rem, calc((100vw - 94rem) / 2));
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.header-links,
+.header-actions {
+  display: flex;
+  gap: 1.3rem;
+  align-items: center;
+  font-size: 0.84rem;
+}
+
+.header-links a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.header-actions button {
+  color: var(--ink);
+  background: var(--soft);
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.docs-grid {
+  display: grid;
+  grid-template-columns: 15rem minmax(0, 47rem) 12rem;
+  gap: 2.5rem;
+  justify-content: center;
+  max-width: 94rem;
+  padding: 2.5rem 1.25rem;
+  margin: auto;
+}
+
+.site-rail,
+.page-rail {
+  position: sticky;
+  top: 5.7rem;
+  align-self: start;
+  max-height: calc(100dvh - 7rem);
+  overflow-y: auto;
+  font-size: 0.8rem;
+}
+
+.site-rail {
+  padding-right: 0.6rem;
+}
+
+.rail-title {
+  font-size: 0.75rem;
+  font-weight: 650;
+  color: var(--muted);
+}
+
+.navigation-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.navigation-list ul {
+  padding-left: 0.65rem;
+  margin-bottom: 1.2rem;
+  border-left: 1px solid var(--line);
+}
+
+.navigation-list > li > span {
+  display: block;
+  margin-top: 1.3rem;
+  margin-bottom: 0.4rem;
+  font-weight: 650;
+}
+
+.navigation-list a {
+  display: block;
+  padding: 0.35rem 0.45rem;
+  line-height: 1.65;
+  color: var(--muted);
+  text-decoration: none;
+  border-radius: 0.25rem;
+}
+
+.navigation-list a[aria-current="page"] {
+  font-weight: 650;
+  color: var(--accent);
+  background: var(--soft);
+}
+
+.navigation-list a:hover {
+  color: var(--accent);
+}
+
+.index-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+}
+
+main {
+  min-width: 0;
+}
+
+.lesson-meta {
+  margin: 0 0 0.7rem;
+  font-size: 0.76rem;
+  color: var(--muted);
+}
+
+.description {
+  margin: 0 0 2.2rem;
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+
+article > :first-child {
+  margin-top: 0;
+}
+
+article li + li {
+  margin-top: 0.35rem;
+}
+
+article details {
+  padding: 1rem 1.1rem;
+  margin: 1.3rem 0;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+}
+
+article details summary {
+  font-weight: 600;
+}
+
+article details > :last-child {
+  margin-bottom: 0;
+}
+
+article details.advanced {
+  background: var(--surface);
+}
+
+.callout {
+  padding: 1rem 1.2rem;
+  margin: 1.5rem 0;
+  background: var(--soft);
+  border-left: 3px solid var(--accent);
+}
+
+.lesson-pagination {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  padding-top: 1.6rem;
+  margin-top: 3rem;
+  border-top: 1px solid var(--line);
+}
+
+.lesson-pagination a {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+}
+
+.lesson-pagination small {
+  margin-bottom: 0.3rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.document-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.2rem;
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.skip-link {
+  position: fixed;
+  top: -5rem;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.5rem;
+  background: var(--surface);
+}
+
+.skip-link:focus {
+  top: 0.5rem;
+}
+
+@media (max-width: 80rem) {
+  .docs-grid {
+    grid-template-columns: 14rem minmax(0, 47rem);
+    gap: 2rem;
+  }
+
+  .page-rail {
+    display: none;
+  }
+}
+
+@media (max-width: 52rem) {
+  :root {
+    font-size: 16px;
+  }
+
+  .header-links {
+    display: none;
+  }
+
+  .site-header {
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .brand {
+    gap: 0.4rem;
+    font-size: 0.92rem;
+  }
+
+  .brand img {
+    width: 24px;
+  }
+
+  .header-actions {
+    gap: 0.4rem;
+  }
+
+  #menu-toggle {
+    display: block;
+  }
+
+  .docs-grid {
+    display: block;
+    padding: 1.8rem 1.1rem;
+  }
+
+  .site-rail {
+    position: fixed;
+    top: 4.3rem;
+    right: 0;
+    left: 0;
+    z-index: 15;
+    display: none;
+    max-height: calc(100dvh - 4.3rem);
+    padding: 1.3rem;
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .site-rail.is-open {
+    display: block;
+  }
+
+  .description {
+    font-size: 1.02rem;
+  }
+
+  .lesson-pagination {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

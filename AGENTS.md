@@ -17,7 +17,7 @@ pnpm exec repo new <name> --template <key>
 | API / Hono service       | `hono-server` |
 | TypeScript library / SDK | `tsdown`      |
 | Vue component library    | `vue-lib`     |
-| Documentation site       | `vitepress`   |
+| Documentation site       | `nimbus`      |
 | CLI                      | `cli`         |
 
 Preview without writing files: `pnpm exec repo new <name> --template <key> --dry-run`.

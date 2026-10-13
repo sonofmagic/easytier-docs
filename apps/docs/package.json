@@ -1,0 +1,52 @@
+{
+  "name": "docs",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "description": "从零理解 EasyTier：Nimbus 中文课程",
+  "author": "ice breaker <15621541+sonofmagic@users.noreply.github.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sonofmagic/easytier-docs.git",
+    "directory": "apps/docs"
+  },
+  "bugs": {
+    "url": "https://github.com/sonofmagic/easytier-docs/issues"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1 --port 4173",
+    "check:docs": "node --experimental-strip-types scripts/check-docs.ts",
+    "build": "pnpm check:docs && astro build && node --experimental-strip-types scripts/build-search.ts && node --experimental-strip-types scripts/check-built.ts",
+    "preview": "node --experimental-strip-types scripts/preview.ts",
+    "typecheck": "astro check && tsc --noEmit",
+    "lint": "eslint . && stylelint \"src/**/*.css\" && nimbus-docs lint",
+    "lint:docs": "nimbus-docs lint",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@astrojs/vue": "7.0.3",
+    "@cloudflare/nimbus-docs": "0.17.0",
+    "astro": "7.3.8",
+    "satteri": "0.10.5",
+    "vue": "3.5.43"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@astrojs/language-server": "2.17.2",
+    "@types/markdown-it": "^14.1.2",
+    "astro-eslint-parser": "^3.2.0",
+    "eslint-plugin-astro": "^3.2.1",
+    "eslint-plugin-mdx": "^3.8.1",
+    "linkedom": "^0.18.12",
+    "markdown-it": "^14.1.0",
+    "mermaid": "12.1.0",
+    "pagefind": "1.5.2",
+    "typescript": "^6.0.3",
+    "vitest": "~5.0.3",
+    "yaml": "^2.9.1"
+  }
+}

@@ -1,0 +1,35 @@
+.mermaid {
+  margin-block: 1.5rem;
+}
+
+.mermaid__status {
+  font-size: 0.9rem;
+  color: inherit;
+}
+
+.mermaid__diagram {
+  max-width: 100%;
+  padding-block: 0.5rem;
+  overflow-x: auto;
+}
+
+.mermaid__diagram svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-inline: auto;
+}
+
+.mermaid__source {
+  margin-block-start: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.mermaid__source summary {
+  cursor: pointer;
+}
+
+.mermaid__source pre {
+  overflow-x: auto;
+  white-space: pre;
+}

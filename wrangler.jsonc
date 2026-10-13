@@ -5,8 +5,8 @@
   "compatibility_date": "2026-10-13",
   "workers_dev": false,
   "assets": {
-    "directory": "./apps/website/.vitepress/dist",
-    "html_handling": "auto-trailing-slash",
+    "directory": "./apps/docs/dist",
+    "html_handling": "drop-trailing-slash",
     "not_found_handling": "404-page"
   },
   "routes": [

@@ -2,6 +2,32 @@
   "schemaVersion": 1,
   "instances": [
     {
+      "id": "c85ee2819073b3b0dbe4afc1",
+      "target": "apps/docs",
+      "template": "nimbus",
+      "provenance": "created",
+      "source": {
+        "kind": "package",
+        "packageName": "@icebreakers/monorepo-templates",
+        "version": "2.3.3",
+        "templatePath": "templates/nimbus",
+        "digest": "d328419e6e9bac9e8a20947061a889ae329b808457f4c119fbd32bf590651252"
+      },
+      "generator": {
+        "profile": "repo-new-v1",
+        "version": "5.10.3"
+      },
+      "parameters": {
+        "packageName": "docs",
+        "renameJson": false
+      },
+      "baseline": {
+        "status": "available",
+        "original": "d328419e6e9bac9e8a20947061a889ae329b808457f4c119fbd32bf590651252",
+        "rendered": "b6b244b65fe57b7442d008d7d0a685e2cc0f4f8aca453292b650507d0d197597"
+      }
+    },
+    {
       "id": "283f423f07e03629f736432c",
       "target": "apps/website",
       "template": "vitepress",

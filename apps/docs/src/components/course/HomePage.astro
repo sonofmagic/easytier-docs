@@ -1,0 +1,45 @@
+---
+import CourseMap from './CourseMap.astro'
+---
+
+<div class="learning-home">
+  <section class="home-intro">
+    <p class="course-kicker">零基础起步 · 界面观察与少量命令</p>
+    <h2>先在自己的电脑上，看见一次网络请求。</h2>
+    <p class="home-lead">打开一个由自己电脑提供的网页，看它怎样回应、怎样失败。再一步步理解：EasyTier 如何把请求送到另一台电脑。</p>
+    <div class="home-actions">
+      <a class="course-start" href="/basics/browser-and-programs">从本机预备课开始 <span aria-hidden="true">→</span></a>
+      <a href="/chapters/01-why">直接进入第一章</a>
+    </div>
+    <ul class="home-facts" aria-label="教程内容">
+      <li>5 节预备课 + 20 章</li>
+      <li>真实本机实验</li>
+      <li>EasyTier v2.6.4</li>
+    </ul>
+  </section>
+
+  <figure class="home-observation">
+    <figcaption>第一站：同一台电脑里的两个程序</figcaption>
+    <div class="home-request">
+      <div><strong>浏览器</strong><span>提出请求 · 显示网页内容</span></div>
+      <div class="home-transfer"><span>请给我网页 →</span><span>← 把内容送回来</span></div>
+      <div><strong>服务</strong><span>提供网页 · 读取演示文件</span></div>
+    </div>
+    <p>看地址栏，看终端记录。先在本机认识地址、端口和服务，再把服务放到另一台电脑，理解异地连接。</p>
+  </figure>
+
+  <section class="home-learning-route">
+    <p class="course-kicker">从眼前的现象，到异地组网</p>
+    <h2>本机网页 → 同一网络 → 异地网络 → EasyTier</h2>
+    <p>预备课先把程序、网址和请求变成实际窗口里的现象。正文再跟着 A 访问 B 的网页，逐章解释路径和失败原因。必要的新词当场解释，计算与协议细节可以稍后选读。</p>
+  </section>
+
+  <CourseMap />
+
+  <section class="home-case">
+    <h2>电脑里已经运行 EasyTier？</h2>
+    <p>对照现有 GUI 的地址和路径，再看一次真实 ICMP 往返能证明什么。基础还不熟时，先完成上面的预备课。</p>
+    <a href="/cases/local-gui">读真实 GUI 案例 →</a>
+  </section>
+  <p class="home-source-note">独立学习资料，非 EasyTier 官方网站。实现说明固定依据 v2.6.4；模型边界与资料来源见各章。</p>
+</div>

@@ -1,6 +1,23 @@
 # 验证记录
 
-验证日期：2026-10-13（Asia/Shanghai）。本轮将课程改为从本机观察开始，保留历史实机记录。下方分别记录本轮验收与首次发布；自动部署已通过实际 `main` 推送、云端检查、正式站验收。
+验证日期：2026-10-13（Asia/Shanghai）。最新一轮将网站迁移至 Nimbus，保留零基础课程与历史实机记录。下面按版本记录验收；此前的 VitePress 记录不代表 Nimbus 的发布状态。
+
+## Nimbus 迁移验收
+
+- 使用 `repo new docs --template nimbus` 创建 `apps/docs`。固定 Nimbus 0.17.0、Astro 7.3.8、Vue 集成 7.0.3、Pagefind 1.5.2；运行和云端构建使用 Node.js 24、pnpm 12.10.1、Wrangler 4.149.0。
+- 保留 32 页中文课程、原有路由和 371 个旧标题锚点、三个 Vue 岛实验、下载包和脱敏 GUI 附录；26 页 Markdown、6 页 MDX。课程清单与模型在独立数据模块中，`course-manifest.json` 兼容旧结构。
+- 已通过官方 `repo workspace remove` 审核计划并移除旧站；重新生成受管 TypeScript 配置、运行 `repo init` 和 frozen-lockfile 安装。旧模板登记和基线保留作为历史。
+- `repo doctor`：57 通过、307 警告、0 失败，见[脱敏报告](verification/nimbus-doctor.json)。预期警告包含旧 `apps/website` 目标已移除、原模板定向改造及既有依赖安装证据提示；没有改登记或关闭规则隐藏警告。
+- `repo check --full` 通过 lint、类型、48 项测试、类型测试及构建，见[执行报告](verification/nimbus-repo-check.json)。Astro diagnostics 为 0 errors、0 warnings、0 hints。
+- 部署 dry-run 通过，读取 311 个静态资源。Workers Static Assets 改为 `apps/docs/dist`；无尾斜杠 URL、真实 404、源码 MIME 和缓存规则均有静态检查。
+- [本地后台浏览器验收](verification/nimbus-local-browser.json)：桌面和手机各 32 页、28 幅 Mermaid 图、十个真实搜索词、三模型正反向与重置、浅色/暗色、移动目录和展开内容通过；0 运行错误、0 失败请求。检查全部页面 DOM id 唯一和实验 label 对应控件。
+- Pagefind 原生索引及真实正文中文补充索引均已生成。补充索引覆盖 32 页、2182 个正文块；单字、双字、大小写、连续正文证据、安全摘要、按页面去重及无结果通过模型/产物检查，线上交互继续复验。
+- Markdown、MDX、根和分节 llms 索引及 llms-full 已校验；机器可读输出保留 Mermaid 源码，并包含课程组件和实验文字说明。
+- 本轮没有重测历史组网，没有改变 EasyTier 配置、节点、接口、路由、防火墙或 DNS。
+
+### Nimbus 自动部署
+
+迁移提交与线上验收待本轮实际推送后补充。沿用已授权的单仓库 Git 集成，仅 `main` 自动完整检查与发布，不重新申请 GitHub App 权限。
 
 ## 零基础课程改版
 
@@ -46,7 +63,7 @@
 - 26 个站点页面，22 幅 Mermaid 图，54 项术语。
 - 章节中有 40 道带答案练习，实机附录另有 3 道。全站共 46 个 `details` 折叠区块，其中还包含说明区块，不能把区块数量写成练习数量。
 - 三个纯前端教学实验：数据包去回程、NAT 映射与过滤、四节点选路。
-- 新增[本机 GUI 实测附录](apps/website/cases/local-gui.md)，以脱敏摘要解释系统路由、目标连接状态和一次四包 ICMP 往返。
+- 新增[本机 GUI 实测附录](apps/docs/src/content/docs/cases/local-gui.md)，以脱敏摘要解释系统路由、目标连接状态和一次四包 ICMP 往返。
 - 来源基准：EasyTier v2.6.4，commit `8428a89d2dabc94c97d370ec607c6ca142473626`。
 
 ## 自动检查
@@ -120,7 +137,7 @@
 
 当前 VitePress alpha 的内置 preview 没有按 `--host` 限制监听地址。项目因此使用 `apps/website/scripts/preview.ts` 明确绑定回环接口，并实际检查监听地址；这项修正后执行了完整检查及本地生产构建浏览器验收。
 
-## 范围与资源
+## 首次发布时的范围与资源（历史）
 
 后台远程测试浏览器已关闭，CLI `list` 确认无测试浏览器。开发服务已停止，生产预览 <http://127.0.0.1:4173/> 保留供本地阅读。首次线上发布、远程 HTTP 和浏览器验收已确认；控制台登录标签页为后续 Git 集成接管保留，`main` 自动部署仍待接通。原生 Chrome 操作失败期间曾尝试新建空白标签，当前无法确认其归属，因此没有关闭任何用户页面；其余未改动现有浏览器窗口。
 

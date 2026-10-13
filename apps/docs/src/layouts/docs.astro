@@ -1,0 +1,91 @@
+---
+import type { SidebarItem, TOCItem } from '@cloudflare/nimbus-docs/types'
+import Head from '../components/head.astro'
+import Search from '../search/Search.astro'
+import Sidebar from '../components/sidebar.astro'
+import { learningPages } from '../data/course'
+import legacy from '../data/legacy-anchors.json'
+import '../styles/site.css'
+import '../styles/labs.css'
+import '../styles/mermaid.css'
+interface Props {
+  title: string
+  description?: string
+  sidebar?: SidebarItem[] | false
+  headings?: TOCItem[] | false
+  markdownUrl?: string
+  pathname?: string
+  noindex?: boolean
+  draft?: boolean
+  searchable?: boolean
+}
+const { title, description, sidebar = [], headings = [], markdownUrl, noindex, draft, searchable } = Astro.props
+const pathname = (Astro.props.pathname ?? Astro.url.pathname).replace(/\/$/, '') || '/'
+const anchors = legacy as Record<string, { ids: string[], h1: string | null }>
+const lessonIndex = learningPages.findIndex(lesson => lesson.route === pathname)
+const lesson = learningPages[lessonIndex]
+const previous = lessonIndex >= 0 ? learningPages[lessonIndex - 1] ?? { route: '/basics', title: '预备课与下载实验包' } : undefined
+const next = lessonIndex >= 0 ? learningPages[lessonIndex + 1] ?? { route: '/cases/local-gui', title: '本机 GUI 实测' } : undefined
+---
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <Head title={title} description={description} markdownUrl={markdownUrl} noindex={noindex || draft} />
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="课程文档索引" />
+    <script is:inline>
+try {
+  const p = localStorage.getItem('easytier-theme')
+  document.documentElement.classList.toggle('dark', p === 'dark' || (!p && matchMedia('(prefers-color-scheme: dark)').matches))
+}
+catch {
+  document.documentElement.classList.toggle('dark', matchMedia('(prefers-color-scheme: dark)').matches)
+}
+</script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">跳转到正文</a>
+    <header class="site-header">
+      <a class="brand" href="/"><img src="/favicon.svg" width="28" height="28" alt="" />从零理解 EasyTier</a>
+      <nav class="header-links" aria-label="主要入口"><a href="/basics">零基础起步</a><a href="/labs">交互实验</a><a href="/glossary">术语表</a></nav>
+      <div class="header-actions">
+        <button id="theme-toggle" type="button" aria-label="切换浅色或暗色" aria-pressed="false">外观</button>
+        <button id="menu-toggle" type="button" aria-expanded="false" aria-controls="site-rail">目录</button>
+      </div>
+    </header>
+    <div class="docs-grid">
+      <aside class="site-rail" id="site-rail">
+        <Search />
+        <nav aria-label="课程目录">{sidebar !== false && <Sidebar items={sidebar} />}</nav>
+        <a class="index-link" href="/course">查看完整学习路线 →</a>
+      </aside>
+      <main id="main-content" tabindex="-1">
+        {lesson && <p class="lesson-meta">{lesson.kind === 'basics' ? '动手预备课' : 'EasyTier 原理课程'} · {lessonIndex + 1} / {learningPages.length}</p>}
+        <div data-pagefind-body={searchable !== false && !noindex && !draft ? '' : undefined} data-pagefind-ignore={searchable === false || noindex || draft ? '' : undefined}>
+          <h1 id={anchors[pathname]?.h1 ?? undefined}>{title}</h1>
+          {description && <p class="description">{description}</p>}
+          <article><slot /></article>
+        </div>
+        {(previous || next) && <nav class="lesson-pagination" aria-label="前后课">
+          {previous && <a rel="prev" href={previous.route}><small>上一课</small><span>{previous.title}</span></a>}
+          {next && <a rel="next" href={next.route}><small>下一课</small><span>{next.title}</span></a>}
+        </nav>}
+        <footer class="document-footer">
+          <span>讲解依据 EasyTier v2.6.4</span>
+          {markdownUrl && <a href={markdownUrl}>阅读 Markdown ↗</a>}
+          <a href="https://github.com/sonofmagic/easytier-docs">课程源码 ↗</a>
+        </footer>
+      </main>
+      <aside class="page-rail">
+        {headings !== false && headings.length > 0 && <nav aria-label="本页目录">
+          <p class="rail-title">本页目录</p>
+          <ul class="navigation-list">{headings.map(heading => <li><a href={`#${heading.slug}`}>{heading.text}</a></li>)}</ul>
+        </nav>}
+      </aside>
+    </div>
+    <script>
+      import '../scripts/site'
+    </script>
+  </body>
+</html>

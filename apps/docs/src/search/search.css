@@ -1,0 +1,123 @@
+.search-panel {
+  --search-surface: #f0f4f8;
+  --search-border: #c3d1df;
+  --search-ink: #24445f;
+
+  padding-block: 0.6rem;
+  color: var(--search-ink);
+  border-bottom: 1px solid var(--search-border);
+}
+
+.search-panel summary {
+  padding-block: 0.45rem;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.search-panel summary span {
+  float: right;
+  margin-inline-end: 0.5rem;
+}
+
+.search-panel form {
+  margin-block: 0.8rem 0.4rem;
+}
+
+.search-panel label {
+  display: block;
+  margin-block-end: 0.4rem;
+  font-size: 0.875rem;
+}
+
+.search-controls {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.search-controls input {
+  width: 100%;
+  min-width: 0;
+  padding: 0.6rem;
+  font: inherit;
+  font-size: 1rem;
+  color: inherit;
+  background: var(--search-surface);
+  border: 1px solid var(--search-border);
+  border-radius: 0.35rem;
+}
+
+.search-controls button {
+  flex-shrink: 0;
+  padding-inline: 0.75rem;
+  font: inherit;
+  color: #fff;
+  cursor: pointer;
+  background: #325f82;
+  border: 1px solid #325f82;
+  border-radius: 0.35rem;
+}
+
+.search-controls button:disabled {
+  cursor: progress;
+  opacity: 0.65;
+}
+
+.search-panel :is(input, button, a, summary):focus-visible {
+  outline: 3px solid #7ba8c9;
+  outline-offset: 3px;
+}
+
+.search-help,
+.search-panel [role='status'] {
+  font-size: 0.8rem;
+  line-height: 1.7;
+}
+
+.search-results {
+  max-height: min(65vh, 38rem);
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  list-style: none;
+}
+
+.search-results > li {
+  padding-block: 0.8rem;
+  border-top: 1px solid var(--search-border);
+}
+
+.search-result-title {
+  display: block;
+  font-weight: 650;
+  line-height: 1.65;
+}
+
+.search-results p {
+  margin-block: 0.35rem;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.search-result-sections {
+  padding-inline-start: 1.1rem;
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.8;
+}
+
+html.dark .search-panel,
+html[data-theme='dark'] .search-panel {
+  --search-surface: #162737;
+  --search-border: #3a5269;
+  --search-ink: #c9dcec;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme='light']) .search-panel {
+    --search-surface: #162737;
+    --search-border: #3a5269;
+    --search-ink: #c9dcec;
+  }
+}

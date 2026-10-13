@@ -1,0 +1,24 @@
+---
+import { config } from 'virtual:nimbus/config'
+interface Props { title: string, description?: string, markdownUrl?: string, noindex?: boolean }
+const { title, description = config.description, markdownUrl, noindex } = Astro.props
+const fullTitle = title === config.title ? title : `${title} | ${config.title}`
+const canonical = new URL(Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '').replace(/\/$/, '') || '/', Astro.site)
+const structuredData = JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebPage', name: fullTitle, description, url: canonical.href, inLanguage: 'zh-CN' }).replace(/</g, '\\u003c')
+---
+<title>{fullTitle}</title>
+<meta name="generator" content={Astro.generator} />
+<meta name="description" content={description} />
+{noindex && <meta name="robots" content="noindex" />}
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="stylesheet" href="/_nimbus/shiki.css" />
+<link rel="canonical" href={canonical} />
+<link rel="sitemap" href="/sitemap-index.xml" />
+{markdownUrl && <link rel="alternate" type="text/markdown" href={new URL(markdownUrl, Astro.site)} />}
+<meta property="og:title" content={fullTitle} />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content={config.title} />
+<meta property="og:locale" content="zh_CN" />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<script type="application/ld+json" set:html={structuredData} />
