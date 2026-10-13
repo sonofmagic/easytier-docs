@@ -63,3 +63,18 @@ description: 分开通用网络标准、EasyTier v2.6.4 固定实现与持续更
 全站固定使用 A、B、R 的示例地址，临时端口、延迟、HTTP 状态等标为教学或预期示例。除非明确附有真实实验记录，不把这些数值描述成实测。实际环境要按照[第 20 章](/chapters/20-practice)验证；成功与失败都应记录版本、目标、路径和结果。
 
 如果发现资料之间不一致，先判断它们属于哪一类，再比较版本、平台和配置条件。学习原理时不必读完全部源码，但做具体判断时，应知道证据来自哪里。
+
+## 进阶图解的固定实现依据
+
+新增六篇进阶教程仍使用提交 `8428a89d2dabc94c97d370ec607c6ca142473626`，不引用当前主分支架构替代旧版。每张图注明是协议示意、实现模型还是实验；静态 SVG 是本仓库绘制的讲解资源，不是抓包截图。
+
+| 固定源码 | 核对点 | 对应进阶篇 |
+| --- | --- | --- |
+| [tunnel/mod.rs](https://github.com/EasyTier/EasyTier/blob/8428a89d2dabc94c97d370ec607c6ca142473626/easytier/src/tunnel/mod.rs) 与 [Cargo.toml](https://github.com/EasyTier/EasyTier/blob/8428a89d2dabc94c97d370ec607c6ca142473626/easytier/Cargo.toml) | 隧道 URL、入口发现、构建特性；没有 kcp:// | [协议地图](/internals/protocol-map)、[传输引擎](/internals/transports) |
+| [packet_def.rs](https://github.com/EasyTier/EasyTier/blob/8428a89d2dabc94c97d370ec607c6ca142473626/easytier/src/tunnel/packet_def.rs) 与 [encrypt 目录](https://github.com/EasyTier/EasyTier/tree/8428a89d2dabc94c97d370ec607c6ca142473626/easytier/src/peers/encrypt) | TCP/UDP framing、16 字节 peer 头、认证加密尾部；开销必须限定模式 | [数据面](/internals/packet-pipeline) |
+| [upnp.rs](https://github.com/EasyTier/EasyTier/blob/8428a89d2dabc94c97d370ec607c6ca142473626/easytier/src/common/upnp.rs) 与 [connector 目录](https://github.com/EasyTier/EasyTier/tree/8428a89d2dabc94c97d370ec607c6ca142473626/easytier/src/connector) | UPnP/NAT-PMP、候选端点、打洞任务 | [控制面](/internals/connectivity) |
+| [peer_conn.rs](https://github.com/EasyTier/EasyTier/blob/8428a89d2dabc94c97d370ec607c6ca142473626/easytier/src/peers/peer_conn.rs) 与 [relay_peer_map.rs](https://github.com/EasyTier/EasyTier/blob/8428a89d2dabc94c97d370ec607c6ca142473626/easytier/src/peers/relay_peer_map.rs) | secure mode 的 XX 直连、IK 中继端到端会话；与普通默认加密分开 | [安全](/internals/security) |
+| [peer_ospf_route.rs](https://github.com/EasyTier/EasyTier/blob/8428a89d2dabc94c97d370ec607c6ca142473626/easytier/src/peers/peer_ospf_route.rs) | 内部链路状态与选路，不能据文件名宣称标准 OSPF 互通 | [控制面](/internals/connectivity) |
+| [quic.rs](https://github.com/EasyTier/EasyTier/blob/8428a89d2dabc94c97d370ec607c6ca142473626/easytier/src/tunnel/quic.rs) 与 [websocket.rs](https://github.com/EasyTier/EasyTier/blob/8428a89d2dabc94c97d370ec607c6ca142473626/easytier/src/tunnel/websocket.rs) | v2.6.4 QUIC/WSS 的具体配置；不能把通用 TLS 身份保证自动套给实现 | [传输引擎](/internals/transports) |
+
+补充标准：[RFC 826](https://www.rfc-editor.org/rfc/rfc826.html)（ARP）、[RFC 4861](https://www.rfc-editor.org/rfc/rfc4861.html)（IPv6 NDP）、[RFC 2131](https://www.rfc-editor.org/rfc/rfc2131.html)（DHCPv4）、[RFC 8446](https://www.rfc-editor.org/rfc/rfc8446.html)（TLS 1.3）、[RFC 6455](https://www.rfc-editor.org/rfc/rfc6455.html)（WebSocket）、[RFC 6886](https://www.rfc-editor.org/rfc/rfc6886.html)（NAT-PMP）、[Noise 规范](https://noiseprotocol.org/noise.html)。通用规范用于解释机制，具体启用条件和身份验证策略以固定源码为准。

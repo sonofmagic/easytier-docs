@@ -7,6 +7,7 @@ import { learningPages } from '../data/course'
 import legacy from '../data/legacy-anchors.json'
 import '../styles/site.css'
 import '../styles/labs.css'
+import '../styles/encapsulation.css'
 import '../styles/mermaid.css'
 interface Props {
   title: string
@@ -61,7 +62,7 @@ catch {
         <a class="index-link" href="/course">查看完整学习路线 →</a>
       </aside>
       <main id="main-content" tabindex="-1">
-        {lesson && <p class="lesson-meta">{lesson.kind === 'basics' ? '动手预备课' : 'EasyTier 原理课程'} · {lessonIndex + 1} / {learningPages.length}</p>}
+        {lesson && <p class="lesson-meta">{lesson.kind === 'basics' ? '动手预备课' : lesson.kind === 'internals' ? '协议与核心原理进阶篇' : 'EasyTier 原理课程'} · {lessonIndex + 1} / {learningPages.length}</p>}
         <div data-pagefind-body={searchable !== false && !noindex && !draft ? '' : undefined} data-pagefind-ignore={searchable === false || noindex || draft ? '' : undefined}>
           <h1 id={anchors[pathname]?.h1 ?? undefined}>{title}</h1>
           {description && <p class="description">{description}</p>}

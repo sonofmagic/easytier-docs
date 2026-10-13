@@ -1,7 +1,7 @@
 import vue from '@astrojs/vue'
 import nimbus, { defineConfig as defineNimbusConfig } from '@cloudflare/nimbus-docs'
 import { defineConfig } from 'astro/config'
-import { basics, chapters, stages } from './src/data/course'
+import { basics, chapters, internals, stages } from './src/data/course'
 import { componentMarkdown } from './src/lib/component-markdown'
 import { legacyHeadings, mermaidDiagrams } from './src/lib/markdown'
 
@@ -18,9 +18,10 @@ export default defineConfig({
     locale: 'zh-CN',
     github: null,
     sidebar: { scope: 'full', items: [
-      { label: '开始阅读', items: [{ label: '学习路线', link: '/course' }, { label: '三个交互实验', link: '/labs' }] },
+      { label: '开始阅读', items: [{ label: '学习路线', link: '/course' }, { label: '四个交互实验', link: '/labs' }] },
       { label: '预备课 · 先在本机看见', items: [{ label: '预备课与下载实验包', link: '/basics' }, ...basics.map(x => ({ label: x.title, link: x.route }))] },
       ...stages.map(s => ({ label: `${s.range} · ${s.title}`, items: chapters.slice(s.start, s.end).map(([slug, title]) => ({ label: `${slug.slice(0, 2)} ${title}`, link: `/chapters/${slug}` })) })),
+      { label: '进阶 · 协议与核心原理', items: internals.map(lesson => ({ label: lesson.title, link: lesson.route })) },
       { label: '随时查阅', items: [{ label: '本机 GUI 实测', link: '/cases/local-gui' }, { label: '术语表', link: '/glossary' }, { label: '资料与版本', link: '/sources' }] },
     ] },
   }), {

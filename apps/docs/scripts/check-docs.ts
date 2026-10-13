@@ -5,7 +5,7 @@ import process from 'node:process'
 import { fileURLToPath } from 'node:url'
 import Markdown from 'markdown-it'
 import { parse as parseYaml } from 'yaml'
-import { chapters, learningPages, sitePages } from '../src/data/course.ts'
+import { chapters, internals, learningPages, sitePages } from '../src/data/course.ts'
 
 type MarkdownToken = ReturnType<MarkdownIt['parse']>[number]
 
@@ -77,11 +77,11 @@ async function checkInternalLink(file: string, href: string) {
   }
 }
 
-if (chapters.length !== 20 || new Set(chapters.map(([slug]) => slug)).size !== 20 || sitePages.length !== 32 || new Set(sitePages.map(page => page.route)).size !== 32) {
-  errors.push('课程清单必须包含 20 个不同章节和 32 个不同页面。')
+if (chapters.length !== 20 || new Set(chapters.map(([slug]) => slug)).size !== 20 || sitePages.length !== 38 || new Set(sitePages.map(page => page.route)).size !== 38) {
+  errors.push('课程清单必须包含 20 个不同章节和 38 个不同页面。')
 }
-if (learningPages.length !== 25 || learningPages.filter(page => page.kind === 'basics').length !== 5) {
-  errors.push('教学清单必须包含 5 节预备课与 20 章。')
+if (learningPages.length !== 31 || learningPages.filter(page => page.kind === 'basics').length !== 5 || internals.length !== 6) {
+  errors.push('教学清单必须包含 5 节预备课、20 章与 6 篇进阶。')
 }
 for (const [index, lesson] of learningPages.entries()) {
   if (!lesson.goal.trim() || !lesson.terms.length) {
@@ -99,7 +99,7 @@ const expectedFiles = await Promise.all(sitePages.map(page => contentFile(page.f
 for (const actual of await markdownFiles(docsRoot)) {
   const file = path.relative(docsRoot, actual).replaceAll(path.sep, '/')
   if (!expectedFiles.includes(file)) {
-    errors.push(`${file}: 内容未列入 32 页清单，可能留下模板或意外公开文件。`)
+    errors.push(`${file}: 内容未列入 38 页清单，可能留下模板或意外公开文件。`)
   }
 }
 
@@ -200,7 +200,7 @@ for (const [pageIndex, page] of sitePages.entries()) {
     errors.push(`${file}: 至少两个有解释的 answer 折叠答案，全部 details 需闭合。`)
   }
   const sectionTitles = tokens.flatMap((token, index) => token.type === 'heading_open' && token.tag === 'h2' ? [tokens[index + 1]?.content ?? ''] : [])
-  for (const section of requiredSections) {
+  for (const section of lesson.kind === 'internals' ? [] : requiredSections) {
     if (!sectionTitles.includes(section)) {
       errors.push(`${file}: 缺少教学段落「${section}」。`)
     }
@@ -213,11 +213,20 @@ for (const [pageIndex, page] of sitePages.entries()) {
       errors.push(`${file}: 未链接先修内容 ${prerequisite}`)
     }
   }
-  if (!tokens.some(token => token.type === 'fence' && token.info.trim() === 'mermaid') && !/<Mermaid[\s/>]/u.test(body)) {
+  if (lesson.kind !== 'internals' && !tokens.some(token => token.type === 'fence' && token.info.trim() === 'mermaid') && !/<Mermaid[\s/>]/u.test(body)) {
     errors.push(`${file}: 缺少 Mermaid 图解。`)
   }
   if (!sectionTitles.some(title => title.includes('来源')) || !hrefs.some(href => href.startsWith('https://'))) {
     errors.push(`${file}: 缺少来源章节或 HTTPS 资料链接。`)
+  }
+  if (lesson.kind === 'internals') {
+    const figures = flatten(tokens).filter(token => token.type === 'image' && token.attrGet('src')?.startsWith('/diagrams/'))
+    if (figures.length !== 2 || figures.some(figure => !figure.content.trim())) {
+      errors.push(`${file}: 进阶篇需两张带非空替代文本的本地 SVG 图解。`)
+    }
+    if ((prose.match(/\p{Script=Han}/gu) ?? []).length < 1200) {
+      errors.push(`${file}: 进阶篇需充分解释，不能只有协议列表和图。`)
+    }
   }
   proseCharacters += (prose.match(/\p{Script=Han}/gu) ?? []).length
 }
@@ -227,6 +236,6 @@ if (errors.length) {
   process.exitCode = 1
 }
 else {
-  console.log(`结构检查通过：${checked} 页、5 节预备课、20 章；教学段落、目标与先修顺序、标题、围栏、来源、文件链接、图解、练习完整。`)
+  console.log(`结构检查通过：${checked} 页、5 节预备课、20 章、6 篇进阶；教学段落、目标与先修顺序、标题、围栏、来源、文件链接、图解、练习完整。`)
   console.log(`非代码教学正文 ${proseCharacters} 汉字（仅报告数量，阅读质量由人工与浏览器验收）。`)
 }

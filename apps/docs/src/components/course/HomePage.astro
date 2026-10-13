@@ -12,7 +12,7 @@ import CourseMap from './CourseMap.astro'
       <a href="/chapters/01-why">直接进入第一章</a>
     </div>
     <ul class="home-facts" aria-label="教程内容">
-      <li>5 节预备课 + 20 章</li>
+      <li>5 节预备课 + 20 章 + 6 篇进阶</li>
       <li>真实本机实验</li>
       <li>EasyTier v2.6.4</li>
     </ul>
@@ -36,6 +36,11 @@ import CourseMap from './CourseMap.astro'
 
   <CourseMap />
 
+  <section class="home-case">
+    <h2>TCP、UDP、STUN、Noise……这些名字怎样连起来？</h2>
+    <p>六篇图解进阶教程，先给每种协议找到位置，再拆开一个真实实现模型中的包。12 张 SVG 与逐层封装实验帮助你区分业务、隧道、加密和控制面。</p>
+    <a href="/internals/protocol-map">打开协议地图 →</a>
+  </section>
   <section class="home-case">
     <h2>电脑里已经运行 EasyTier？</h2>
     <p>对照现有 GUI 的地址和路径，再看一次真实 ICMP 往返能证明什么。基础还不熟时，先完成上面的预备课。</p>

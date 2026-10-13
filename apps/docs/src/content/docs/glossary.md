@@ -98,3 +98,25 @@ description: 按看到的界面和实验现象解释术语，再链接到首次�
 | CLI 查询不到本机管理入口，隧道却未必断开 | CLI 与本机 core 交换管理信息的接口；查询失败不必然表示远端隧道失败。    | 管理 RPC  | [排障](/chapters/19-diagnostics) |
 
 没有找到现象时，先回[零基础入口](/basics/browser-and-programs)或[学习路线](/course)。想核对正式定义与版本行为，再读[资料来源](/sources)。
+
+## 进阶协议与核心机制
+
+下面的名字先按职责理解，再到对应进阶篇查看图解和版本边界。名字相似不代表处于同一层。
+
+| 名字 | 先用一句话理解 | 进一步读图 |
+| --- | --- | --- |
+| ARP / NDP | 在相应本地链路上认识下一站；ARP 用于常见 IPv4，NDP 用于 IPv6 的邻居发现等任务。 | [协议地图](/internals/protocol-map) |
+| DHCP | 帮设备取得地址等配置；不要把物理 LAN 的 DHCP 租约当成 EasyTier 虚拟地址。 | [协议地图](/internals/protocol-map) |
+| TLS | 应用会话的机密性和身份验证协议；验证效果取决于证书检查等实际策略。 | [协议地图](/internals/protocol-map) |
+| 数据面 / 控制面 | 前者搬业务数据，后者交换成员、路径和建链信息；两者相互依赖但证据不同。 | [控制面与建链](/internals/connectivity) |
+| RPC | 远程过程调用，让一个程序请求另一个程序执行操作；内部 peer RPC 与本机 CLI 管理入口要分开。 | [控制面与建链](/internals/connectivity) |
+| UPnP IGD / NAT-PMP | 向支持的网关申请端口映射；可能失败，不能当作一定有公网入口。 | [控制面与建链](/internals/connectivity) |
+| AEAD / nonce / tag | 带关联数据的认证加密；nonce 是按算法要求使用的值，tag 用于检测受保护数据的篡改。 | [数据面与封装](/internals/packet-pipeline) |
+| Noise XX / IK | 安全握手模式；v2.6.4 安全模式直连使用 XX，中继端到端会话使用 IK，前提不同。 | [安全与身份](/internals/security) |
+| 公钥固定 / pinning | 预先确定可信公钥，并要求对端证明持有相应私钥。 | [安全与身份](/internals/security) |
+| PeerConn / PeerSession | 一条底层连接与一对节点之间的安全会话；不是同一个生命周期对象。 | [安全与身份](/internals/security) |
+| WireGuard / QUIC | 常见安全隧道与 UDP 传输协议；EasyTier 的对应实现和构建特性仍要单独核对。 | [传输引擎对照](/internals/transports) |
+| WebSocket / WSS | 基于网页连接机制承载双向数据；WSS 的 TLS 加密与实际身份验证策略是两项条件。 | [传输引擎对照](/internals/transports) |
+| FakeTCP | EasyTier 的可选传输实现，不能仅凭名字推断它等于普通 TCP 的完整可靠语义。 | [传输引擎对照](/internals/transports) |
+| KCP / QUIC proxy | 可选 TCP 流代理引擎；KCP 没有 `kcp://` peer 隧道 URL，QUIC 同时有隧道和代理两种角色。 | [传输引擎对照](/internals/transports) |
+| 抓包过滤器 | 选择观察的数据包范围；Wireshark 显示过滤器和 tcpdump 捕获过滤器语法不同。 | [抓包与排障](/internals/observability) |

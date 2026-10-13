@@ -137,7 +137,9 @@ describe('VitePress anchor compatibility', () => {
         const { html } = markdownToHtml(source, { mdastPlugins: [legacyHeadings], fileURL })
         ids = [...html.matchAll(/<h[1-6]\b[^>]+\bid="([^"]+)"/g)].map(match => match[1]!)
       }
-      expect([...(record.h1 ? [record.h1] : []), ...ids], route).toEqual(record.ids)
+      const actual = [...(record.h1 ? [record.h1] : []), ...ids]
+      // New diagrams add headings; every historical anchor must stay in order.
+      expect(actual.filter(id => record.ids.includes(id)), route).toEqual(record.ids)
     }
   })
 })

@@ -1,0 +1,8 @@
+---
+import EncapsulationLabClient from './EncapsulationLab.vue'
+
+interface Props { controlId?: string }
+const { controlId = 'encapsulation-lab-transport' } = Astro.props
+---
+
+<EncapsulationLabClient controlId={controlId} client:visible />

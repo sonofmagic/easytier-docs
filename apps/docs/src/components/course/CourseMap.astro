@@ -1,5 +1,5 @@
 ---
-import { basics, chapterLink, chapters, stages } from '../../data/course'
+import { basics, chapterLink, chapters, internals, stages } from '../../data/course'
 ---
 
 <div class="course-map">
@@ -48,4 +48,20 @@ import { basics, chapterLink, chapters, stages } from '../../data/course'
       </ol>
     </section>
   ))}
+  <section class="course-stage">
+    <div class="stage-heading">
+      <span class="course-kicker">进阶 1—6 · 正文之后选读</span>
+      <h2>拆开协议，连接核心原理</h2>
+      <p>从协议地图进入包的内部，再看建链、安全、传输与抓包。每页标明前置章节，以图解连接直觉、实现和证据。</p>
+    </div>
+    <ol class="course-list">
+      {internals.map((lesson, index) => (
+        <li><a href={lesson.route}>
+          <span class="course-number">进阶 {index + 1}</span>
+          <span class="course-description"><strong>{lesson.title.split(' · ')[1]}</strong><small>{lesson.goal}</small></span>
+          <span class="course-arrow" aria-hidden="true">→</span>
+        </a></li>
+      ))}
+    </ol>
+  </section>
 </div>

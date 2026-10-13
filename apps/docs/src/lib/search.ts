@@ -57,7 +57,7 @@ export interface SearchHit {
   subResults?: { title: string, url: string }[]
 }
 
-export const searchAcceptanceQueries = ['服务', '监听', '本机', '回环', '端口', '路由', '打洞', '网卡', 'NAT', 'TUN', '路', '洞', '卡', '回程', '中继', 'DNS', 'MTU'] as const
+export const searchAcceptanceQueries = ['服务', '监听', '本机', '回环', '端口', '路由', '打洞', '网卡', 'NAT', 'TUN', '路', '洞', '卡', '回程', '中继', 'DNS', 'MTU', 'Noise', 'QUIC', 'KCP', '封装', '控制面', '抓包'] as const
 
 /** Reject external/active URLs, normalize both Astro and Pagefind URL shapes. */
 export function canonicalSearchUrl(href: string, origin = 'https://easytier.icebreaker.top'): string | null {

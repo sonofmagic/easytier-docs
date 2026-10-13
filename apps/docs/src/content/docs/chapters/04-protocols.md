@@ -58,6 +58,27 @@ flowchart TD
 
 超时是规定时间内没有得到预期进展，可能与路径、过滤、回程或程序处理有关。明确拒绝则意味着收到相应失败信号，不能只凭“拒绝”二字就断言一定是应用没启动；安全规则也可能主动拒绝。排查时先记录观察，不急着宣布根因。
 
+## 图解：TCP 建连与五元组
+
+**图：TCP 建连与五元组。** A 临时端口 53124 向 B 的 TCP 8080 发送 SYN，B 返回 SYN ACK，A 返回 ACK 后发送 HTTP 请求。
+
+```mermaid
+sequenceDiagram
+  accTitle: TCP 建连与五元组
+  accDescr: A 临时端口 53124 向 B 的 TCP 8080 发送 SYN，B 返回 SYN ACK，A 返回 ACK 后发送 HTTP 请求。
+  participant A as A：10.144.144.1:53124
+  participant B as B：10.144.144.2:8080
+  A->>B: TCP SYN：希望建立连接
+  B->>A: TCP SYN + ACK：回应并确认
+  A->>B: TCP ACK：确认回应
+  A->>B: HTTP 请求字节
+  B->>A: HTTP 响应字节
+```
+
+**读图顺序：**从上到下读时间，五元组是源 IP、源端口、目标 IP、目标端口和 TCP。SYN 表示同步序号，ACK 表示确认；它们是 TCP 标记，不是 HTTP 状态码。图省略重传、拥塞控制及关闭连接，数据与 ACK 在实际网络中也可能组合发送。
+
+**这张图的结论：**能完成 TCP 建连仍不等于 HTTP 内容正确；外层隧道使用 UDP，也不会把这个内层 TCP 关系改为 UDP。 更多分层细节见[协议与核心原理进阶篇](/internals/packet-pipeline)。
+
 ## 先预测，再观察
 
 这次只使用你在预备课启动的 `8877` 服务，不改 EasyTier，也不去试别人的端口。

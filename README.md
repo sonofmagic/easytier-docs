@@ -1,6 +1,6 @@
 # 从零理解 EasyTier
 
-5 节本机预备课 + 20 章中文教程，共 32 个阅读页面，包含术语表、带答案练习、三个浏览器交互模型和已有 EasyTier GUI 实机附录。面向从零开始的读者：先看见自己电脑里的网页请求，再解释异地网络。独立学习资料，非 EasyTier 官方网站。
+5 节本机预备课 + 20 章中文教程 + 6 篇协议进阶教程，共 38 个阅读页面，包含术语表、带答案练习、四个浏览器交互模型和已有 EasyTier GUI 实机附录。面向从零开始的读者：先看见自己电脑里的网页请求，再解释异地网络。独立学习资料，非 EasyTier 官方网站。
 
 - 网站：[easytier.icebreaker.top](https://easytier.icebreaker.top/)
 - 源码：[sonofmagic/easytier-docs](https://github.com/sonofmagic/easytier-docs)
@@ -68,7 +68,8 @@ python3 verification/local-lab-qa.py
 
 浏览器脚本均从当前页面获取待测网站 origin，可用于本地或正式站：
 
-- `verification/browser-qa.js`：32 页、图表、搜索、三个模型与手机布局。
+- `verification/browser-qa.js`：原 32 页、图表、搜索、三个原有模型与手机布局。
+- `verification/protocol-core-qa.js`、`verification/protocol-advanced-qa.js`、`verification/protocol-search-qa.js`：38 页明暗主题、30 张新增图解、封装实验、协议搜索与导出；详见本轮验证记录。
 - `verification/links-navigation-qa.js`：渲染后内部路由、锚点和手机导航。
 - `verification/beginner-walkthrough.js`：点击首页新手入口，逐节展开答案，走完 5 节进入第一章，再在浏览器验证实验网页、文本和 404，并停用缓存。
 
@@ -126,7 +127,7 @@ pnpm exec wrangler rollback <VERSION_ID>
 - `apps/docs/src/content/docs/chapters/`：20 章教程，使用统一 A、B、R 案例及版本。
 - `apps/docs/src/content/docs/cases/local-gui.md`：真实观测附录；公开地址已替换，设备使用别名。
 - `apps/docs/src/content/docs/glossary.md`、`sources.md`：术语和来源。
-- `apps/docs/src/content/docs/labs.mdx`：三个实验的操作说明。
+- `apps/docs/src/content/docs/labs.mdx`：四个实验的操作说明。
 - `apps/docs/src/data/course.ts`：单一课程清单，统一预备课、章节、前置关系、导航和中文分词。
 - `apps/docs/src/data/models.ts`：确定性教学模型；Vue 岛组件位于 `apps/docs/src/components/labs/`。
 - `apps/docs/scripts/check-docs.ts`：文档结构和内部路径检查；Vitest 覆盖模型与分词。
@@ -137,7 +138,7 @@ pnpm exec wrangler rollback <VERSION_ID>
 
 通过 `pnpm dlx create-repoctl@1.2.5 <目标目录> --yes --templates vitepress --lang zh-CN` 创建，repoctl 固定 5.10.3。pnpm 12 的 `create` 参数传递与旧说明存在差异，因此实际使用 `dlx` 执行同一脚手架。保留 repoctl 管理配置与 Mermaid 安全渲染组件，改为中文单语言文档。
 
-三个实验是模型：NAT 映射与过滤分别展示，拓扑延迟使用简单相加且即时选路，包旅程省略真实握手和重传。模型测试不等于真实跨网组网或性能测试。
+四个实验是模型：NAT 映射与过滤分别展示，拓扑延迟使用简单相加且即时选路，包旅程与协议封装省略真实握手和重传。模型测试不等于真实跨网组网或性能测试。
 
 验证记录与截图见 [VERIFICATION.md](VERIFICATION.md)、`verification/`。
 
@@ -148,3 +149,11 @@ pnpm exec wrangler rollback <VERSION_ID>
 课程清单集中在 `src/data/course.ts`；布局从 frontmatter 输出唯一 H1。旧 URL 与页内锚点保留。Markdown、MDX 源码及 llms 入口随静态网站构建。
 
 原 VitePress 模板的登记与基线作为迁移历史保留，旧目标缺失会产生预期 doctor 警告；不修改登记来伪装为 Nimbus。当前验收记录见 `VERIFICATION.md`。
+
+## 协议与核心原理进阶篇
+
+保留原有 5 节预备课与 20 章路线，新增六篇：协议地图、数据面与封装、控制面与建链、安全与身份、传输引擎对照、抓包与排障。入口 `/internals/protocol-map`，共 38 页、31 节学习内容、4 个交互实验。
+
+图解资源全部在仓库内：`apps/docs/public/diagrams/` 的 12 张 SVG，加上第 2—19 章的 18 张新 Mermaid。每张图提供阅读顺序、结论和可访问文字。协议封装实验可切换外层 TCP/UDP，内层 TCP 业务保持不变；实验是已建立安全模式会话的浏览器模型，不发真实探测。
+
+固定源码仍为 EasyTier v2.6.4。普通共享密钥加密、secure mode 的 Noise 会话、应用 TLS、隧道 URL 和 KCP/QUIC TCP 流代理均分开说明；包开销示例限定外层 IPv4/UDP、默认 AES-GCM、无压缩与普通模式。

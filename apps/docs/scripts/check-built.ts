@@ -4,7 +4,7 @@ import process from 'node:process'
 import { fileURLToPath } from 'node:url'
 import { parseHTML } from 'linkedom'
 import { parse as parseYaml } from 'yaml'
-import { learningPages, sitePages } from '../src/data/course.ts'
+import { internals, learningPages, sitePages } from '../src/data/course.ts'
 import { canonicalSearchUrl, isSearchIndex, matchesQuery, searchAcceptanceQueries, searchSupplement } from '../src/lib/search.ts'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
@@ -134,6 +134,9 @@ try {
   const anchors = JSON.parse(await readFile(path.join(root, 'public/course-anchors.json'), 'utf8')) as Record<string, string[]>
   for (const page of sitePages) {
     const expected = anchors[page.route]
+    if (!Array.isArray(expected) && internals.some(lesson => lesson.route === page.route)) {
+      continue // New lessons have no historical anchors; original pages still require the baseline.
+    }
     if (!Array.isArray(expected)) {
       errors.push(`${page.route}: 旧锚点基线缺少此页。`)
       continue
@@ -156,12 +159,12 @@ try {
     learningPages?: { route: string, prerequisites: string[] }[]
   }
   const routes = manifest.pages?.map(page => page.route) ?? []
-  if (routes.length !== 32 || new Set(routes).size !== 32 || sitePages.some(page => !routes.includes(page.route))) {
-    errors.push('course-manifest.json 必须准确列出全部 32 页。')
+  if (routes.length !== sitePages.length || new Set(routes).size !== sitePages.length || sitePages.some(page => !routes.includes(page.route))) {
+    errors.push('course-manifest.json 必须准确列出全部 38 页。')
   }
   const lessons = manifest.lessons ?? manifest.learningPages
-  if (!lessons || lessons.length !== 25 || learningPages.some(page => !lessons.some(lesson => lesson.route === page.route && JSON.stringify(lesson.prerequisites) === JSON.stringify(page.prerequisites)))) {
-    errors.push('course-manifest.json 必须准确列出 25 节学习内容及先修路径。')
+  if (!lessons || lessons.length !== learningPages.length || learningPages.some(page => !lessons.some(lesson => lesson.route === page.route && JSON.stringify(lesson.prerequisites) === JSON.stringify(page.prerequisites)))) {
+    errors.push('course-manifest.json 必须准确列出 31 节学习内容及先修路径。')
   }
 }
 catch (error) {
@@ -173,8 +176,8 @@ try {
   if (!isSearchIndex(value)) {
     throw new Error('schema invalid')
   }
-  if (value.pages.length !== 32 || sitePages.some(page => !value.pages.some(indexed => indexed.url === page.route))) {
-    errors.push('补充搜索索引没有准确覆盖 32 页。')
+  if (value.pages.length !== sitePages.length || sitePages.some(page => !value.pages.some(indexed => indexed.url === page.route))) {
+    errors.push('补充搜索索引没有准确覆盖 38 页。')
   }
   for (const query of searchAcceptanceQueries) {
     const hits = searchSupplement(value, query)
@@ -252,8 +255,8 @@ try {
       errors.push(`llms.txt/分节索引树未列出 ${page.route}`)
     }
   }
-  if (urls.size !== 32) {
-    errors.push(`llms 索引树需要覆盖准确 32 页，实际 ${urls.size}。`)
+  if (urls.size !== sitePages.length) {
+    errors.push(`llms 索引树需要覆盖准确 38 页，实际 ${urls.size}。`)
   }
 }
 catch (error) {
@@ -265,8 +268,8 @@ try {
     const url = new URL(match[1]!)
     return `${url.origin}${url.pathname.replace(/\/+$/u, '') || '/'}`
   })
-  if (urls.length !== 32 || sitePages.some(page => !urls.includes(`${origin}${page.route}`))) {
-    errors.push('sitemap 必须准确包含 32 个无尾斜杠正式地址。')
+  if (urls.length !== sitePages.length || sitePages.some(page => !urls.includes(`${origin}${page.route}`))) {
+    errors.push('sitemap 必须准确包含 38 个无尾斜杠正式地址。')
   }
 }
 catch (error) {

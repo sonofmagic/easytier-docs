@@ -1,6 +1,18 @@
 # 验证记录
 
-验证日期：2026-10-13（Asia/Shanghai）。最新一轮将网站迁移至 Nimbus，保留零基础课程与历史实机记录。下面按版本记录验收；此前的 VitePress 记录不代表 Nimbus 的发布状态。
+最新验证日期：2026-10-14（Asia/Shanghai）。本轮为本地协议图解增强；此前的发布和实机记录保留为历史，不代表本轮改动已经上线。
+
+## 协议与核心原理图解增强（本地）
+
+- 保留 5 节预备课、20 章正文及所有历史 URL/标题锚点；新增 6 篇进阶教程、12 张仓库内 SVG、18 张 Mermaid 和协议封装实验。当前共 38 页、31 节学习内容、4 个教学实验。
+- 实现依据固定为 EasyTier v2.6.4，提交 `8428a89d2dabc94c97d370ec607c6ca142473626`。独立源码复核核对 16 字节节点头、8 字节 UDP 头、4 字节 TCP 长度头、28 字节 AES-GCM 尾部，以及限定条件下的 80 字节示例；另复核 secure mode、Noise XX/IK、QUIC plaintext、WSS 证书策略、隧道/流代理、构建特性与 TUN/DHCP 边界。
+- `pnpm exec repo check --full` 通过：lint、类型、56 项测试（5 文件）、类型测试与构建。实验修复 Vue hydration 问题后，再次执行 docs lint、typecheck 和 build，全部通过；49 文件的 Astro diagnostics 为 0 errors、0 warnings、0 hints。`repo doctor` exit 0：56 通过、308 既有模板/override 提示、0 失败。
+- 最终静态产物验收确认 38 页、31 节清单、历史锚点、内部链接、Markdown/MDX/llms、MIME、实验 ZIP 及 23 项真实正文搜索；Pagefind 索引覆盖 38 页。
+- 生产预览浏览器实际访问全部 38 页，按桌面 1440/手机 390 与浅色/暗色四种组合验收：46 张 Mermaid 全部渲染、12 张 SVG 全部加载、无页面横向溢出、无新脚本错误或 hydration 警告。封装实验九步前后切换、首尾按钮、外层 TCP/UDP 切换、加密时隐藏内层字段、解密恢复、键盘重置均通过；内层 TCP 目标保持不变。
+- 搜索界面与原生 Pagefind 分别验证 Noise、QUIC、KCP、封装、控制面、抓包；结果包含进阶页，按页面去重。真实 HTTP 请求确认 12 个进阶 Markdown/MDX 入口、分节 llms 和 llms-full 为 200 且 MIME 正确。Markdown/LLM 展开实验为等价九步文字，MDX 保留组件源码。
+- [结构化验收结果](verification/protocol-enhancement.json)；[桌面实验截图](verification/protocol-lab-1440-light.png)、[手机暗色实验截图](verification/protocol-lab-390-dark.png)。SVG 均已解析、渲染并目视检查；图片提供替代文字、阅读顺序、结论与可缩放原图链接。
+- 可复用浏览器脚本：[原页面与 Mermaid](verification/protocol-core-qa.js)、[进阶页与封装实验](verification/protocol-advanced-qa.js)、[搜索与导出](verification/protocol-search-qa.js)。先打开本地生产预览，再从仓库根目录用 Playwright CLI 的 `run-code` 执行；脚本从当前页面读取 origin，截图写入 `verification/`。
+- 本轮只交付本地文档改动，没有部署、发布、真实组网探测或性能测量。教学模型不发送网络探测；历史实机附录的证据范围保持原记录。
 
 ## Nimbus 迁移验收
 

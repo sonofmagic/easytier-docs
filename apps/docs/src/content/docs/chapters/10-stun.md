@@ -63,6 +63,28 @@ STUN 服务器通常只参与观察，不在随后的业务路径上。R 可以�
 
 下一章会把观察到的候选信息与双方主动发包结合起来。现在先记住：“知道外部看来是什么端点”，比“不知道”多了一项线索，但还没有等于“直连成功”。
 
+## 图解：STUN 的请求与被观察端点
+
+**图：STUN 的请求与被观察端点。** A 向 S 发 Binding 请求，NAT 转换来源，S 在回应中报告看到的映射端点；B 的业务不经过 S。
+
+```mermaid
+sequenceDiagram
+  accTitle: STUN 的请求与被观察端点
+  accDescr: A 向 S 发 Binding 请求，NAT 转换来源，S 在回应中报告看到的映射端点；B 的业务不经过 S。
+  participant A as A：内部 UDP socket
+  participant N as NAT
+  participant S as S：STUN 观察者
+  A->>N: Binding 请求
+  N->>S: 来源 198.51.100.10:31000
+  S->>N: 回应中报告 XOR-MAPPED-ADDRESS
+  N->>A: 交回这次回应
+  Note over A,S: 这是对 S 的一次外部观察，不是业务中继
+```
+
+**读图顺序：**时间从上到下。Binding 是 STUN 的绑定查询；XOR-MAPPED-ADDRESS 是消息中编码观察到的地址与端口的属性，这种编码不等于业务加密。返回的 31000 只是在这次网络条件下 S 看见的端口；改向 B 发包可能出现另一个映射。
+
+**这张图的结论：**STUN 报告观察结果，不保证 B 能抵达该端点，也不会替你转发网页内容。 更多分层细节见[协议与核心原理进阶篇](/internals/connectivity)。
+
 ## 先预测，再观察
 
 **预测：** 一个目标的 NAT 标签含有 Symmetric，而目标路径显示 `p2p`，两项信息是否必然矛盾？一个 NAT 类型能否告诉你网页是否可用？

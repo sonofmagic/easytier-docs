@@ -1,4 +1,5 @@
-import { basics, chapterLink, chapters, stages } from '../data/course'
+import { basics, chapterLink, chapters, internals, stages } from '../data/course'
+import { encapsulationSnapshot, encapsulationSteps } from '../data/encapsulation'
 import { choosePath, createJourney, links, natPresets, natSnapshot } from '../data/models'
 
 function courseMarkdown() {
@@ -19,6 +20,9 @@ function courseMarkdown() {
       ...chapters.slice(stage.start, stage.end).map(([slug, title, description]) => `- [${slug.slice(0, 2)} ${title}](${chapterLink(slug)})：${description}`),
       '',
     ]),
+    '### 进阶 1—6：协议与核心原理',
+    '',
+    ...internals.map(lesson => `- [${lesson.title}](${lesson.route})：${lesson.goal}`),
   ].join('\n')
 }
 
@@ -30,13 +34,15 @@ function homeMarkdown() {
     '',
     '[从本机预备课开始](/basics/browser-and-programs) · [直接进入第一章](/chapters/01-why)',
     '',
-    '5 节预备课 + 20 章；真实本机实验；固定依据 EasyTier v2.6.4。',
+    '5 节预备课 + 20 章 + 6 篇进阶；真实本机实验；固定依据 EasyTier v2.6.4。',
     '',
     '第一站：同一台电脑里的两个程序。浏览器提出请求，服务读取演示文件并送回网页内容。看地址栏，看终端记录。',
     '',
     '本机网页 → 同一网络 → 异地网络 → EasyTier。预备课先把程序、网址和请求变成实际窗口里的现象。正文再跟着 A 访问 B 的网页，逐章解释路径和失败原因。必要的新词当场解释，计算与协议细节可以稍后选读。',
     '',
     courseMarkdown(),
+    '',
+    '[打开协议地图](/internals/protocol-map)：12 张 SVG 与封装实验串起协议、建链、安全、传输和抓包。',
     '',
     '电脑里已经运行 EasyTier？对照现有 GUI 的地址和路径，再看一次真实 ICMP 往返能证明什么。基础还不熟时，先完成预备课。',
     '',
@@ -109,11 +115,29 @@ function topologyMarkdown() {
   ].join('\n')
 }
 
+function encapsulationMarkdown() {
+  return [
+    '### 协议分层与封装：九步教学模型',
+    '',
+    '业务为 HTTP/TCP，A 与 B 的安全模式会话已建立；不压缩、不使用 TCP 流代理。可逐步前进、后退，切换外层 UDP/TCP，重置恢复 UDP 第一步。',
+    '',
+    ...encapsulationSteps.map((step, index) => {
+      const snapshot = encapsulationSnapshot(index, 'udp')
+      return `${index + 1}. ${step.title}：${step.detail} 此阶段可见层：${snapshot.layers.map(layer => layer.title).join('、')}。${snapshot.visibleInner ? `内层 TCP：${snapshot.visibleInner.source} → ${snapshot.visibleInner.target}。` : '内层地址、端口和应用字节已封装为密文，此阶段不可读。'}`
+    }),
+    '',
+    '切换外层为 TCP，仅更换隧道运输，业务目标与内层 TCP 保持不变。静态图 /diagrams/packet-encapsulation.svg 展示普通共享密钥模型，不能将其字节开销套用到本实验的安全模式。',
+    '',
+    '这是单包教学轨迹，不模拟握手、TCP 确认、重传、响应与真实时序，不读取设备状态或发送网络探测。',
+  ].join('\n')
+}
+
 /** Nimbus uses these conversions for each page's Markdown and LLM endpoints. */
 export const componentMarkdown = {
   Aside: { revision: '1', render: ({ children }: { children?: string }) => children ?? '' },
-  HomePage: { revision: '1', render: homeMarkdown },
-  CourseMap: { revision: '1', render: courseMarkdown },
+  HomePage: { revision: '2', render: homeMarkdown },
+  CourseMap: { revision: '2', render: courseMarkdown },
+  EncapsulationLab: { revision: '1', render: encapsulationMarkdown },
   PacketJourney: { revision: '1', render: packetMarkdown },
   NatLab: { revision: '1', render: natMarkdown },
   TopologyLab: { revision: '1', render: topologyMarkdown },

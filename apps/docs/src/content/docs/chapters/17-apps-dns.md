@@ -59,6 +59,27 @@ HTTP 401 常涉及登录，403 常涉及拒绝访问，200 是本次请求的正
 
 先固定数字 IP、端口和一种服务，观察最小证据，再加回域名、HTTPS、代理和登录。一次同时改变 DNS、监听、防火墙和网络配置，就难以知道哪一步使结果变化。
 
+## 图解：HTTPS 的几个独立阶段
+
+**图：HTTPS 的几个独立阶段。** 先DNS解析，再依据传输方式连接；常见HTTP1/2建立TCP与TLS，HTTP3用QUIC，再发送HTTP请求并检查权限。
+
+```mermaid
+flowchart TD
+  accTitle: HTTPS 的几个独立阶段
+  accDescr: 先DNS解析，再依据传输方式连接；常见HTTP1/2建立TCP与TLS，HTTP3用QUIC，再发送HTTP请求并检查权限。
+  Name["输入 HTTPS 名称"] --> DNS["DNS：取得目标地址"]
+  DNS --> Transport{"应用选择的传输"}
+  Transport --> TCP["常见 HTTP/1.1 或 HTTP/2<br/>TCP 建连，再完成 TLS"]
+  Transport --> QUIC["HTTP/3<br/>QUIC 在 UDP 上集成 TLS 握手"]
+  TCP --> HTTP["发送 HTTP 请求"]
+  QUIC --> HTTP
+  HTTP --> Auth["检查账号 / 权限 / 内容"]
+```
+
+**读图顺序：**先看名称，再看传输与安全阶段。这是 HTTPS 应用流程，不是 EasyTier 启动必须依次执行的任务。TLS（传输层安全协议）保护应用会话并校验相应身份；EasyTier 加密保护隧道载荷，两者可叠加且不会自动替对方完成身份或权限检查。DNS 查到地址，也不说明该地址当前可达。
+
+**这张图的结论：**定位失败需要明确在哪个阶段：解析失败、连接失败、证书失败和HTTP错误分别要求不同证据。 更多分层细节见[协议与核心原理进阶篇](/internals/protocol-map)。
+
 ## 先预测，再观察
 
 **预测：**本机 Python 服务开着时，请求不存在的文件，会得到“连接失败”还是“404”？把服务正常停止后再打开正确文件，会不会仍然是 404？

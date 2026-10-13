@@ -1,0 +1,132 @@
+---
+title: 进阶 2 · 把一个包逐层拆开
+description: 追踪 HTTP、TCP、IP 经 TUN 进入 EasyTier，再由外层隧道搬运；按 v2.6.4 结构体核算包头与 MTU 开销。
+---
+
+## 导读：网页不是直接跳进 UDP 的
+
+你已经知道“TCP 可以装在 UDP 隧道里”，下一步要说清楚谁在什么时候加了什么、谁又负责取出来。先读[协议地图](/internals/protocol-map)和[第 15 章](/chapters/15-journey)。本篇只跟随普通 TUN、无 TCP 流代理、无压缩的教学路径，版本固定为 **EasyTier v2.6.4**。
+
+A `10.144.144.1` 访问 B `10.144.144.2:8080`，示例源端口 53124。我们将“一个 HTTP 请求”与“承载它的某个包”分开：TCP 可以拆分、合并应用写入；HTTP 请求、TCP 段、EasyTier 包与外层 IP 包，不保证一一对应。
+
+## 第一步：系统先形成内层 IP 包
+
+浏览器把 HTTP（超文本传输协议）请求交给系统的 TCP（传输控制协议）连接。系统先进行连接握手，再按序列号传递字节。应用通常不直接选择每个 TCP 段的大小；协议栈会结合 MSS（最大报文段长度）、拥塞窗口等条件处理。
+
+内层 IP（网际协议）头写 A、B 的虚拟地址，TCP 头写源、目标端口以及序号、确认号等字段。里面才是这一段应用数据。B 的回应把方向对调，TCP 通过确认和必要重传保持字节流有序。
+
+路由表把目标 B 的虚拟地址交给 TUN（虚拟 IP 包交接接口）。**TUN 不是新增的一层线上协议头**；它是系统与 EasyTier 之间的交接位置。普通 TUN 交接的是 IP 包，而不是整个以太网帧，内层也不需要凭空加一个“虚拟以太网头”。
+
+**图 1 · 内层包进入封装，再在 B 恢复**
+
+![A 的 HTTP、TCP、IP 包经 TUN 交给 EasyTier，载荷受到加密后使用外层隧道搬运；B 取掉外层、解密并把内层 IP 包交回系统。](/diagrams/packet-encapsulation.svg)
+
+[打开可缩放的 SVG 原图](/diagrams/packet-encapsulation.svg)
+
+**阅读顺序：**先看 A 的上层向下交接，再沿外层运输到 B，最后向上看还原。**结论：**B 收到的仍是发往 TCP 8080 的内层包；TUN 与加密都不把 HTTP 改成另一个应用协议。
+
+## 第二步：EasyTier 增加自己的投递信息
+
+EasyTier 读出内层包后，要把目标虚拟 IP 对应到目标节点，执行相关包处理与允许规则，再选择直接连接或下一跳。v2.6.4 的 `PeerManagerHeader` 是节点之间的投递说明：源节点 ID、目标节点 ID、包类型、标志、转发计数和长度。
+
+节点 ID 与虚拟 IP 不同。虚拟 IP 让操作系统和应用选目标；节点 ID 让 EasyTier 在覆盖网络内转交包。经 R 时，R 需要知道最终目标节点并更新转发计数，但内层目标仍为 B，不变成 R 的网页服务。
+
+数据包之外还有 RPC（远程过程调用）、Ping/Pong 和握手等包类型。看到某条连接发送了 EasyTier 包，不能立即把全部字节归入这次 HTTP 下载。数据面与控制面可能通过同一相邻连接运行。
+
+## 第三步：保护载荷，再适配外层运输
+
+常规共享密钥加密路径中，EasyTier 对包的**载荷**做加密，投递头仍需让转发实现读取。示例载荷是内层 IP 包，所以内层地址、TCP 端口与 HTTP 内容一起在受保护部分里。身份、元数据与中继信任的细节见[安全与身份](/internals/security)。
+
+AEAD（带附加数据的认证加密）同时提供机密性与完整性验证。AES-GCM（高级加密标准的 Galois/Counter 模式）实现追加认证标签和 nonce；nonce 是密码算法要求正确使用的数值，不是第二把密钥。
+
+接下来，UDP 隧道添加自己的连接 ID、消息类型和长度；TCP 隧道则需要在字节流中标记 EasyTier 包长度。最后操作系统再添加外层 UDP/TCP 与 IP 头，让包经过原有网络。NAT（网络地址转换）可能修改的是外层地址端口，业务虚拟地址位于内层，不会因此变成公网地址。
+
+`secure_mode` 的会话建立与加密路径不同，不能仅把它理解成换一个算法名字。本篇下面的定量例子选用**普通共享密钥 AES-GCM 模式**；教学实验展示封装职责，省略真实握手、压缩、分片和重传。
+
+## 先预测，再动手看封装
+
+**预测：**切换外层 UDP 为 TCP，内层源端口、目标端口及传输协议应该变吗？加密后，在原有网络接口能否直接读出内层 HTTP 路径？
+
+<EncapsulationLab />
+
+**操作：**用“下一步”从应用走到外层发送，再退回加密阶段；切换外层协议，观察外层结构和当前说明；走到 B 后重置。上一步、下一步只改变观察位置，不表示真实程序在等待按钮。
+
+**文字等价说明：**HTTP 请求交给内层 TCP；系统加入内层 IP 头并按路由交给 TUN；EasyTier 接收包并增加节点投递信息；保护载荷；外层 TCP 或 UDP 搬运到 B；B 处理外层、解密与校验，再把内层 IP 包交回 TUN，系统递交 TCP 8080 服务。切换外层不改变内层 TCP，也不改写 B 的业务目标。
+
+**边界：**这是离线教学模型，不发送真实网络探测，不读取本机接口或配置。图 1 与上述文字可在不运行交互时完整表达同一过程。
+
+## 进阶：以结构体核算开销
+
+<details class="advanced">
+<summary>展开 v2.6.4 包头与 MTU 预算的逐项核算</summary>
+
+**图 2 · 线上包头与载荷各占什么位置**
+
+![普通 IPv4/UDP 模型依次排列 20 字节外层 IPv4、8 字节 UDP、8 字节 EasyTier UDP 隧道头、16 字节节点投递头、加密的内层 IP 包及 28 字节认证标签和 nonce，合计额外开销 80 字节。](/diagrams/packet-headers.svg)
+
+[打开可缩放的 SVG 原图](/diagrams/packet-headers.svg)
+
+**阅读顺序：**从外层向内层读，分清“系统网络头”“EasyTier 头”“原业务包”和“加密尾部”。**结论：**开销应按当前结构与选用模式相加；缓冲区预留空间不等于发送到网络的字节。
+
+v2.6.4 的 `packet_def.rs` 使用 packed 结构与固定宽度字段，可以直接核对：
+
+| 结构 | 核算 | 长度 |
+| --- | --- | --- |
+| 节点投递头 `PeerManagerHeader` | 两个 4 字节节点 ID + 4 个 1 字节字段 + 4 字节长度 | 16 字节 |
+| UDP 隧道头 `UDPTunnelHeader` | 4 字节连接 ID + 1 字节类型 + 1 字节填充 + 2 字节长度 | 8 字节 |
+| TCP 隧道长度头 `TCPTunnelHeader` | 4 字节长度 | 4 字节 |
+| `StandardAeadTail` | 16 字节认证标签 + 12 字节 nonce | 28 字节 |
+
+对**外层 IPv4、无 IP 选项、普通 UDP 隧道、共享密钥 AES-GCM、未压缩、单个未分片数据包**，内层 IP 包之外的开销是：
+
+```text
+20（外层 IPv4）+ 8（UDP）+ 8（EasyTier UDP）
++ 16（节点投递头）+ 28（AEAD 尾部）= 80 字节
+```
+
+若假定路径 IP MTU（最大传输单元）为 1500，以上模型给内层 IP 包留下 `1500 - 80 = 1420` 字节。这里只扣外层开销，内层 IP、TCP 头已经在“内层 IP 包”里。以太网帧头不再从这个 IP MTU 预算中重复扣除。
+
+IPv6 基本头为 40 字节，相同假定下是 100 字节开销；扩展头、额外封装、压缩、安全模式、外网再套一层 VPN 等都需要重新算。TCP 模型的各项基本头相加可得 88 字节，但外层 TCP 可以切段，TCP 选项也会增大头部，因此**不能把这个数当成每个 EasyTier 包占据一个外层 IP 包的 MTU 公式**。
+
+源码里历史注释把加密开销写成 20 字节，与此版本 `StandardAeadTail` 的 28 字节不一致，应以结构和实际路径为准。`virtual_nic.rs` 又会在启用加密时从配置 MTU 减去 20；这是配置到接口的实现行为，不是“线上实际开销只有 20”的证据。默认配置 1380 因此可能显示接口 1360，但这个值并不自动证明所有底层路径均可承载。
+
+</details>
+
+## 怎样观察与排查
+
+在 A 的 TUN 上，寻找内层虚拟 IP 和 TCP 8080；在 A 的原有网络接口上，寻找真实外层端点及隧道协议；在 B 的 TUN 和服务日志里寻找收到的业务。TUN 抓包也可能看到发出后被后续规则丢弃的包，单点“看到了”不证明下一点已收到。
+
+小包正常、大响应停住时，把 MTU 当作一个待检验假设：记录包大小、方向、外层 IPv4/IPv6、包过大反馈与 TCP 重传，再与服务处理和普通丢包比较。不要只根据小 ping 成功排除 MTU，也不要用一幅封装图当作实际抓包证据。
+
+## 常见误解
+
+“加了隧道后，所有头部都加密”忽略了外层路由和覆盖网络投递仍需要信息。“TUN 会自动建立公网连接”混淆了接口交接与建链。“一个 HTTP 请求就是一个 UDP 包”忽略 TCP 切段、外层分帧及重传。“预留 36 字节头部就是线上开销”则把内存布局与序列化后的报文混为一谈。
+
+## 两道练习与答案
+
+1. 在上述 IPv4/UDP 模型中，内层 IP 包长 1400 字节，外层 IP 包长多少？路径 MTU 为 1500 能容纳吗？
+
+<details class="answer">
+<summary>查看第 1 题答案</summary>
+
+为 `1400 + 80 = 1480` 字节，在所有已写明假定下可容纳。实际是否通过还需确认路径和额外开销；不能将该结果推广到 WSS、WireGuard、安全模式或有额外封装的路径。
+
+</details>
+
+2. 经 R 时，B 的业务目标为什么仍是 `10.144.144.2:8080`？R 前后什么可以变化？
+
+<details class="answer">
+<summary>查看第 2 题答案</summary>
+
+内层地址描述最终业务连接，R 只是下一段搬运者。相邻运输段的外层地址、端口、隧道机制以及转发计数可以变化；本教学路径不把 R 变成 HTTP 服务终点。
+
+</details>
+
+## 来源：固定版本源码与通用规范
+
+- [v2.6.4 包结构与偏移](https://github.com/EasyTier/EasyTier/blob/8428a89d2dabc94c97d370ec607c6ca142473626/easytier/src/tunnel/packet_def.rs)：包头和尾部尺寸依据。
+- [v2.6.4 包处理、加密与转发](https://github.com/EasyTier/EasyTier/blob/8428a89d2dabc94c97d370ec607c6ca142473626/easytier/src/peers/peer_manager.rs)、[AEAD 实现](https://github.com/EasyTier/EasyTier/blob/8428a89d2dabc94c97d370ec607c6ca142473626/easytier/src/peers/encrypt/ring.rs)、[TUN 与 MTU](https://github.com/EasyTier/EasyTier/blob/8428a89d2dabc94c97d370ec607c6ca142473626/easytier/src/instance/virtual_nic.rs)。
+- [v2.6.4 TCP 隧道](https://github.com/EasyTier/EasyTier/blob/8428a89d2dabc94c97d370ec607c6ca142473626/easytier/src/tunnel/tcp.rs)、[UDP 隧道](https://github.com/EasyTier/EasyTier/blob/8428a89d2dabc94c97d370ec607c6ca142473626/easytier/src/tunnel/udp.rs)。
+- [RFC 9293：TCP](https://www.rfc-editor.org/rfc/rfc9293)、[RFC 5116：AEAD 接口](https://www.rfc-editor.org/rfc/rfc5116)、[RFC 1191：IPv4 路径 MTU 发现](https://www.rfc-editor.org/rfc/rfc1191)、[RFC 8201：IPv6 路径 MTU 发现](https://www.rfc-editor.org/rfc/rfc8201)。
+
+下一篇[控制面与建链](/internals/connectivity)解释 EasyTier 在搬业务包之前怎样寻找可用运输路径。

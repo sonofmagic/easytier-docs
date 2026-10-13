@@ -39,7 +39,7 @@ export interface Lesson {
   goal: string
   prerequisites: readonly string[]
   terms: readonly string[]
-  kind: 'basics' | 'chapter'
+  kind: 'basics' | 'chapter' | 'internals'
 }
 
 export const basics: Lesson[] = [
@@ -96,6 +96,15 @@ const chapterTerms = [
   ['复现', '验证边界'],
 ] as const
 
+export const internals: Lesson[] = [
+  { route: '/internals/protocol-map', file: 'internals/protocol-map.mdx', title: '进阶 1 · 协议地图', goal: '把应用、内层、隧道、控制面和代理分开，知道每种协议解决什么问题。', prerequisites: ['/chapters/04-protocols', '/chapters/07-tun'], terms: ['协议分层', 'ARP', 'NDP', 'DHCP', 'TLS'], kind: 'internals' },
+  { route: '/internals/packet-pipeline', file: 'internals/packet-pipeline.mdx', title: '进阶 2 · 数据面与封装', goal: '逐层拆开一个包，理解 TUN、加密、包头与 MTU。', prerequisites: ['/internals/protocol-map', '/chapters/15-journey'], terms: ['数据面', '封装', '包头', 'AEAD', 'MTU'], kind: 'internals' },
+  { route: '/internals/connectivity', file: 'internals/connectivity.md', title: '进阶 3 · 控制面与建链', goal: '串起发现、STUN、打洞、保活和中继，区分地址与可达性。', prerequisites: ['/internals/protocol-map', '/chapters/11-hole-punch', '/chapters/14-topology'], terms: ['控制面', 'RPC', 'STUN', 'UPnP', 'NAT-PMP'], kind: 'internals' },
+  { route: '/internals/security', file: 'internals/security.md', title: '进阶 4 · 安全与身份', goal: '区分默认加密与安全模式，理解 Noise、身份、端到端会话和权限。', prerequisites: ['/internals/packet-pipeline', '/chapters/12-security'], terms: ['Noise', 'XX', 'IK', '公钥', 'ACL'], kind: 'internals' },
+  { route: '/internals/transports', file: 'internals/transports.md', title: '进阶 5 · 传输引擎对照', goal: '分开隧道 URL 与 TCP 流代理，按路径和证据比较传输。', prerequisites: ['/internals/protocol-map', '/chapters/18-performance'], terms: ['QUIC', 'WireGuard', 'WSS', 'FakeTCP', 'KCP'], kind: 'internals' },
+  { route: '/internals/observability', file: 'internals/observability.md', title: '进阶 6 · 抓包与排障', goal: '选择内外层观察点，用连接、日志、包长和业务证据定位故障。', prerequisites: ['/internals/packet-pipeline', '/internals/connectivity', '/chapters/19-diagnostics'], terms: ['抓包', '过滤器', '证据链', '重传'], kind: 'internals' },
+]
+
 export const learningPages: Lesson[] = [
   ...basics,
   ...chapters.map(([slug, title, goal], index): Lesson => ({
@@ -107,6 +116,7 @@ export const learningPages: Lesson[] = [
     terms: chapterTerms[index]!,
     kind: 'chapter',
   })),
+  ...internals,
 ]
 
 export const sitePages = [
